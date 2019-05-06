@@ -33,12 +33,12 @@ public class StartPageActivity extends AppCompatActivity {
 
     }
 
-    //@Override
-   // public boolean onCreateOptionsMenu(Menu menu) {
-       // MenuInflater menuInflater = getMenuInflater();
-       // menuInflater.inflate(R.menu.menu_start_page, menu);
-       // return true;
-    //}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_start_page, menu);
+        return true;
+    }
 
     //public void openSettingsActivity(MenuItem item) {
      //   Intent intent = new Intent(this, SettingsActivity.class);
@@ -46,7 +46,7 @@ public class StartPageActivity extends AppCompatActivity {
     //}
 
     public void openAboutActivity(MenuItem item) {
-        Toast.makeText(this, "https://github.com/OmarElHussein/MathProjekt.git", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "https://github.com/OmarElHussein/MathProjektV_2.0.git", Toast.LENGTH_LONG).show();
     }
 
     public void openStatistikPageActivity(View view){
