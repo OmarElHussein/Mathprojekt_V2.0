@@ -58,6 +58,7 @@ public class StartPageActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ProzessePageActivity.class);
         startActivity(intent);
     }
+
     //public void openQuadratischeGleichungenPageActivity(View view){
     //    Intent intent = new Intent(this, QuadratischeGleichungenPageActivity.class);
     //    startActivity(intent);
