@@ -5,7 +5,7 @@
     android:id="@+id/scrollViewStartPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartPageActivity">
+    tools:context="com.wipd.schulprojekt_mathe.StartPageActivity">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintStartPage"
@@ -45,7 +45,7 @@
             android:layout_marginTop="64dp"
             android:background="@drawable/button_round_shape"
             android:contentDescription="Quadratische Gleichungen"
-            android:onClick="openQuadratischeGleichungenPageActivity"
+
             android:src="@mipmap/ic_math"
             app:layout_constraintStart_toEndOf="@+id/btnProzesse"
             app:layout_constraintTop_toBottomOf="@+id/btnProzesse" />
@@ -57,7 +57,7 @@
             android:layout_marginTop="64dp"
             android:background="@drawable/button_round_shape"
             android:contentDescription="Vektoren"
-            android:onClick="openVektorenPageActivity"
+
             android:src="@mipmap/ic_quadratische_gleichungen"
             app:layout_constraintEnd_toStartOf="@+id/btnQuadratischeGleichungen"
             app:layout_constraintStart_toEndOf="@+id/btnStatistik"

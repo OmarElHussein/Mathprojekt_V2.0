@@ -1,4 +1,4 @@
-package com.wipd.schulprojekt;
+package com.wipd.schulprojekt_mathe;
 
 import android.content.Intent;
 import android.os.Bundle;
