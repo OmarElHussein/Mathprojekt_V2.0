@@ -33,12 +33,12 @@ public class StartPageActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_start_page, menu);
-        return true;
-    }
+    //@Override
+   // public boolean onCreateOptionsMenu(Menu menu) {
+       // MenuInflater menuInflater = getMenuInflater();
+       // menuInflater.inflate(R.menu.menu_start_page, menu);
+       // return true;
+    //}
 
     //public void openSettingsActivity(MenuItem item) {
      //   Intent intent = new Intent(this, SettingsActivity.class);

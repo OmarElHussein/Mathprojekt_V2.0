@@ -9,11 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".statistikClasses.StatistikRechnerActivity"></activity>
-        <activity android:name=".statistikClasses.StatistikPageActivity" />
-        <activity android:name=".prozesseClasses.ProzesseRechnerActivity" />
-        <activity android:name=".prozesseClasses.ProzessePageActivity" />
-        <activity android:name=".matrixClasses.MatrixPageActivity" />
+        <activity android:name=".statistikClasses.StatistikRechnerActivity"
+            android:parentActivityName=".statistikClasses.StatistikPageActivity"/>
+        <activity android:name=".statistikClasses.StatistikPageActivity"
+            android:parentActivityName=".StartPageActivity"/>
+        <activity android:name=".prozesseClasses.ProzesseRechnerActivity"
+            android:parentActivityName=".prozesseClasses.ProzessePageActivity"/>
+        <activity android:name=".prozesseClasses.ProzessePageActivity"
+            android:parentActivityName=".StartPageActivity"/>
+        <activity android:name=".matrixClasses.MatrixPageActivity"
+            android:parentActivityName=".StartPageActivity"/>
         <activity android:name=".StartPageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
