@@ -15,7 +15,7 @@ import java.util.Arrays;
 public class StatistikRechnerActivity extends AppCompatActivity {
 
     private EditText editTextInputSize, editTextInputs;
-    private double [] numbers;
+    private double[] numbers;
     private ImageButton btnCheckInputs, btnCheckInputSize;
     private TextView textViewInfoCounter, textViewGroessteZahl;
     private int arraySize, i;
@@ -39,7 +39,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     }
 
     public void checkInputSize(View view) {
-        if(editTextInputSize.getText().length() > 0 && Integer.parseInt(editTextInputSize.getText().toString()) != 0) {
+        if (editTextInputSize.getText().length() > 0 && Integer.parseInt(editTextInputSize.getText().toString()) != 0) {
 
             textViewGroessteZahl.setVisibility(View.VISIBLE);
             textViewInfoCounter.setVisibility(View.VISIBLE);
@@ -47,7 +47,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             btnCheckInputSize.setVisibility(View.VISIBLE);
 
             arraySize = Integer.parseInt(editTextInputSize.getText().toString());
-
+            numbers = new double[arraySize];
             editTextInputSize.setEnabled(false);
             btnCheckInputs.setEnabled(false);
 
@@ -59,28 +59,22 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     }
 
     public void checkInputs(View view) {
-        numbers = new double[arraySize];
 
-        if((editTextInputs.getText().length() > 0) && !(i > arraySize-1)) {
+        if ((editTextInputs.getText().length() > 0) && !(i > arraySize - 1)) {
             numbers[i] = Integer.parseInt(editTextInputs.getText().toString());
             i++;
             textViewInfoCounter.setText("Geben Sie die " + i + ". Zahl ein : (" + i + "/" + arraySize + ")");
             editTextInputs.setText("");
         }
         //Extract in a Method
-        if(i == arraySize) {
-            double a = numbers[0];
-            for (int i = 0; i < numbers.length; i++) {
-                if (numbers[i] > a) {
-                    a = numbers[i];
-                }
-            }
-
-            textViewGroessteZahl.setText("Die größte Zahl ist: " + a);
-
+        double a = 0;
+        if (i == arraySize) {
+            Arrays.sort(numbers);
+            textViewGroessteZahl.setText("Die größte Zahl ist: " + numbers[arraySize - 1]);
 
             editTextInputs.setEnabled(false);
             btnCheckInputSize.setEnabled(false);
         }
     }
 }
+
