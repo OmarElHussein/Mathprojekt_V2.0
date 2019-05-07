@@ -67,14 +67,17 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             editTextInputs.setText("");
         }
         //Extract in a Method
-        double a = 0;
         if (i == arraySize) {
-            Arrays.sort(numbers);
-            textViewGroessteZahl.setText("Die größte Zahl ist: " + numbers[arraySize - 1]);
+            maximumNummerSuchen();
 
             editTextInputs.setEnabled(false);
             btnCheckInputSize.setEnabled(false);
         }
+    }
+
+    private void maximumNummerSuchen() {
+        Arrays.sort(numbers);
+        textViewGroessteZahl.setText("Die größte Zahl ist: " + numbers[arraySize - 1]);
     }
 }
 

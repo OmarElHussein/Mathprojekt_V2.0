@@ -19,11 +19,12 @@
     <EditText
         android:id="@+id/editTextKapital"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_rectangle_with_border_shape"
         android:ems="10"
+        android:maxLength="10"
         android:inputType="numberDecimal"
         android:paddingLeft="5dp"
         app:layout_constraintStart_toStartOf="@+id/textView4"
@@ -42,11 +43,12 @@
     <EditText
         android:id="@+id/editTextZinssatz"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_rectangle_with_border_shape"
-        android:ems="10"
+        android:ems="5"
+        android:maxLength="3"
         android:inputType="numberDecimal"
         android:paddingLeft="5dp"
         app:layout_constraintStart_toStartOf="@+id/textView6"
@@ -65,13 +67,13 @@
     <EditText
         android:id="@+id/editTextLaufzeit"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_rectangle_with_border_shape"
         android:ems="2"
-        android:inputType="number"
         android:maxLength="2"
+        android:inputType="number"
         android:paddingLeft="5dp"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -81,24 +83,37 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:background="@color/colorWhite"
         android:onClick="prozessBerechnung"
         app:layout_constraintEnd_toEndOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="@+id/editTextLaufzeit"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLaufzeit"
         app:srcCompat="@mipmap/ic_check" />
 
-    <TextView
+    <android.support.design.widget.TextInputLayout
         android:id="@+id/textViewProzessErgebnis"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="64dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonCheckProzess" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonCheckProzess">
+
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="32dp"
+            android:fallbackLineSpacing="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.design.widget.TextInputLayout>
 
 </android.support.constraint.ConstraintLayout>
