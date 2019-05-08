@@ -2,6 +2,7 @@ package com.wipd.schulprojekt_mathe.statistikClasses;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -78,6 +79,12 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private void maximumNummerSuchen() {
         Arrays.sort(numbers);
         textViewGroessteZahl.setText("Die größte Zahl ist: " + numbers[arraySize - 1]);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return true;
     }
 }
 

@@ -3,6 +3,7 @@ package com.wipd.schulprojekt_mathe.prozesseClasses;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.wipd.schulprojekt_mathe.R;
@@ -30,5 +31,11 @@ public class ProzessePageActivity extends AppCompatActivity {
         buttonInhalt = "Zellwachstum";
         intent.putExtra(buttonInhalt, buttonInhalt);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return true;
     }
 }
