@@ -10,12 +10,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView4"
+        <Spinner
+            android:id="@+id/spinnerProzesse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/button_rectangle_shape"
+            android:textAlignment="viewEnd"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textViewEingabeEins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="100dp"
             android:text="Bitte Kapital eingeben:"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,11 +44,11 @@
             android:inputType="numberDecimal"
             android:maxLength="8"
             android:paddingLeft="5dp"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintStart_toStartOf="@+id/textViewEingabeEins"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEingabeEins" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/textViewEingabe2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -55,11 +68,11 @@
             android:inputType="numberDecimal"
             android:maxLength="3"
             android:paddingLeft="5dp"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintStart_toStartOf="@+id/textViewEingabe2"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEingabe2" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/textViewEingabeDrei"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -79,8 +92,8 @@
             android:inputType="number"
             android:maxLength="2"
             android:paddingLeft="5dp"
-            app:layout_constraintStart_toStartOf="@+id/textView7"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintStart_toStartOf="@+id/textViewEingabeDrei"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEingabeDrei" />
 
         <ImageButton
             android:id="@+id/imageButtonCheckProzess"
@@ -91,7 +104,7 @@
             android:layout_marginEnd="8dp"
             android:background="@color/colorWhite"
             android:onClick="prozessBerechnung"
-            app:layout_constraintEnd_toEndOf="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="@+id/textViewEingabeDrei"
             app:layout_constraintStart_toStartOf="@+id/editTextLaufzeit"
             app:layout_constraintTop_toBottomOf="@+id/editTextLaufzeit"
             app:srcCompat="@mipmap/ic_check" />
@@ -113,6 +126,7 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/spalte1Titel"
                     android:layout_width="wrap_content"
                     android:layout_weight="2"
                     android:background="@color/colorDarkWhite"
@@ -121,6 +135,7 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/spalte2Titel"
                     android:layout_width="wrap_content"
                     android:layout_weight="2"
                     android:background="@color/colorDarkWhite"
@@ -129,6 +144,7 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/spalte3Titel"
                     android:layout_width="wrap_content"
                     android:layout_weight="2"
                     android:background="@color/colorDarkWhite"
@@ -137,6 +153,7 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/spalte4Titel"
                     android:layout_width="wrap_content"
                     android:layout_weight="2"
                     android:background="@color/colorDarkWhite"
