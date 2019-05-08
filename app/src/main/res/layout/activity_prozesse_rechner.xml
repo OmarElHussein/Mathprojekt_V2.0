@@ -1,119 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".prozesseClasses.ProzesseRechnerActivity">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="80dp"
-        android:text="Bitte Kapital eingeben:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editTextKapital"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/edit_text_rectangle_with_border_shape"
-        android:ems="10"
-        android:maxLength="10"
-        android:inputType="numberDecimal"
-        android:paddingLeft="5dp"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Bitte den Zinssatz eingeben: "
-        app:layout_constraintStart_toStartOf="@+id/editTextKapital"
-        app:layout_constraintTop_toBottomOf="@+id/editTextKapital" />
-
-    <EditText
-        android:id="@+id/editTextZinssatz"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/edit_text_rectangle_with_border_shape"
-        android:ems="5"
-        android:maxLength="3"
-        android:inputType="numberDecimal"
-        android:paddingLeft="5dp"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Bitte die Laufzeit in Jahren eingeben: "
-        app:layout_constraintStart_toStartOf="@+id/editTextZinssatz"
-        app:layout_constraintTop_toBottomOf="@+id/editTextZinssatz" />
-
-    <EditText
-        android:id="@+id/editTextLaufzeit"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/edit_text_rectangle_with_border_shape"
-        android:ems="2"
-        android:maxLength="2"
-        android:inputType="number"
-        android:paddingLeft="5dp"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <ImageButton
-        android:id="@+id/imageButtonCheckProzess"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/colorWhite"
-        android:onClick="prozessBerechnung"
-        app:layout_constraintEnd_toEndOf="@+id/textView7"
-        app:layout_constraintStart_toStartOf="@+id/editTextLaufzeit"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLaufzeit"
-        app:srcCompat="@mipmap/ic_check" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/textViewProzessErgebnis"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonCheckProzess">
-
-
-        <android.support.design.widget.TextInputEditText
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="32dp"
-            android:fallbackLineSpacing="true"
+            android:layout_marginTop="80dp"
+            android:text="Bitte Kapital eingeben:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextKapital"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_rectangle_with_border_shape"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:maxLength="8"
+            android:paddingLeft="5dp"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Bitte den Zinssatz eingeben: "
+            app:layout_constraintStart_toStartOf="@+id/editTextKapital"
+            app:layout_constraintTop_toBottomOf="@+id/editTextKapital" />
+
+        <EditText
+            android:id="@+id/editTextZinssatz"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_rectangle_with_border_shape"
+            android:ems="5"
+            android:inputType="numberDecimal"
+            android:maxLength="3"
+            android:paddingLeft="5dp"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Bitte die Laufzeit in Jahren eingeben: "
+            app:layout_constraintStart_toStartOf="@+id/editTextZinssatz"
+            app:layout_constraintTop_toBottomOf="@+id/editTextZinssatz" />
+
+        <EditText
+            android:id="@+id/editTextLaufzeit"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edit_text_rectangle_with_border_shape"
+            android:ems="2"
+            android:inputType="number"
+            android:maxLength="2"
+            android:paddingLeft="5dp"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <ImageButton
+            android:id="@+id/imageButtonCheckProzess"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/colorWhite"
+            android:onClick="prozessBerechnung"
+            app:layout_constraintEnd_toEndOf="@+id/textView7"
+            app:layout_constraintStart_toStartOf="@+id/editTextLaufzeit"
+            app:layout_constraintTop_toBottomOf="@+id/editTextLaufzeit"
+            app:srcCompat="@mipmap/ic_check" />
+
+        <TableLayout
+            android:id="@+id/tableProzesse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButtonCheckProzess">
 
-    </android.support.design.widget.TextInputLayout>
+            <TableRow>
 
-</android.support.constraint.ConstraintLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@color/colorDarkWhite"
+                    android:text="Jahr"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@color/colorDarkWhite"
+                    android:text="Kapital"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@color/colorDarkWhite"
+                    android:text="Zinsbetrag"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@color/colorDarkWhite"
+                    android:text="Jahresendbetrag"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="16sp" />
+
+
+            </TableRow>
+
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/textViewJahr"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2" />
+
+                <TextView
+                    android:id="@+id/textViewKapital"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+                <TextView
+                    android:id="@+id/textViewZinsbetrag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+                <TextView
+                    android:id="@+id/textViewJahresendbetrag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+            </TableRow>
+
+
+        </TableLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

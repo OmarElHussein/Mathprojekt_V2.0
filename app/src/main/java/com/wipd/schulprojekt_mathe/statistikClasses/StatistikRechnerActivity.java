@@ -15,7 +15,7 @@ import java.util.Arrays;
 public class StatistikRechnerActivity extends AppCompatActivity {
 
     private EditText editTextInputSize, editTextInputs;
-    private double[] numbers;
+    private double [] numbers;
     private ImageButton btnCheckInputs, btnCheckInputSize;
     private TextView textViewInfoCounter, textViewGroessteZahl;
     private int arraySize, i;
@@ -66,7 +66,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             textViewInfoCounter.setText("Geben Sie die " + i + ". Zahl ein : (" + i + "/" + arraySize + ")");
             editTextInputs.setText("");
         }
-        //Extract in a Method
+
         if (i == arraySize) {
             maximumNummerSuchen();
 
