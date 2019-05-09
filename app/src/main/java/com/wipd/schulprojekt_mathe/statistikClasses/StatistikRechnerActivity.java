@@ -36,6 +36,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         textViewGroessteZahl = findViewById(R.id.textViewGroessteZahl);
 
 
+
+
         i = 0;
     }
 

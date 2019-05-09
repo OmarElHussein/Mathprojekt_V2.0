@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 import com.wipd.schulprojekt_mathe.matrixClasses.MatrixPageActivity;
 import com.wipd.schulprojekt_mathe.prozesseClasses.ProzessePageActivity;
-//import com.wipd.schulprojekt_mathe.quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity;
 //import com.wipd.schulprojekt_mathe.settingsManager.SettingsActivity;
+import com.wipd.schulprojekt_mathe.quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity;
 import com.wipd.schulprojekt_mathe.statistikClasses.StatistikPageActivity;
 //import com.wipd.schulprojekt_mathe.vektorenClasses.VektorenPageActivty;
 import com.wipd.schulprojekt_mathe.R;
@@ -41,36 +41,36 @@ public class StartPageActivity extends AppCompatActivity {
     }
 
     //public void openSettingsActivity(MenuItem item) {
-     //   Intent intent = new Intent(this, SettingsActivity.class);
-     //   startActivity(intent);
+    //   Intent intent = new Intent(this, SettingsActivity.class);
+    //   startActivity(intent);
     //}
 
     public void openAboutActivity(MenuItem item) {
         Toast.makeText(this, "https://github.com/OmarElHussein/MathProjektV_2.0.git", Toast.LENGTH_LONG).show();
     }
 
-    public void openStatistikPageActivity(View view){
+    public void openStatistikPageActivity(View view) {
         Intent intent = new Intent(this, StatistikPageActivity.class);
         startActivity(intent);
     }
 
-    public void openProzessePageActivity(View view){
+    public void openProzessePageActivity(View view) {
         Intent intent = new Intent(this, ProzessePageActivity.class);
         startActivity(intent);
     }
 
-    //public void openQuadratischeGleichungenPageActivity(View view){
-    //    Intent intent = new Intent(this, QuadratischeGleichungenPageActivity.class);
+    public void openQuadratischeGleichungenPageActivity(View view) {
+        Intent intent = new Intent(this, QuadratischeGleichungenPageActivity.class);
+        startActivity(intent);
+    }
+
+
+    // public void openVektorenPageActivity(View view){
+    //     Intent intent = new Intent(this, VektorenPageActivty.class);
     //    startActivity(intent);
     //}
 
-
-   // public void openVektorenPageActivity(View view){
-   //     Intent intent = new Intent(this, VektorenPageActivty.class);
-    //    startActivity(intent);
-    //}
-
-    public void openMatirxPageActivty(View view){
+    public void openMatirxPageActivty(View view) {
         Intent intent = new Intent(this, MatrixPageActivity.class);
         startActivity(intent);
     }
