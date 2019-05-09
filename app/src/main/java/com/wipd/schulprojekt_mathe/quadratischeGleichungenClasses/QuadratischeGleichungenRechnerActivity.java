@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wipd.schulprojekt_mathe.R;
 
@@ -33,7 +34,6 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
         textViewErgebnis = findViewById(R.id.textViewErgebnis);
 
 
-
     }
 
     @Override
@@ -44,31 +44,39 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
 
     public void berechneQuadratischeFormel(View view) {
 
-        d = 0;
-
         a = Double.parseDouble(editText_a_quadrat.getText().toString());
         p = Double.parseDouble(editText_b.getText().toString());
         q = Double.parseDouble(editText_c.getText().toString());
 
+        p /= a;
+        q /= a;
 
-        p = a / p;
-        q = a / q;
+        double t = p / 2;
 
-        d = Math.sqrt(Math.pow(p / 2D, 2D) - q);
-        x1 = -p / 2 - d;
-        x2 = -p / 2 + d;
+        d = Math.pow(t, 2);
+        d = d - q;
 
 
+        if (d > 0) {
+            x1 = -(p / 2) - Math.sqrt(d);
+            x2 = (-p / 2) + Math.sqrt(d);
 
-        if (d == 0) {
-            textViewErgebnis.setText("x1 = " + x1 + " + " +  d);
-        } else if (d < 0) {
-            textViewErgebnis.setText("ERROR");
-        } else if(d > 0) {
-            textViewErgebnis.setText("x1 = " + x1 + " + " + d + "\nx2 = " + x2);
+            if (d == 0) {
+                textViewErgebnis.setText("x1 = " + x1 + " + " + d);
+            } else if (d > 0) {
+                textViewErgebnis.setText("x1 = " + x1 + "\nx2 = " + x2);
+            }
+
+        } else {
+            textViewErgebnis.setText("Keine Lösung");
         }
 
+        clearFocusFromFields();
     }
 
-
+    private void clearFocusFromFields() {
+        editText_a_quadrat.clearFocus();
+        editText_b.clearFocus();
+        editText_c.clearFocus();
+    }
 }

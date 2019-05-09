@@ -77,15 +77,18 @@
 
     <TextView
         android:id="@+id/textViewErgebnis"
-        android:layout_width="84dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="172dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="192dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/edit_text_rectangle_with_border_shape"
         android:gravity="center"
         android:text="= Ergebnis"
-        app:layout_constraintEnd_toEndOf="@+id/editText_x_eingabe"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editText_x_eingabe"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/editText_c_eingabe"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/editText_Xquadrat_eingabe"
         app:layout_constraintTop_toBottomOf="@+id/editText_x_eingabe" />
 
     <TextView

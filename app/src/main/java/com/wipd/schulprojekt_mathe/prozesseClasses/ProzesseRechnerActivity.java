@@ -102,7 +102,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     /**
      * Hier ist der Teil wo alles zum funktionieren bringt, wenn man auf dem Button clickt wird
      * die Methode gerufen und alles was da drinne steht bearbeitet bzw. berechnet
-     * @param view ist wichtig um das Zeigen zu ermöglichen, ohne View crasched unser App.
+     * @param view ist wichtig um das Zeigen zu ermöglichen, ohne View cann unser App einfach crashen.
      */
     public void prozessBerechnung(View view) {
 
@@ -270,4 +270,5 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+
 }
