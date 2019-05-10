@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class StatistikRechnerActivity extends AppCompatActivity {
 
     private EditText editTextInputSize, editTextInputs;
-    private double [] numbers;
+    private double[] numbers;
     private ImageButton btnCheckInputs, btnCheckInputSize;
     private TextView textViewInfoCounter, textViewGroessteZahl;
     private int arraySize, i;
@@ -34,8 +34,6 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
         textViewInfoCounter = findViewById(R.id.textViewInfoCounter);
         textViewGroessteZahl = findViewById(R.id.textViewGroessteZahl);
-
-
 
 
         i = 0;
@@ -64,10 +62,15 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     public void checkInputs(View view) {
 
         if ((editTextInputs.getText().length() > 0) && !(i > arraySize - 1)) {
-            numbers[i] = Integer.parseInt(editTextInputs.getText().toString());
-            i++;
-            textViewInfoCounter.setText("Geben Sie die " + i + ". Zahl ein : (" + i + "/" + arraySize + ")");
-            editTextInputs.setText("");
+            try {
+                numbers[i] = Integer.parseInt(editTextInputs.getText().toString());
+                i++;
+                textViewInfoCounter.setText("Geben Sie die " + i + ". Zahl ein : (" + i + "/" + arraySize + ")");
+                editTextInputs.setText("");
+            } catch (NumberFormatException) {
+                Toast.makeText(this, "Bitte Felder auswählen", Toast.LENGTH_SHORT).show();
+            }
+
         }
 
         if (i == arraySize) {
