@@ -18,8 +18,8 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
     private TextView textViewErgebnis;
     private Spinner spinnerNachkomma;
     private String[] spinnerValues = {"0", "1", "2", "3", "4", "5", "6"};
-    private String wurzel = " \u221a ";
-    private String plusMinus = " \u00b1 ";
+    private final String wurzel = " \u221a ";
+    private final String plusMinus = " \u00b1 ";
     private boolean btnAktiv;
 
     double p, q, a, d, x1, x2;

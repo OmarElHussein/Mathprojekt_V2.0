@@ -39,6 +39,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     /**
      * Die Darstellung oder Kreatierung und die Verbindung zwischen
      * die Klasse und die dazu gehörige Layout Datei
+     *
      * @param savedInstanceState kann werte speichern und sie zu andere Activities bringen.
      */
     @Override
@@ -101,24 +102,25 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     /**
      * Hier ist der Teil wo alles zum funktionieren bringt, wenn man auf dem Button clickt wird
      * die Methode gerufen und alles was da drinne steht bearbeitet bzw. berechnet
+     *
      * @param view ist wichtig um das Zeigen zu ermöglichen, ohne View cann unser App einfach crashen.
      */
     public void prozessBerechnung(View view) {
 
         if (editTextKapital.length() > 0 && editTextZinssatz.length() > 0 && editTextLaufzeit.length() > 0) {
 
+            try {
+                if (spinnerProzesse.getSelectedItem().equals(spinnerValues[1])) {
+                    berechneZellwachstum();
+                } else if (spinnerProzesse.getSelectedItem().equals(spinnerValues[0])) {
+                    berechneSparvertrag();
+                }
+            } catch (NumberFormatException e) {
+                Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
+            }
             kapital = Double.parseDouble(editTextKapital.getText().toString());
             zinssatz = Double.parseDouble(editTextZinssatz.getText().toString());
             laufzeit = Integer.parseInt(editTextLaufzeit.getText().toString());
-
-
-            if (spinnerProzesse.getSelectedItem().equals(spinnerValues[1])) {
-                berechneZellwachstum();
-            }
-
-            else if (spinnerProzesse.getSelectedItem().equals(spinnerValues[0])) {
-                berechneSparvertrag();
-            }
 
         } else {
             Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
@@ -127,7 +129,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
     /**
      * Hier wird festgelegt welche auswahl automatisch getroffen werden sollte
-     * von die Liste um fehler zu vermeiden
+     * von der Liste um fehler zu vermeiden
      */
     private void activateSpinner() {
         Intent intent = getIntent();
@@ -142,7 +144,8 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
     /**
      * Hier wird die berechnung von Sparvertrag direkt in die Tabelle eingetragen
-     * @param i ist der Counter für das Jahr
+     *
+     * @param i  ist der Counter für das Jahr
      * @param zb ist der Zinssatzbetrag
      * @param jb ist der jahresendbetrag
      */
