@@ -48,7 +48,6 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
         viewsDeclaration();
         spinnerSettingValues();
-
         activateSpinner();
 
     }
@@ -178,8 +177,8 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     }
 
     /**
-     * Hier wird überprüft ob es ein Sparvertag ist oder ein Zellwachstum um die Seite
-     * anzupassen zu können
+     * Hier wird überprüft ob es ein Sparvertag ist oder ein Zellwachstum
+     * um danach die Seite anzupassen
      */
     private void switchingItemsConditions() {
         if (spinnerProzesse.getSelectedItem().toString().equals(spinnerValues[0])) {
