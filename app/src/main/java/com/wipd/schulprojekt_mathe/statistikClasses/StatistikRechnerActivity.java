@@ -67,7 +67,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                 i++;
                 textViewInfoCounter.setText("Geben Sie die " + i + ". Zahl ein : (" + i + "/" + arraySize + ")");
                 editTextInputs.setText("");
-            } catch (NumberFormatException) {
+            } catch (NumberFormatException e) {
                 Toast.makeText(this, "Bitte Felder auswählen", Toast.LENGTH_SHORT).show();
             }
 
