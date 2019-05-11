@@ -116,6 +116,10 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         if (editTextKapital.length() > 0 && editTextZinssatz.length() > 0 && editTextLaufzeit.length() > 0) {
 
             try {
+                kapital = Double.parseDouble(editTextKapital.getText().toString());
+                zinssatz = Double.parseDouble(editTextZinssatz.getText().toString());
+                laufzeit = Integer.parseInt(editTextLaufzeit.getText().toString());
+
                 if (spinnerProzesse.getSelectedItem().equals(spinnerValues[1])) {
                     berechneZellwachstum();
                 } else if (spinnerProzesse.getSelectedItem().equals(spinnerValues[0])) {
@@ -124,9 +128,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
             } catch (NumberFormatException e) {
                 Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
             }
-            kapital = Double.parseDouble(editTextKapital.getText().toString());
-            zinssatz = Double.parseDouble(editTextZinssatz.getText().toString());
-            laufzeit = Integer.parseInt(editTextLaufzeit.getText().toString());
+
 
         } else {
             Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
@@ -164,8 +166,8 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
     /**
      * Hier wird der Spinner deklariert und ein Adapter für ihn erstellt
-     * Ein Listener wird auch erstellt um es zu ermöglichen etwas aus der Liste
-     * auszuwählen
+     * Ein Listener wird auch erstellt um es zu ermöglichen ein Action zu machen
+     * wenn etwas ausgewählt ist
      */
     private void spinnerSettingValues() {
 
