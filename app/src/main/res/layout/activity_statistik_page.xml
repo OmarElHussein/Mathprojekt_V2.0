@@ -8,8 +8,8 @@
     tools:context=".statistikClasses.StatistikPageActivity">
 
     <include
-        layout="@layout/toolbar"
-        android:id="@+id/toolbar"/>
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -39,8 +39,9 @@
         android:id="@+id/button2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Minimum"
         android:background="@drawable/button_without_corners_middle"
+        android:onClick="openStatistikRechner_btnMinimum"
+        android:text="Minimum"
         android:textColor="@color/colorBlue"
         app:layout_constraintEnd_toEndOf="@+id/buttonMaximum"
         app:layout_constraintStart_toStartOf="@+id/buttonMaximum"
@@ -51,8 +52,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_right_left_corner_round"
-        android:textColor="@color/colorBlue"
         android:text="Spannweite"
+        android:textColor="@color/colorBlue"
         app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button2" />

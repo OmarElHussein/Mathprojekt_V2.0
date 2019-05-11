@@ -1,5 +1,6 @@
 package com.wipd.schulprojekt_mathe.statistikClasses;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +21,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
     private double[] numbers;
     private int arraySize, i;
+    private String statistik_button_method;
 
     private ImageButton btnCheckInputs, btnCheckInputSize;
     private TextView textViewInfoCounter, textViewGroessteZahl;
@@ -51,6 +53,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     /**
      * Diese Methode überprüft wie groß die eingegebene Zahl ist und speichert dies
      * unter eine Array, danach werden andere Felder Sichtbar gemacht
+     *
      * @param view
      */
     public void checkInputSize(View view) {
@@ -77,6 +80,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     /**
      * Hier werden die inputs von dem Benutzer in eine Array gespeichert
      * und eine Ausgabe (Zähler) erstellt
+     *
      * @param view
      */
     public void checkInputs(View view) {
@@ -94,7 +98,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         }
 
         if (i == arraySize) {
-            maximumNummerSuchen();
+            buttonSuchen_methodeAusfuehren();
 
             editTextInputs.setEnabled(false);
             btnCheckInputSize.setEnabled(false);
@@ -107,6 +111,28 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private void maximumNummerSuchen() {
         Arrays.sort(numbers);
         textViewGroessteZahl.setText("Die größte Zahl ist: " + numbers[arraySize - 1]);
+    }
+
+    /**
+     * Diese methode sucht nach die kleinste Zahl und gibt dies dann direkt aus
+     */
+    private void minimumNummerSuchen() {
+        Arrays.sort(numbers);
+        textViewGroessteZahl.setText("Die kleinste Zahl ist: " + numbers[0]);
+    }
+
+    /**
+     * Diese methode überprüft welcher Button gecklickt wurde um die Seite
+     * und die rechnungen anzupassen
+     */
+    private void buttonSuchen_methodeAusfuehren() {
+        Intent intent = getIntent();
+        statistik_button_method = intent.getStringExtra(StatistikPageActivity.EXTRA_STATISTIK_BUTTON);
+        if (statistik_button_method.equalsIgnoreCase("Maximum")) {
+            maximumNummerSuchen();
+        } else if (statistik_button_method.equalsIgnoreCase("Minimum")) {
+            minimumNummerSuchen();
+        }
     }
 
     @Override

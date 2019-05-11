@@ -41,15 +41,17 @@
 
         <EditText
             android:id="@+id/editTextKapital"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="115dp"
             android:background="@drawable/edit_text_rectangle_with_border_shape"
             android:ems="12"
             android:inputType="numberSigned|numberDecimal"
             android:maxLength="12"
             android:paddingLeft="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textViewEingabeEins"
             app:layout_constraintTop_toBottomOf="@+id/textViewEingabeEins" />
 
@@ -67,15 +69,17 @@
 
         <EditText
             android:id="@+id/editTextZinssatz"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="248dp"
             android:background="@drawable/edit_text_rectangle_with_border_shape"
             android:ems="5"
             android:inputType="numberDecimal"
             android:maxLength="3"
             android:paddingLeft="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textViewEingabe2"
             app:layout_constraintTop_toBottomOf="@+id/textViewEingabe2" />
 
@@ -93,15 +97,17 @@
 
         <EditText
             android:id="@+id/editTextLaufzeit"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="296dp"
             android:background="@drawable/edit_text_rectangle_with_border_shape"
             android:ems="2"
             android:inputType="number"
             android:maxLength="2"
             android:paddingLeft="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textViewEingabeDrei"
             app:layout_constraintTop_toBottomOf="@+id/textViewEingabeDrei" />
 

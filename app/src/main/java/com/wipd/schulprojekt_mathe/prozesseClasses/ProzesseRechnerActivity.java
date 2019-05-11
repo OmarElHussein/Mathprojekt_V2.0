@@ -37,6 +37,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     private boolean isCollapsed = false;
 
     private Toolbar toolbar;
+
     /**
      * Die Darstellung oder Kreatierung und die Verbindung zwischen
      * die Klasse und die dazu gehörige Layout Datei

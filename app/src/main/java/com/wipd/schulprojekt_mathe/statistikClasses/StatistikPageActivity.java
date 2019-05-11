@@ -13,6 +13,7 @@ import com.wipd.schulprojekt_mathe.R;
 public class StatistikPageActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    public static String EXTRA_STATISTIK_BUTTON = " ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,17 @@ public class StatistikPageActivity extends AppCompatActivity {
         Toast.makeText(this, "Some info here", Toast.LENGTH_SHORT).show();
     }
 
+    public void openStatistikRechner_btnMinimum(View view) {
+        Intent intent = new Intent(this, StatistikRechnerActivity.class);
+        EXTRA_STATISTIK_BUTTON = "Minimum";
+        intent.putExtra(EXTRA_STATISTIK_BUTTON, EXTRA_STATISTIK_BUTTON);
+        startActivity(intent);
+    }
+
     public void openStatistikRechner_btnMaximum(View view) {
         Intent intent = new Intent(this, StatistikRechnerActivity.class);
+        EXTRA_STATISTIK_BUTTON = "Maximum";
+        intent.putExtra(EXTRA_STATISTIK_BUTTON, EXTRA_STATISTIK_BUTTON);
         startActivity(intent);
     }
 }
