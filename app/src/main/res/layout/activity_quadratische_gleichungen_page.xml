@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+
     <Button
         android:id="@+id/button5"
         android:layout_width="136dp"
@@ -16,5 +21,5 @@
         android:text="Quadratische\nGleichungen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 </android.support.constraint.ConstraintLayout>

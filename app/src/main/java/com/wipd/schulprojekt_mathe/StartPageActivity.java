@@ -2,8 +2,8 @@ package com.wipd.schulprojekt_mathe;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,20 +16,20 @@ import com.wipd.schulprojekt_mathe.prozesseClasses.ProzessePageActivity;
 import com.wipd.schulprojekt_mathe.quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity;
 import com.wipd.schulprojekt_mathe.statistikClasses.StatistikPageActivity;
 //import com.wipd.schulprojekt_mathe.vektorenClasses.VektorenPageActivty;
-import com.wipd.schulprojekt_mathe.R;
 
 
 public class StartPageActivity extends AppCompatActivity {
+
+    private Toolbar toolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
-        { //Custom Action Bar
-            getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-            getSupportActionBar().setCustomView(R.layout.txt_layout);
-        }
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
     }
 

@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".quadratischeGleichungenClasses.QuadratischeGleichungenRechnerActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
     <EditText
         android:id="@+id/editText_x_eingabe"
         android:layout_width="79dp"
@@ -18,7 +22,7 @@
         android:paddingStart="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/editText_Xquadrat_eingabe"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <EditText
         android:id="@+id/editText_c_eingabe"
@@ -32,7 +36,7 @@
         android:paddingStart="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/editText_Xquadrat_eingabe"
         app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
@@ -46,7 +50,7 @@
         android:inputType="numberDecimal"
         android:paddingStart="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <TextView
         android:id="@+id/textView"

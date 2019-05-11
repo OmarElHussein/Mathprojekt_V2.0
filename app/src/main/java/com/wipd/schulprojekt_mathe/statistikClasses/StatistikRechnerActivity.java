@@ -2,6 +2,7 @@ package com.wipd.schulprojekt_mathe.statistikClasses;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -16,15 +17,23 @@ import java.util.Arrays;
 public class StatistikRechnerActivity extends AppCompatActivity {
 
     private EditText editTextInputSize, editTextInputs;
+
     private double[] numbers;
+    private int arraySize, i;
+
     private ImageButton btnCheckInputs, btnCheckInputSize;
     private TextView textViewInfoCounter, textViewGroessteZahl;
-    private int arraySize, i;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistik_rechner);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         editTextInputSize = findViewById(R.id.editTextInputSize);
         editTextInputs = findViewById(R.id.editTextInputs);

@@ -10,6 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
         <Spinner
             android:id="@+id/spinnerProzesse"
             android:layout_width="wrap_content"
@@ -20,18 +24,20 @@
             android:textAlignment="viewEnd"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
 
         <TextView
             android:id="@+id/textViewEingabeEins"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="100dp"
+            android:layout_marginEnd="32dp"
             android:text="Bitte Kapital eingeben:"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <EditText
             android:id="@+id/editTextKapital"
@@ -49,11 +55,13 @@
 
         <TextView
             android:id="@+id/textViewEingabe2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="Bitte den Zinssatz eingeben: "
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/editTextKapital"
             app:layout_constraintTop_toBottomOf="@+id/editTextKapital" />
 
@@ -73,11 +81,13 @@
 
         <TextView
             android:id="@+id/textViewEingabeDrei"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="Bitte die Laufzeit in Jahren eingeben: "
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/editTextZinssatz"
             app:layout_constraintTop_toBottomOf="@+id/editTextZinssatz" />
 
@@ -101,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="120dp"
             android:background="@color/colorWhite"
             android:onClick="prozessBerechnung"
             app:layout_constraintEnd_toEndOf="@+id/textViewEingabeDrei"

@@ -2,6 +2,7 @@ package com.wipd.schulprojekt_mathe.quadratischeGleichungenClasses;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -17,10 +18,13 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
     private EditText editText_a_quadrat, editText_b, editText_c;
     private TextView textViewErgebnis;
     private Spinner spinnerNachkomma;
+
     private String[] spinnerValues = {"0", "1", "2", "3", "4", "5", "6"};
     private final String wurzel = " \u221a ";
     private final String plusMinus = " \u00b1 ";
     private boolean btnAktiv;
+
+    private Toolbar toolbar;
 
     double p, q, a, d, x1, x2;
 
@@ -33,6 +37,9 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quadratische_gleichungen_rechner);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

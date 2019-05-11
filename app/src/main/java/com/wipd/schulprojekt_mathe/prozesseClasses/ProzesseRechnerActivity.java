@@ -3,6 +3,7 @@ package com.wipd.schulprojekt_mathe.prozesseClasses;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,7 +36,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
     private boolean isCollapsed = false;
 
-
+    private Toolbar toolbar;
     /**
      * Die Darstellung oder Kreatierung und die Verbindung zwischen
      * die Klasse und die dazu gehörige Layout Datei
@@ -46,6 +47,11 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prozesse_rechner);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewsDeclaration();
         spinnerSettingValues();

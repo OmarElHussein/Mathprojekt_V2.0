@@ -2,27 +2,28 @@ package com.wipd.schulprojekt_mathe.statistikClasses;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Toast;
 
 import com.wipd.schulprojekt_mathe.R;
 
 public class StatistikPageActivity extends AppCompatActivity {
 
-    Animation slideUpAnim, slideDownAnim;
-    ConstraintLayout constraintLayout;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistik_page);
 
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setTitle("Statistik");
 
     }
 
