@@ -22,6 +22,7 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
     private String[] spinnerValues = {"0", "1", "2", "3", "4", "5", "6"};
     private final String wurzel = " \u221a ";
     private final String plusMinus = " \u00b1 ";
+    private final String slash = " \u2044 ";
     private boolean btnAktiv;
 
     private Toolbar toolbar;
@@ -127,7 +128,7 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
         if (editText_a_quadrat.length() > 0 && editText_b.length() > 0 && editText_c.length() > 0) {
             if (btnAktiv) {
                 StringBuilder sb = new StringBuilder();
-                sb.append("-" + p + "/" + 2 + plusMinus + wurzel + "(" + p + "/" + 2 + ")²" + " - " + q);
+                sb.append("- (" + p + slash + 2 + ") " + plusMinus + wurzel + "(" + p + slash + 2 + ")²" + " - " + q);
                 textViewErgebnis.setText(sb);
             } else {
                 Toast.makeText(this, "Bitte erstmal ausrechnen", Toast.LENGTH_SHORT).show();

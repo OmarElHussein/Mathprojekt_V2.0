@@ -72,12 +72,12 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
         if ((editTextInputs.getText().length() > 0) && !(i > arraySize - 1)) {
             try {
-                numbers[i] = Integer.parseInt(editTextInputs.getText().toString());
+                numbers[i] = Double.parseDouble(editTextInputs.getText().toString());
                 i++;
                 textViewInfoCounter.setText("Geben Sie die " + i + ". Zahl ein : (" + i + "/" + arraySize + ")");
                 editTextInputs.setText("");
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "Bitte Felder auswählen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
             }
 
         }

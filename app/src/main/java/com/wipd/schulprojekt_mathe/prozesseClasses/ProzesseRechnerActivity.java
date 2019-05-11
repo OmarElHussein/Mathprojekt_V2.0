@@ -96,6 +96,13 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         textViewJahresendbetrag.setText("");
     }
 
+    private void deleteAllData() {
+        resetTextViews();
+        editTextKapital.setText("");
+        editTextLaufzeit.setText("");
+        editTextZinssatz.setText("");
+    }
+
     /**
      * Das fokusieren weg zu bringen
      */
@@ -133,6 +140,10 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void deleteDataFromPage(View view) {
+        deleteAllData();
     }
 
     /**
