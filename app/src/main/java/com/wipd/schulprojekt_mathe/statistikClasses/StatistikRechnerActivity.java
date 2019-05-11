@@ -48,18 +48,24 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         i = 0;
     }
 
+    /**
+     * Diese Methode überprüft wie groß die eingegebene Zahl ist und speichert dies
+     * unter eine Array, danach werden andere Felder Sichtbar gemacht
+     * @param view
+     */
     public void checkInputSize(View view) {
         if (editTextInputSize.getText().length() > 0 && Integer.parseInt(editTextInputSize.getText().toString()) != 0) {
 
-            textViewGroessteZahl.setVisibility(View.VISIBLE);
-            textViewInfoCounter.setVisibility(View.VISIBLE);
-            editTextInputs.setVisibility(View.VISIBLE);
-            btnCheckInputSize.setVisibility(View.VISIBLE);
 
             arraySize = Integer.parseInt(editTextInputSize.getText().toString());
             numbers = new double[arraySize];
             editTextInputSize.setEnabled(false);
             btnCheckInputs.setEnabled(false);
+
+            textViewGroessteZahl.setVisibility(View.VISIBLE);
+            textViewInfoCounter.setVisibility(View.VISIBLE);
+            editTextInputs.setVisibility(View.VISIBLE);
+            btnCheckInputSize.setVisibility(View.VISIBLE);
 
             textViewInfoCounter.setText("Geben Sie die 1. Zahl ein: (1/" + arraySize + ")");
 
@@ -68,6 +74,11 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Hier werden die inputs von dem Benutzer in eine Array gespeichert
+     * und eine Ausgabe (Zähler) erstellt
+     * @param view
+     */
     public void checkInputs(View view) {
 
         if ((editTextInputs.getText().length() > 0) && !(i > arraySize - 1)) {
@@ -90,6 +101,9 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Diese methode sucht nach die Größte Zahl und gibt dies dann direkt aus
+     */
     private void maximumNummerSuchen() {
         Arrays.sort(numbers);
         textViewGroessteZahl.setText("Die größte Zahl ist: " + numbers[arraySize - 1]);
