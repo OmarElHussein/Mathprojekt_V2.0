@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,10 +24,13 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private double[] numbers;
     private int arraySize, i;
     private String statistik_button_dateien, ausgabe;
+    private String [] spinnerValues = {"Max", "Min", "Range", "Mittelwert", "GeoMittel", "Median", "Modus", "Varianz", "St.abweichung", "Alles"};
 
     private ImageButton btnCheckInputs, btnCheckInputSize;
     private TextView textViewInfoCounter, textViewStatistikErgebnis;
     private Toolbar toolbar;
+    private Spinner spinnerStatistik;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +67,6 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     /**
      * Diese Methode überprüft wie groß die eingegebene Zahl ist und speichert dies
      * unter eine Array, danach werden andere Felder Sichtbar gemacht
-     *
-     * @param view
      */
     public void checkInputSize(View view) {
         if (editTextInputSize.getText().length() > 0 && Integer.parseInt(editTextInputSize.getText().toString()) != 0) {
@@ -89,8 +91,6 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     /**
      * Hier werden die inputs von dem Benutzer in eine Array gespeichert
      * und eine Ausgabe (Zähler) erstellt
-     *
-     * @param view
      */
     public void checkInputs(View view) {
 
@@ -144,8 +144,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
     private double arithmetischesMittelBerechnen() {
         double aMittel = 0;
-        for (int j = 0; j < numbers.length; j++) {
-            aMittel += numbers[j];
+        for (double number : numbers) {
+            aMittel += number;
         }
         aMittel /= numbers.length;
         textViewStatistikErgebnis.setText("Das Arithmetische Mittel ist: " + aMittel);
@@ -155,8 +155,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private void geometrischesMittelBerechnen() {
         double gMittel = 1;
 
-        for (int j = 0; j < numbers.length; j++) {
-            gMittel *= numbers[j];
+        for (double number : numbers) {
+            gMittel *= number;
         }
 
         gMittel = Math.pow(gMittel, (double) 1 / numbers.length);
@@ -179,8 +179,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
     private double varianzBerechnen() {
         double varianz = 0;
-        for (int j = 0; j < numbers.length; j++) {
-            varianz += Math.pow(numbers[j] - arithmetischesMittelBerechnen(), 2);
+        for (double number : numbers) {
+            varianz += Math.pow(number - arithmetischesMittelBerechnen(), 2);
         }
         varianz /= numbers.length;
         textViewStatistikErgebnis.setText("Der Varianz ist: " + varianz);
@@ -219,6 +219,14 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             case "Standardabweichung":
                 standardabweichungBerechnen();
         }
+    }
+
+    private void setSpinner_layout_Values() {
+        //TODO
+    }
+
+    private void switch_buttons_tables() {
+        //TODO
     }
 
     @Override

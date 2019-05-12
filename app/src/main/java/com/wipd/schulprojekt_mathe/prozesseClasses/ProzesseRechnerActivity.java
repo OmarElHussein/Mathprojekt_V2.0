@@ -191,7 +191,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         spinnerProzesse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switchingItemsConditions();
+                switchungButtons_Tables();
             }
 
             @Override
@@ -205,7 +205,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      * Hier wird überprüft ob es ein Sparvertag ist oder ein Zellwachstum
      * um danach die Seite anzupassen
      */
-    private void switchingItemsConditions() {
+    private void switchungButtons_Tables() {
         if (spinnerProzesse.getSelectedItem().toString().equals(spinnerValues[0])) {
             setSparvertragTable();
         } else if (spinnerProzesse.getSelectedItem().toString().equals(spinnerValues[1])) {
