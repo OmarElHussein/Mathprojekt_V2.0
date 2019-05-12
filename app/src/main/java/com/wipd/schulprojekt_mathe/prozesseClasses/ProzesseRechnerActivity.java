@@ -1,5 +1,6 @@
 package com.wipd.schulprojekt_mathe.prozesseClasses;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.wipd.schulprojekt_mathe.R;
 
+@SuppressLint("ALL")
 public class ProzesseRechnerActivity extends AppCompatActivity {
 
     private EditText editTextKapital, editTextZinssatz, editTextLaufzeit;
@@ -54,7 +56,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        viewsDeclaration();
+        viewsInitzialisieren();
         spinnerSettingValues();
         activateSpinner();
 
@@ -63,7 +65,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     /**
      * Die Deklaration von alle ein und ausgabe Felder in ProzessRechnerActivity
      */
-    private void viewsDeclaration() {
+    private void viewsInitzialisieren() {
         editTextKapital = findViewById(R.id.editTextKapital);
         editTextZinssatz = findViewById(R.id.editTextZinssatz);
         editTextLaufzeit = findViewById(R.id.editTextLaufzeit);

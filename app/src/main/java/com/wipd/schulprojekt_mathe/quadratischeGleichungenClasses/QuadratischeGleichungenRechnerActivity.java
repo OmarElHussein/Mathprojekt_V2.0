@@ -1,5 +1,6 @@
 package com.wipd.schulprojekt_mathe.quadratischeGleichungenClasses;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.wipd.schulprojekt_mathe.R;
 
+@SuppressLint("ALL")
 public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
 
     private EditText editText_a_quadrat, editText_b, editText_c;
@@ -43,8 +45,9 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(QuadratischeGleichungenPageActivity.extra_page_dateien);
 
-        komponenteDeklaration();
+        komponente_Initzialisieren();
 
         setSpinnerNachkomma();
 
@@ -53,7 +56,7 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
     /**
      * Die Deklaration von alle Ein-und Ausgabe Felder + Spinner (JComboBox)
      */
-    private void komponenteDeklaration() {
+    private void komponente_Initzialisieren() {
         editText_a_quadrat = findViewById(R.id.editText_Xquadrat_eingabe);
         editText_b = findViewById(R.id.editText_x_eingabe);
         editText_c = findViewById(R.id.editText_c_eingabe);

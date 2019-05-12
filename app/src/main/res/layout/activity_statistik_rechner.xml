@@ -8,7 +8,7 @@
 
     <include
         layout="@layout/toolbar"
-        android:id="@+id/toolbar"/>
+        android:id="@+id/toolbar" />
 
     <TextView
         android:id="@+id/textView2"
@@ -96,15 +96,17 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextInputSize" />
 
     <TextView
-        android:id="@+id/textViewGroessteZahl"
+        android:id="@+id/textViewStatistikErgebnis"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
         android:text="Die Größte Zahl ist: xx"
         android:textColor="@color/colorBlack"
         android:textSize="14sp"
         android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/editTextInputs"
         app:layout_constraintTop_toBottomOf="@+id/editTextInputs" />
 

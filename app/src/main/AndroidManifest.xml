@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.wipd.schulprojekt_mathe">
 
     <application
@@ -8,27 +9,39 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/MyTheme">
-        <activity android:name=".quadratischeGleichungenClasses.QuadratischeGleichungenRechnerActivity"
-            android:parentActivityName=".quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity"></activity>
-        <activity android:name=".quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity"
-            android:parentActivityName=".StartPageActivity"/>
+        android:theme="@style/MyTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".quadratischeGleichungenClasses.QuadratischeGleichungenRechnerActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity" />
+        <activity
+            android:name=".quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".StartPageActivity" />
         <activity
             android:name=".statistikClasses.StatistikRechnerActivity"
+            android:launchMode="singleTop"
             android:parentActivityName=".statistikClasses.StatistikPageActivity" />
         <activity
             android:name=".statistikClasses.StatistikPageActivity"
+            android:launchMode="singleTop"
             android:parentActivityName=".StartPageActivity" />
         <activity
             android:name=".prozesseClasses.ProzesseRechnerActivity"
+            android:launchMode="singleTop"
             android:parentActivityName=".prozesseClasses.ProzessePageActivity" />
         <activity
             android:name=".prozesseClasses.ProzessePageActivity"
+            android:launchMode="singleTop"
             android:parentActivityName=".StartPageActivity" />
         <activity
             android:name=".matrixClasses.MatrixPageActivity"
+            android:launchMode="singleTop"
             android:parentActivityName=".StartPageActivity" />
-        <activity android:name=".StartPageActivity">
+        <activity
+            android:name=".StartPageActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

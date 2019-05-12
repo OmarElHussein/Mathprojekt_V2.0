@@ -1,6 +1,6 @@
 package com.wipd.schulprojekt_mathe.statistikClasses;
 
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,16 +15,17 @@ import com.wipd.schulprojekt_mathe.R;
 
 import java.util.Arrays;
 
+@SuppressLint("ALL")
 public class StatistikRechnerActivity extends AppCompatActivity {
 
     private EditText editTextInputSize, editTextInputs;
 
     private double[] numbers;
     private int arraySize, i;
-    private String statistik_button_method;
+    private String statistik_button_dateien, ausgabe;
 
     private ImageButton btnCheckInputs, btnCheckInputSize;
-    private TextView textViewInfoCounter, textViewGroessteZahl;
+    private TextView textViewInfoCounter, textViewStatistikErgebnis;
     private Toolbar toolbar;
 
     @Override
@@ -32,11 +33,15 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistik_rechner);
 
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbarEigenschaften();
 
+        komponente_Initzialisieren();
+
+        i = 0;
+    }
+
+    private void komponente_Initzialisieren() {
         editTextInputSize = findViewById(R.id.editTextInputSize);
         editTextInputs = findViewById(R.id.editTextInputs);
 
@@ -44,10 +49,15 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         btnCheckInputSize = findViewById(R.id.imageButtonCheckInputSize);
 
         textViewInfoCounter = findViewById(R.id.textViewInfoCounter);
-        textViewGroessteZahl = findViewById(R.id.textViewGroessteZahl);
+        textViewStatistikErgebnis = findViewById(R.id.textViewStatistikErgebnis);
+    }
 
+    private void toolbarEigenschaften() {
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        i = 0;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(StatistikPageActivity.extra_statistik_dateien);
     }
 
     /**
@@ -65,7 +75,6 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             editTextInputSize.setEnabled(false);
             btnCheckInputs.setEnabled(false);
 
-            textViewGroessteZahl.setVisibility(View.VISIBLE);
             textViewInfoCounter.setVisibility(View.VISIBLE);
             editTextInputs.setVisibility(View.VISIBLE);
             btnCheckInputSize.setVisibility(View.VISIBLE);
@@ -89,7 +98,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             try {
                 numbers[i] = Double.parseDouble(editTextInputs.getText().toString());
                 i++;
-                textViewInfoCounter.setText("Geben Sie die " + i + ". Zahl ein : (" + i + "/" + arraySize + ")");
+                if(i < arraySize) {
+                    ausgabe = "Geben Sie die " + (i+1) + ". Zahl ein: ";
+                }
+                textViewInfoCounter.setText(ausgabe + "(" + i + "/" + arraySize + ")");
                 editTextInputs.setText("");
             } catch (NumberFormatException e) {
                 Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
@@ -108,17 +120,77 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     /**
      * Diese methode sucht nach die Größte Zahl und gibt dies dann direkt aus
      */
-    private void maximumNummerSuchen() {
+    private double maximumNummerSuchen() {
         Arrays.sort(numbers);
-        textViewGroessteZahl.setText("Die größte Zahl ist: " + numbers[arraySize - 1]);
+        double zahl = numbers[arraySize - 1];
+        textViewStatistikErgebnis.setText("Die größte Zahl ist: " + zahl);
+        return zahl;
     }
 
     /**
      * Diese methode sucht nach die kleinste Zahl und gibt dies dann direkt aus
      */
-    private void minimumNummerSuchen() {
+    private double minimumNummerSuchen() {
         Arrays.sort(numbers);
-        textViewGroessteZahl.setText("Die kleinste Zahl ist: " + numbers[0]);
+        double zahl = numbers[0];
+        textViewStatistikErgebnis.setText("Die kleinste Zahl ist: " + zahl);
+        return zahl;
+    }
+
+    private void spannweiteBerechnen() {
+        double range = maximumNummerSuchen() - minimumNummerSuchen();
+        textViewStatistikErgebnis.setText("Die Spannweite ist: " + range);
+    }
+
+    private double arithmetischesMittelBerechnen() {
+        double aMittel = 0;
+        for (int j = 0; j < numbers.length; j++) {
+            aMittel += numbers[j];
+        }
+        aMittel /= numbers.length;
+        textViewStatistikErgebnis.setText("Das Arithmetische Mittel ist: " + aMittel);
+        return aMittel;
+    }
+
+    private void geometrischesMittelBerechnen() {
+        double gMittel = 1;
+
+        for (int j = 0; j < numbers.length; j++) {
+            gMittel *= numbers[j];
+        }
+
+        gMittel = Math.pow(gMittel, (double) 1 / numbers.length);
+        textViewStatistikErgebnis.setText("Das Geometrische Mittel ist: " + gMittel);
+    }
+
+    private void medianBerechnen() {
+        Arrays.sort(numbers);
+        double median, median2;
+        if (numbers.length % 2 == 0) {
+            median = numbers[(numbers.length / 2) - 1];
+            median2 = numbers[(numbers.length / 2)];
+
+            textViewStatistikErgebnis.setText("Der Median ist: \nMedian.1: " + median + "\nMedian.2: " + median2);
+        } else {
+            median = numbers[numbers.length / 2];
+            textViewStatistikErgebnis.setText("Der Median ist: " + median);
+        }
+    }
+
+    private double varianzBerechnen() {
+        double varianz = 0;
+        for (int j = 0; j < numbers.length; j++) {
+            varianz += Math.pow(numbers[j] - arithmetischesMittelBerechnen(), 2);
+        }
+        varianz /= numbers.length;
+        textViewStatistikErgebnis.setText("Der Varianz ist: " + varianz);
+        return varianz;
+    }
+
+    private void standardabweichungBerechnen() {
+        double standardabweichung;
+        standardabweichung = Math.sqrt(varianzBerechnen());
+        textViewStatistikErgebnis.setText("Die Standardabweichung ist: " + standardabweichung);
     }
 
     /**
@@ -126,12 +198,26 @@ public class StatistikRechnerActivity extends AppCompatActivity {
      * und die rechnungen anzupassen
      */
     private void buttonSuchen_methodeAusfuehren() {
-        Intent intent = getIntent();
-        statistik_button_method = intent.getStringExtra(StatistikPageActivity.EXTRA_STATISTIK_BUTTON);
-        if (statistik_button_method.equalsIgnoreCase("Maximum")) {
+        statistik_button_dateien = StatistikPageActivity.extra_statistik_dateien;
+        textViewStatistikErgebnis.setVisibility(View.VISIBLE);
+
+        switch (statistik_button_dateien) {
+            case "Maximum":
             maximumNummerSuchen();
-        } else if (statistik_button_method.equalsIgnoreCase("Minimum")) {
-            minimumNummerSuchen();
+            case "Minimum":
+                minimumNummerSuchen();
+            case "Spannweite":
+                spannweiteBerechnen();
+            case "Arithmetisches Mittel":
+                arithmetischesMittelBerechnen();
+            case "Geometrisches Mittel":
+                geometrischesMittelBerechnen();
+            case "Median":
+                medianBerechnen();
+            case "Varianz":
+                varianzBerechnen();
+            case "Standardabweichung":
+                standardabweichungBerechnen();
         }
     }
 
@@ -141,4 +227,3 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         return true;
     }
 }
-

@@ -12,6 +12,7 @@ import com.wipd.schulprojekt_mathe.R;
 public class QuadratischeGleichungenPageActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    public static String extra_page_dateien;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +23,14 @@ public class QuadratischeGleichungenPageActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Quadratische Gleichungen");
 
     }
 
     public void openQuadratischeGleichungenRechner(View view){
         Intent intent = new Intent(this, QuadratischeGleichungenRechnerActivity.class);
+        extra_page_dateien = "Quadratische Gleichungen";
+        intent.putExtra(extra_page_dateien, extra_page_dateien);
         startActivity(intent);
     }
 
