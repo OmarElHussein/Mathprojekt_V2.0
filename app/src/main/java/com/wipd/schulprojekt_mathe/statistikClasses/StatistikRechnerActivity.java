@@ -25,6 +25,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private int arraySize, i;
     private String statistik_button_dateien, ausgabe;
     private String[] spinnerValues = {"Max", "Min", "Range", "Mittelwert", "GeoMittel", "Median", "Modus", "Varianz", "St.abweichung", "Alles"};
+    private boolean clearBtnActive = false;
 
     private ImageButton btnCheckInputs, btnCheckInputSize;
     private TextView textViewInfoCounter, textViewStatistikErgebnis;
@@ -36,7 +37,6 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistik_rechner);
-
 
         toolbarEigenschaften();
 
@@ -68,6 +68,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
      * unter eine Array, danach werden andere Felder Sichtbar gemacht
      */
     public void checkInputSize(View view) {
+        clearBtnActive = true;
         i = 0;
 
         if (editTextInputSize.getText().length() > 0 && Integer.parseInt(editTextInputSize.getText().toString()) != 0) {
@@ -119,22 +120,23 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     }
 
     public void clearAll(View view) {
-        editTextInputSize.setEnabled(true);
-        btnCheckInputs.setEnabled(true);
+        if (clearBtnActive) {
+            editTextInputSize.setEnabled(true);
+            btnCheckInputs.setEnabled(true);
 
-        editTextInputs.setVisibility(View.INVISIBLE);
-        btnCheckInputSize.setVisibility(View.INVISIBLE);
-        textViewInfoCounter.setVisibility(View.INVISIBLE);
+            editTextInputs.setVisibility(View.INVISIBLE);
+            btnCheckInputSize.setVisibility(View.INVISIBLE);
+            textViewInfoCounter.setVisibility(View.INVISIBLE);
 
-        editTextInputSize.setText("");
+            editTextInputSize.setText("");
 
-        checkInputSize(view);
-        checkInputs(view);
+            checkInputSize(view);
+            checkInputs(view);
 
-
-        textViewStatistikErgebnis.setVisibility(View.INVISIBLE);
-        btnCheckInputSize.setEnabled(true);
-        editTextInputs.setEnabled(true);
+            textViewStatistikErgebnis.setVisibility(View.INVISIBLE);
+            btnCheckInputSize.setEnabled(true);
+            editTextInputs.setEnabled(true);
+        }
     }
 
     /**
