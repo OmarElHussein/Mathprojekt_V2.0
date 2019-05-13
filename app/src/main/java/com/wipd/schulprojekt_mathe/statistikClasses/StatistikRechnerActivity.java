@@ -160,9 +160,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         return zahl;
     }
 
-    private void spannweiteBerechnen() {
+    private double spannweiteBerechnen() {
         double range = maximumNummerSuchen() - minimumNummerSuchen();
         textViewStatistikErgebnis.setText("Die Spannweite ist: " + range);
+        return range;
     }
 
     private double arithmetischesMittelBerechnen() {
@@ -175,7 +176,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         return aMittel;
     }
 
-    private void geometrischesMittelBerechnen() {
+    private double geometrischesMittelBerechnen() {
         double gMittel = 1;
 
         for (double number : numbers) {
@@ -184,9 +185,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
         gMittel = Math.pow(gMittel, (double) 1 / numbers.length);
         textViewStatistikErgebnis.setText("Das Geometrische Mittel ist: " + gMittel);
+        return gMittel;
     }
 
-    private void medianBerechnen() {
+    private double medianBerechnen() {
         Arrays.sort(numbers);
         double median, median2;
         if (numbers.length % 2 == 0) {
@@ -198,9 +200,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             median = numbers[numbers.length / 2];
             textViewStatistikErgebnis.setText("Der Median ist: " + median);
         }
+        return median;
     }
 
-    private void modusBerechnen() {
+    private double modusBerechnen() {
         Arrays.sort(numbers);
         int count;
         double mod = 0;
@@ -218,6 +221,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             }
         }
         textViewStatistikErgebnis.setText("Der Modus ist " + mod);
+        return mod;
     }
 
     private double varianzBerechnen() {
@@ -230,13 +234,23 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         return varianz;
     }
 
-    private void standardabweichungBerechnen() {
+    private double standardabweichungBerechnen() {
         double standardabweichung;
         standardabweichung = Math.sqrt(varianzBerechnen());
         textViewStatistikErgebnis.setText("Die Standardabweichung ist: " + standardabweichung);
+        return standardabweichung;
     }
 
     private void alleszusammenBerechnen() {
+        textViewStatistikErgebnis.setText("Der Maximum ist: " + maximumNummerSuchen() +
+                "\nDer Minimum ist: " + minimumNummerSuchen() +
+                "\nDie Spannweite ist: " + spannweiteBerechnen() +
+                "\nDas Arithmetische Mittel ist: " + arithmetischesMittelBerechnen() +
+                "\nDas Geometrische Mittel ist: " + geometrischesMittelBerechnen() +
+                "\nDer Median ist: " + medianBerechnen() +
+                "\nDer Modus ist: " + modusBerechnen() +
+                "\nDie Varianz ist: " + varianzBerechnen() +
+                "\nDie Standardabweichung ist: " + standardabweichungBerechnen());
     }
 
     /**
