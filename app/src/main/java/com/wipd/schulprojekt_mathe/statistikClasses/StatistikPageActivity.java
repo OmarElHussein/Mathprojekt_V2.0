@@ -83,4 +83,16 @@ public class StatistikPageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openStatistikRechner_btnModalwert(View view) {
+        Intent intent = new Intent(this, StatistikRechnerActivity.class);
+        extra_statistik_dateien = "Modalwert";
+        startActivity(intent);
+    }
+
+    public void openStatistikRechner_btnAllesZsm(View view) {
+        Intent intent = new Intent(this, StatistikRechnerActivity.class);
+        extra_statistik_dateien = "Alles zusammen";
+        startActivity(intent);
+    }
+
 }
