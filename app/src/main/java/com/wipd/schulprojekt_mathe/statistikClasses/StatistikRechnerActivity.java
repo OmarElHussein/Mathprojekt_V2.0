@@ -131,6 +131,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         checkInputSize(view);
         checkInputs(view);
 
+
         textViewStatistikErgebnis.setVisibility(View.INVISIBLE);
         btnCheckInputSize.setEnabled(true);
         editTextInputs.setEnabled(true);
