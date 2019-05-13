@@ -68,11 +68,12 @@ public class StatistikRechnerActivity extends AppCompatActivity {
      * unter eine Array, danach werden andere Felder Sichtbar gemacht
      */
     public void checkInputSize(View view) {
-        clearBtnActive = true;
+
         i = 0;
 
         if (editTextInputSize.getText().length() > 0 && Integer.parseInt(editTextInputSize.getText().toString()) != 0) {
 
+            clearBtnActive = true;
 
             arraySize = Integer.parseInt(editTextInputSize.getText().toString());
             numbers = new double[arraySize];
