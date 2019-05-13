@@ -117,6 +117,22 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         }
     }
 
+    public void clearAll(View view) {
+        editTextInputs.setEnabled(true);
+        btnCheckInputSize.setEnabled(true);
+
+        editTextInputSize.setEnabled(true);
+        btnCheckInputs.setEnabled(true);
+
+        editTextInputSize.setText("");
+        editTextInputs.setText("");
+
+        textViewStatistikErgebnis.setText("");
+        textViewStatistikErgebnis.setVisibility(View.INVISIBLE);
+
+
+    }
+
     /**
      * Diese methode sucht nach die Größte Zahl und gibt dies dann direkt aus
      */
