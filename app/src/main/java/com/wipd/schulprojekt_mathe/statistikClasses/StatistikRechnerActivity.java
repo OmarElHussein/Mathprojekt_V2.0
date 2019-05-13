@@ -24,7 +24,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private double[] numbers;
     private int arraySize, i;
     private String statistik_button_dateien, ausgabe;
-    private String [] spinnerValues = {"Max", "Min", "Range", "Mittelwert", "GeoMittel", "Median", "Modus", "Varianz", "St.abweichung", "Alles"};
+    private String[] spinnerValues = {"Max", "Min", "Range", "Mittelwert", "GeoMittel", "Median", "Modus", "Varianz", "St.abweichung", "Alles"};
+    private boolean clearBtnActive = false;
 
     private ImageButton btnCheckInputs, btnCheckInputSize;
     private TextView textViewInfoCounter, textViewStatistikErgebnis;
@@ -37,12 +38,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistik_rechner);
 
-
         toolbarEigenschaften();
 
         komponente_Initzialisieren();
 
-        i = 0;
     }
 
     private void komponente_Initzialisieren() {
@@ -69,8 +68,12 @@ public class StatistikRechnerActivity extends AppCompatActivity {
      * unter eine Array, danach werden andere Felder Sichtbar gemacht
      */
     public void checkInputSize(View view) {
+
+        i = 0;
+
         if (editTextInputSize.getText().length() > 0 && Integer.parseInt(editTextInputSize.getText().toString()) != 0) {
 
+            clearBtnActive = true;
 
             arraySize = Integer.parseInt(editTextInputSize.getText().toString());
             numbers = new double[arraySize];
@@ -98,8 +101,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             try {
                 numbers[i] = Double.parseDouble(editTextInputs.getText().toString());
                 i++;
-                if(i < arraySize) {
-                    ausgabe = "Geben Sie die " + (i+1) + ". Zahl ein: ";
+                if (i < arraySize) {
+                    ausgabe = "Geben Sie die " + (i + 1) + ". Zahl ein: ";
                 }
                 textViewInfoCounter.setText(ausgabe + "(" + i + "/" + arraySize + ")");
                 editTextInputs.setText("");
@@ -114,6 +117,26 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
             editTextInputs.setEnabled(false);
             btnCheckInputSize.setEnabled(false);
+        }
+    }
+
+    public void clearAll(View view) {
+        if (clearBtnActive) {
+            editTextInputSize.setEnabled(true);
+            btnCheckInputs.setEnabled(true);
+
+            editTextInputs.setVisibility(View.INVISIBLE);
+            btnCheckInputSize.setVisibility(View.INVISIBLE);
+            textViewInfoCounter.setVisibility(View.INVISIBLE);
+
+            editTextInputSize.setText("");
+
+            checkInputSize(view);
+            checkInputs(view);
+
+            textViewStatistikErgebnis.setVisibility(View.INVISIBLE);
+            btnCheckInputSize.setEnabled(true);
+            editTextInputs.setEnabled(true);
         }
     }
 
@@ -137,9 +160,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         return zahl;
     }
 
-    private void spannweiteBerechnen() {
+    private double spannweiteBerechnen() {
         double range = maximumNummerSuchen() - minimumNummerSuchen();
         textViewStatistikErgebnis.setText("Die Spannweite ist: " + range);
+        return range;
     }
 
     private double arithmetischesMittelBerechnen() {
@@ -152,7 +176,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         return aMittel;
     }
 
-    private void geometrischesMittelBerechnen() {
+    private double geometrischesMittelBerechnen() {
         double gMittel = 1;
 
         for (double number : numbers) {
@@ -161,9 +185,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
         gMittel = Math.pow(gMittel, (double) 1 / numbers.length);
         textViewStatistikErgebnis.setText("Das Geometrische Mittel ist: " + gMittel);
+        return gMittel;
     }
 
-    private void medianBerechnen() {
+    private double medianBerechnen() {
         Arrays.sort(numbers);
         double median, median2;
         if (numbers.length % 2 == 0) {
@@ -175,6 +200,28 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             median = numbers[numbers.length / 2];
             textViewStatistikErgebnis.setText("Der Median ist: " + median);
         }
+        return median;
+    }
+
+    private double modusBerechnen() {
+        Arrays.sort(numbers);
+        int count;
+        double mod = 0;
+        int modcount = 0;
+        for (int j = 0; j < numbers.length; j++) {
+            count = 0;
+            for (int k = 0; k < numbers.length; k++) {
+                if (numbers[j] == numbers[k]) {
+                    count++;
+                }
+            }
+            if (modcount < count) {
+                mod = numbers[j];
+                modcount = count;
+            }
+        }
+        textViewStatistikErgebnis.setText("Der Modus ist " + mod);
+        return mod;
     }
 
     private double varianzBerechnen() {
@@ -187,10 +234,23 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         return varianz;
     }
 
-    private void standardabweichungBerechnen() {
+    private double standardabweichungBerechnen() {
         double standardabweichung;
         standardabweichung = Math.sqrt(varianzBerechnen());
         textViewStatistikErgebnis.setText("Die Standardabweichung ist: " + standardabweichung);
+        return standardabweichung;
+    }
+
+    private void alleszusammenBerechnen() {
+        textViewStatistikErgebnis.setText("Der Maximum ist: " + maximumNummerSuchen() +
+                "\nDer Minimum ist: " + minimumNummerSuchen() +
+                "\nDie Spannweite ist: " + spannweiteBerechnen() +
+                "\nDas Arithmetische Mittel ist: " + arithmetischesMittelBerechnen() +
+                "\nDas Geometrische Mittel ist: " + geometrischesMittelBerechnen() +
+                "\nDer Median ist: " + medianBerechnen() +
+                "\nDer Modus ist: " + modusBerechnen() +
+                "\nDie Varianz ist: " + varianzBerechnen() +
+                "\nDie Standardabweichung ist: " + standardabweichungBerechnen());
     }
 
     /**
@@ -203,8 +263,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
         switch (statistik_button_dateien) {
             case "Maximum":
-            maximumNummerSuchen();
-            break;
+                maximumNummerSuchen();
+                break;
             case "Minimum":
                 minimumNummerSuchen();
                 break;
@@ -225,8 +285,16 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                 break;
             case "Standardabweichung":
                 standardabweichungBerechnen();
+                break;
+            case "Modalwert":
+                modusBerechnen();
+                break;
+            case "Alles zusammen":
+                alleszusammenBerechnen();
+                break;
         }
     }
+
 
     private void setSpinner_layout_Values() {
         //TODO
@@ -241,5 +309,4 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         onBackPressed();
         return true;
     }
-
 }
