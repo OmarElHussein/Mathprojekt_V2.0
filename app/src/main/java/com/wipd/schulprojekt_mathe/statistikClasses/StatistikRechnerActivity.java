@@ -42,7 +42,6 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
         komponente_Initzialisieren();
 
-        i = 0;
     }
 
     private void komponente_Initzialisieren() {
@@ -69,6 +68,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
      * unter eine Array, danach werden andere Felder Sichtbar gemacht
      */
     public void checkInputSize(View view) {
+        i = 0;
+
         if (editTextInputSize.getText().length() > 0 && Integer.parseInt(editTextInputSize.getText().toString()) != 0) {
 
 
@@ -118,19 +119,21 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     }
 
     public void clearAll(View view) {
-        editTextInputs.setEnabled(true);
-        btnCheckInputSize.setEnabled(true);
-
         editTextInputSize.setEnabled(true);
         btnCheckInputs.setEnabled(true);
 
+        editTextInputs.setVisibility(View.INVISIBLE);
+        btnCheckInputSize.setVisibility(View.INVISIBLE);
+        textViewInfoCounter.setVisibility(View.INVISIBLE);
+
         editTextInputSize.setText("");
-        editTextInputs.setText("");
 
-        textViewStatistikErgebnis.setText("");
+        checkInputSize(view);
+        checkInputs(view);
+
         textViewStatistikErgebnis.setVisibility(View.INVISIBLE);
-
-
+        btnCheckInputSize.setEnabled(true);
+        editTextInputs.setEnabled(true);
     }
 
     /**
