@@ -161,7 +161,12 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     }
 
     private double spannweiteBerechnen() {
-        double range = maximumNummerSuchen() - minimumNummerSuchen();
+        double range;
+        if (minimumNummerSuchen() < 0) {
+            range = maximumNummerSuchen() + minimumNummerSuchen();
+        } else {
+            range = maximumNummerSuchen() - minimumNummerSuchen();
+        }
         textViewStatistikErgebnis.setText("Die Spannweite ist: " + range);
         return range;
     }
