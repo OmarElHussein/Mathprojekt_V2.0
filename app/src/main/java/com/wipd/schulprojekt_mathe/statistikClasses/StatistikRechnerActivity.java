@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -24,8 +26,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private double[] numbers;
     private int arraySize, i;
     private String statistik_button_dateien, ausgabe;
-    private String[] spinnerValues = {"Max", "Min", "Range", "Mittelwert", "GeoMittel", "Median", "Modus", "Varianz", "St.abweichung", "Alles"};
+    private String[] spinnerValues = {"Maximum", "Minimum", "Spannweite", "Arithmetisches Mittel",
+            "Geometrisches Mittel", "Median", "Modus", "Varianz", "Standardabweichung", "Alles zusammen"};
     private boolean clearBtnActive = false;
+    private boolean isFelledFilled = false;
 
     private ImageButton btnCheckInputs, btnCheckInputSize;
     private TextView textViewInfoCounter, textViewStatistikErgebnis;
@@ -42,6 +46,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
         komponente_Initzialisieren();
 
+        setSpinner_layout_Values();
+
     }
 
     private void komponente_Initzialisieren() {
@@ -53,6 +59,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
         textViewInfoCounter = findViewById(R.id.textViewInfoCounter);
         textViewStatistikErgebnis = findViewById(R.id.textViewStatistikErgebnis);
+
+        spinnerStatistik = findViewById(R.id.spinnerStatistik);
+
+        statistik_button_dateien = StatistikPageActivity.extra_statistik_dateien;
     }
 
     private void toolbarEigenschaften() {
@@ -72,7 +82,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         i = 0;
 
         if (editTextInputSize.getText().length() > 0 && Integer.parseInt(editTextInputSize.getText().toString()) != 0) {
-
+            isFelledFilled = true;
             clearBtnActive = true;
 
             arraySize = Integer.parseInt(editTextInputSize.getText().toString());
@@ -87,7 +97,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             textViewInfoCounter.setText("Geben Sie die 1. Zahl ein: (1/" + arraySize + ")");
 
         } else {
-            Toast.makeText(this, "Geben Sie die Größe ein!", Toast.LENGTH_SHORT).show();
+            isFelledFilled = false;
+            Toast.makeText(this, "Geben Sie die Größe ein", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -113,13 +124,17 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         }
 
         if (i == arraySize) {
-            buttonSuchen_methodeAusfuehren();
-
+            buttonSuchen_methodeAusfuehren(statistik_button_dateien);
+            textViewStatistikErgebnis.setVisibility(View.VISIBLE);
+            //TODO: Wenn man auf dem Button clickt den Spinner automatisch setzen können und anpassen
             editTextInputs.setEnabled(false);
             btnCheckInputSize.setEnabled(false);
         }
     }
 
+    /**
+     * Löscht alle Felder und setzt alles wieder von Anfang ein
+     */
     public void clearAll(View view) {
         if (clearBtnActive) {
             editTextInputSize.setEnabled(true);
@@ -140,9 +155,6 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Diese methode sucht nach die Größte Zahl und gibt dies dann direkt aus
-     */
     private double maximumNummerSuchen() {
         Arrays.sort(numbers);
         double zahl = numbers[arraySize - 1];
@@ -150,9 +162,6 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         return zahl;
     }
 
-    /**
-     * Diese methode sucht nach die kleinste Zahl und gibt dies dann direkt aus
-     */
     private double minimumNummerSuchen() {
         Arrays.sort(numbers);
         double zahl = numbers[0];
@@ -247,7 +256,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     }
 
     private void alleszusammenBerechnen() {
-        textViewStatistikErgebnis.setText("Der Maximum ist: " + maximumNummerSuchen() +
+        String ausgabe = "Der Maximum ist: " + maximumNummerSuchen() +
                 "\nDer Minimum ist: " + minimumNummerSuchen() +
                 "\nDie Spannweite ist: " + spannweiteBerechnen() +
                 "\nDas Arithmetische Mittel ist: " + arithmetischesMittelBerechnen() +
@@ -255,58 +264,71 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                 "\nDer Median ist: " + medianBerechnen() +
                 "\nDer Modus ist: " + modusBerechnen() +
                 "\nDie Varianz ist: " + varianzBerechnen() +
-                "\nDie Standardabweichung ist: " + standardabweichungBerechnen());
+                "\nDie Standardabweichung ist: " + standardabweichungBerechnen();
+        textViewStatistikErgebnis.setText(ausgabe);
     }
 
     /**
-     * Diese methode überprüft welcher Button gecklickt wurde um die Seite
-     * und die rechnungen anzupassen
+     * Diese methode überprüft welcher Button gecklickt wurde um
+     * die rechnungen anzupassen
      */
-    private void buttonSuchen_methodeAusfuehren() {
-        statistik_button_dateien = StatistikPageActivity.extra_statistik_dateien;
-        textViewStatistikErgebnis.setVisibility(View.VISIBLE);
+    private void buttonSuchen_methodeAusfuehren(String itemCase) {
 
-        switch (statistik_button_dateien) {
-            case "Maximum":
-                maximumNummerSuchen();
-                break;
-            case "Minimum":
-                minimumNummerSuchen();
-                break;
-            case "Spannweite":
-                spannweiteBerechnen();
-                break;
-            case "Arithmetisches Mittel":
-                arithmetischesMittelBerechnen();
-                break;
-            case "Geometrisches Mittel":
-                geometrischesMittelBerechnen();
-                break;
-            case "Median":
-                medianBerechnen();
-                break;
-            case "Varianz":
-                varianzBerechnen();
-                break;
-            case "Standardabweichung":
-                standardabweichungBerechnen();
-                break;
-            case "Modalwert":
-                modusBerechnen();
-                break;
-            case "Alles zusammen":
-                alleszusammenBerechnen();
-                break;
+        if (isFelledFilled) {
+            switch (itemCase) {
+                case "Maximum":
+                    maximumNummerSuchen();
+                    break;
+                case "Minimum":
+                    minimumNummerSuchen();
+                    break;
+                case "Spannweite":
+                    spannweiteBerechnen();
+                    break;
+                case "Arithmetisches Mittel":
+                    arithmetischesMittelBerechnen();
+                    break;
+                case "Geometrisches Mittel":
+                    geometrischesMittelBerechnen();
+                    break;
+                case "Median":
+                    medianBerechnen();
+                    break;
+                case "Varianz":
+                    varianzBerechnen();
+                    break;
+                case "Standardabweichung":
+                    standardabweichungBerechnen();
+                    break;
+                case "Modalwert":
+                    modusBerechnen();
+                    break;
+                case "Alles zusammen":
+                    alleszusammenBerechnen();
+                    break;
+            }
         }
     }
 
-
+    /**
+     * hier wird der Spinner erstellt und initialisiert
+     */
     private void setSpinner_layout_Values() {
-        //TODO
-    }
 
-    private void switch_buttons_tables() {
-        //TODO
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, spinnerValues);
+        spinnerStatistik.setAdapter(adapter);
+
+        spinnerStatistik.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                buttonSuchen_methodeAusfuehren(spinnerStatistik.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     @Override

@@ -14,7 +14,7 @@ import com.wipd.schulprojekt_mathe.R;
 public class StatistikPageActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    public static String extra_statistik_dateien = " ";
+    public static String extra_statistik_dateien = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

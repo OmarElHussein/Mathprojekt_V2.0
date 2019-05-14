@@ -1,11 +1,14 @@
 package com.wipd.schulprojekt_mathe.quadratischeGleichungenClasses;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -51,6 +54,8 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
 
         setSpinnerNachkomma();
 
+        spinnerNachkomma.setSelection(2);
+
     }
 
     /**
@@ -94,19 +99,28 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
                 p = Double.parseDouble(editText_b.getText().toString());
                 q = Double.parseDouble(editText_c.getText().toString());
 
+                tastaturSchliessen(view);
+
                 pqFormelBerechnung();
 
-
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "Alle Felder ausfüllen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
             }
 
         } else {
-            Toast.makeText(this, "Bitte alle Felder ausfüllen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
         }
-
         clearFocusFromFields();
         btnAktiv = true;
+    }
+
+    /**
+     * Diese Methode schließt die Tastatur, wird meistens benutzt nachdem man auf einem
+     * Button clickt und die Tastatur danach schließen sollte
+     */
+    private void tastaturSchliessen(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     /**
