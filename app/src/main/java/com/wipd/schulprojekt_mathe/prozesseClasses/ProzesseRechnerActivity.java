@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.wipd.schulprojekt_mathe.R;
 
+import java.util.Objects;
+
 @SuppressLint("ALL")
 public class ProzesseRechnerActivity extends AppCompatActivity {
 
@@ -31,14 +33,10 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
     private TableLayout tableLayoutProzesse;
 
-    private ArrayAdapter<String> adapter;
-
     private Spinner spinnerProzesse;
     private String[] spinnerValues = {"Sparvertrag", "Zellwachstum"};
 
     private boolean isCollapsed = false;
-
-    private Toolbar toolbar;
 
     /**
      * Die Darstellung oder Kreatierung und die Verbindung zwischen
@@ -51,10 +49,10 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prozesse_rechner);
 
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         viewsInitzialisieren();
         spinnerSettingValues();
@@ -185,7 +183,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      */
     private void spinnerSettingValues() {
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, spinnerValues);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, spinnerValues);
         spinnerProzesse.setAdapter(adapter);
 
         spinnerProzesse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
