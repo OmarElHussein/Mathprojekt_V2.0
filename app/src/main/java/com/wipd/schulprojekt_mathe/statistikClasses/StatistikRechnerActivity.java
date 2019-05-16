@@ -35,7 +35,6 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
     private ImageButton btnCheckInputs, btnCheckInputSize;
     private TextView textViewInfoCounter, textViewStatistikErgebnis;
-    private Toolbar toolbar;
     private Spinner spinnerStatistik;
 
 
@@ -68,10 +67,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     }
 
     private void toolbarEigenschaften() {
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(StatistikPageActivity.extra_statistik_dateien);
     }
 
@@ -192,16 +191,23 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         return aMittel;
     }
 
-    private double geometrischesMittelBerechnen() {
+    private String geometrischesMittelBerechnen() {
         double gMittel = 1;
+        String solutionOrNot;
 
         for (double number : numbers) {
             gMittel *= number;
         }
 
-        gMittel = Math.pow(gMittel, (double) 1 / numbers.length);
-        textViewStatistikErgebnis.setText("Das Geometrische Mittel ist: " + gMittel);
-        return gMittel;
+        if (gMittel > 0) {
+            gMittel = Math.pow(gMittel, (double) 1 / numbers.length);
+            solutionOrNot = "Das Geometrische Mittel ist: " + gMittel;
+            textViewStatistikErgebnis.setText(solutionOrNot);
+        } else {
+            solutionOrNot = "Das Geometrische Mittel hat keine Lösung";
+            textViewStatistikErgebnis.setText(solutionOrNot);
+        }
+        return solutionOrNot;
     }
 
     private double medianBerechnen() {
@@ -224,15 +230,15 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         int count;
         double mod = 0;
         int modcount = 0;
-        for (int j = 0; j < numbers.length; j++) {
+        for (double number : numbers) {
             count = 0;
-            for (int k = 0; k < numbers.length; k++) {
-                if (numbers[j] == numbers[k]) {
+            for (double number1 : numbers) {
+                if (number == number1) {
                     count++;
                 }
             }
             if (modcount < count) {
-                mod = numbers[j];
+                mod = number;
                 modcount = count;
             }
         }
@@ -262,7 +268,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                 "\nDer Minimum ist: " + minimumNummerSuchen() +
                 "\nDie Spannweite ist: " + spannweiteBerechnen() +
                 "\nDas Arithmetische Mittel ist: " + arithmetischesMittelBerechnen() +
-                "\nDas Geometrische Mittel ist: " + geometrischesMittelBerechnen() +
+                "\n" + geometrischesMittelBerechnen() +
                 "\nDer Median ist: " + medianBerechnen() +
                 "\nDer Modus ist: " + modusBerechnen() +
                 "\nDie Varianz ist: " + varianzBerechnen() +
