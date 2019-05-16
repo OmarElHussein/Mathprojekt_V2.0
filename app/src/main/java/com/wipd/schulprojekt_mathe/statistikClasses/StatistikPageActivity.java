@@ -10,10 +10,11 @@ import android.view.View;
 
 import com.wipd.schulprojekt_mathe.R;
 
+import java.util.Objects;
+
 @SuppressLint("ALL")
 public class StatistikPageActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
     public static String extra_statistik_dateien = "";
 
     @Override
@@ -21,10 +22,10 @@ public class StatistikPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistik_page);
 
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Statistik");
 
     }
