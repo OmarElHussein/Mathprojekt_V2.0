@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.wipd.schulprojekt_mathe.R;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 @SuppressLint("ALL")
 public class StatistikRechnerActivity extends AppCompatActivity {
@@ -27,9 +28,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private int arraySize, i;
     private String statistik_button_dateien, ausgabe;
     private String[] spinnerValues = {"Maximum", "Minimum", "Spannweite", "Arithmetisches Mittel",
-            "Geometrisches Mittel", "Median", "Modus", "Varianz", "Standardabweichung", "Alles zusammen"};
+            "Geometrisches Mittel", "Median", "Modalwert", "Varianz", "Standardabweichung", "Alles zusammen"};
     private boolean clearBtnActive = false;
     private boolean isFelledFilled = false;
+    private boolean spinnerIsOn = true;
 
     private ImageButton btnCheckInputs, btnCheckInputSize;
     private TextView textViewInfoCounter, textViewStatistikErgebnis;
@@ -124,9 +126,9 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         }
 
         if (i == arraySize) {
-            buttonSuchen_methodeAusfuehren(statistik_button_dateien);
+            buttonSuchen_methodeAusfuehren(spinnerStatistik.getSelectedItem().toString());
             textViewStatistikErgebnis.setVisibility(View.VISIBLE);
-            //TODO: Wenn man auf dem Button clickt den Spinner automatisch setzen können und anpassen
+
             editTextInputs.setEnabled(false);
             btnCheckInputSize.setEnabled(false);
         }
@@ -274,6 +276,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
      */
     private void buttonSuchen_methodeAusfuehren(String itemCase) {
 
+        setSpinnerItem();
+        setTitle();
+        spinnerIsOn = false;
+
         if (isFelledFilled) {
             switch (itemCase) {
                 case "Maximum":
@@ -307,6 +313,27 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                     alleszusammenBerechnen();
                     break;
             }
+        }
+    }
+
+    /**
+     * Erstellt den Titel je nachdem welches Spinner item man gewählt hat
+     */
+    private void setTitle() {
+        String title = spinnerStatistik.getSelectedItem().toString();
+        Objects.requireNonNull(getSupportActionBar()).setTitle(title);
+    }
+
+    private void setSpinnerItem() {
+        int selection = 0;
+        if (spinnerIsOn) {
+            for (int j = 0; j < spinnerValues.length; j++) {
+                if (statistik_button_dateien.equalsIgnoreCase(spinnerValues[j])) {
+                    selection = j;
+                    break;
+                }
+            }
+            spinnerStatistik.setSelection(selection);
         }
     }
 
