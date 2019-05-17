@@ -46,7 +46,13 @@ public class StartPageActivity extends AppCompatActivity {
     //}
 
     public void openAboutActivity(MenuItem item) {
-        Toast.makeText(this, "https://github.com/OmarElHussein/MathProjektV_2.0.git", Toast.LENGTH_LONG).show();
+        openDialog();
+    }
+
+    private void openDialog() {
+        DialogClass dialogClass = new DialogClass();
+        dialogClass.customDialog("Dialog", "https://github.com/OmarElHussein/MathProjektV_2.0.git", "OK", this);
+//        Toast.makeText(this, "", Toast.LENGTH_LONG).show();
     }
 
     public void openStatistikPageActivity(View view) {
