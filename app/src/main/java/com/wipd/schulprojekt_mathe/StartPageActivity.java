@@ -52,7 +52,6 @@ public class StartPageActivity extends AppCompatActivity {
     private void openDialog() {
         DialogClass dialogClass = new DialogClass();
         dialogClass.customDialog("Dialog", "https://github.com/OmarElHussein/MathProjektV_2.0.git", "OK", this);
-//        Toast.makeText(this, "", Toast.LENGTH_LONG).show();
     }
 
     public void openStatistikPageActivity(View view) {
