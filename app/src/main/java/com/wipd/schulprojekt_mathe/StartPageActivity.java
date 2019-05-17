@@ -51,7 +51,7 @@ public class StartPageActivity extends AppCompatActivity {
 
     private void openDialog() {
         DialogClass dialogClass = new DialogClass();
-        dialogClass.customDialog("Dialog", "https://github.com/OmarElHussein/MathProjektV_2.0.git", "OK", this);
+        dialogClass.customDialog("About", "https://github.com/OmarElHussein/MathProjektV_2.0.git\n\nProgrammed by:\nOmar\nMohamed\nVanessa", "OK", this);
     }
 
     public void openStatistikPageActivity(View view) {
