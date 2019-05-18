@@ -11,15 +11,18 @@ import com.wipd.schulprojekt_mathe.R;
 
 public class QuadratischeGleichungenPageActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
     public static String extra_page_dateien;
 
+    /**
+     * verantwortlich für das erstellen der Klasse und Design und die Verbindung
+     * @param savedInstanceState von superClass um Speicher zu können
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quadratische_gleichungen_page);
 
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -27,6 +30,10 @@ public class QuadratischeGleichungenPageActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * öffnet eine Page durch Button Click
+     * @param view ist wichtig um das Zeigen zu ermöglichen
+     */
     public void openQuadratischeGleichungenRechner(View view){
         Intent intent = new Intent(this, QuadratischeGleichungenRechnerActivity.class);
         extra_page_dateien = "Quadratische Gleichungen";
@@ -34,6 +41,11 @@ public class QuadratischeGleichungenPageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Eigenschafter von Toolbar (zurück Pfeil)
+     * @param item der Pfeil ist ein Item
+     * @return true wenn gecklickt wird
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();

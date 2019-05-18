@@ -42,7 +42,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      * Die Darstellung oder Kreatierung und die Verbindung zwischen
      * die Klasse und die dazu gehörige Layout Datei
      *
-     * @param savedInstanceState kann werte speichern und sie zu andere Activities bringen.
+     * @param savedInstanceState um speicher zu können
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +97,9 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         textViewJahresendbetrag.setText("");
     }
 
+    /**
+     * löscht den Text von Eingaben Felder
+     */
     private void deleteAllData() {
         resetTextViews();
         editTextKapital.setText("");
@@ -143,6 +146,11 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Wenn auf den Button geclickt wird, werden die Texte in den Eingaben Felder gelöscht
+     *
+     * @param view ist wichtig um das Zeigen der Methode zu ermöglicher in .XML
+     */
     public void deleteDataFromPage(View view) {
         deleteAllData();
     }
@@ -287,6 +295,12 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * die Eigenschafter der zurück Pfeil im Toolbar
+     *
+     * @param item der Pfeil ist ein item und benötigt den Parameter
+     * @return true wenn gecklickt wird
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();

@@ -37,7 +37,7 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
     /**
      * Erstellt den Layout und verbindet dies mit der Klasse
      *
-     * @param savedInstanceState
+     * @param savedInstanceState um speicher zu können
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +76,8 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
      *
      * @param item ist das back button
      * @return gibt true zurück um was zu ändern
-     * Note: hier wird die Methode nur aufgerufen um Animationen anzupassen
+     * Note: hier wird die Methode nur aufgerufen um Animationen anzupassen und auch in andere stellen
+     *         wo nur onBackPressed in die Methode aufgerufen wird
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
