@@ -1,6 +1,5 @@
 package com.wipd.schulprojekt_mathe.statistikClasses;
 
-import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -19,16 +18,16 @@ import com.wipd.schulprojekt_mathe.R;
 import java.util.Arrays;
 import java.util.Objects;
 
-@SuppressLint("ALL")
 public class StatistikRechnerActivity extends AppCompatActivity {
 
     private EditText editTextInputSize, editTextInputs;
 
     private double[] numbers;
     private int arraySize, i;
-    private String statistik_button_dateien, ausgabe;
-    private String[] spinnerValues = {"Maximum", "Minimum", "Spannweite", "Arithmetisches Mittel",
-            "Geometrisches Mittel", "Median", "Modalwert", "Varianz", "Standardabweichung", "Alles zusammen"};
+    private String statistik_button_dateien, ausgabe, endAusgabe;
+    private String[] spinnerValues;
+
+
     private boolean clearBtnActive = false;
     private boolean isFelledFilled = false;
     private boolean spinnerIsOn = true;
@@ -64,6 +63,11 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         spinnerStatistik = findViewById(R.id.spinnerStatistik);
 
         statistik_button_dateien = StatistikPageActivity.extra_statistik_dateien;
+
+        spinnerValues = new String[]{getString(R.string.btnMax), getString(R.string.btnMinimum),
+                getString(R.string.btnSpannweite), getString(R.string.btnArithmeticMean),
+                getString(R.string.btnGeometricMedium), getString(R.string.btnMedian), getString(R.string.btnModal),
+                getString(R.string.btnVariance), getString(R.string.btnStandardabweichung), getString(R.string.btnAlles)};
     }
 
     private void toolbarEigenschaften() {
@@ -95,11 +99,12 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             editTextInputs.setVisibility(View.VISIBLE);
             btnCheckInputSize.setVisibility(View.VISIBLE);
 
-            textViewInfoCounter.setText("Geben Sie die 1. Zahl ein: (1/" + arraySize + ")");
+            String counterEingabe = getString(R.string.rechner_statistik_counter_eingabe) + " (1/" + arraySize + ")";
+            textViewInfoCounter.setText(counterEingabe);
 
         } else {
             isFelledFilled = false;
-            Toast.makeText(this, "Geben Sie die Größe ein", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.message_groesse_eingabe), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -116,10 +121,11 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                 if (i < arraySize) {
                     ausgabe = "Geben Sie die " + (i + 1) + ". Zahl ein: ";
                 }
-                textViewInfoCounter.setText(ausgabe + "(" + i + "/" + arraySize + ")");
+                String infoCounter = ausgabe + "(" + i + "/" + arraySize + ")";
+                textViewInfoCounter.setText(infoCounter);
                 editTextInputs.setText("");
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -159,14 +165,16 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private double maximumNummerSuchen() {
         Arrays.sort(numbers);
         double zahl = numbers[arraySize - 1];
-        textViewStatistikErgebnis.setText("Die größte Zahl ist: " + zahl);
+        endAusgabe = getString(R.string.rechner_statistik_ausgabe_biggestNumber) + zahl;
+        textViewStatistikErgebnis.setText(endAusgabe);
         return zahl;
     }
 
     private double minimumNummerSuchen() {
         Arrays.sort(numbers);
         double zahl = numbers[0];
-        textViewStatistikErgebnis.setText("Die kleinste Zahl ist: " + zahl);
+        endAusgabe = getString(R.string.rechner_statistik_ausgabe_kleinsteZahl) + zahl;
+        textViewStatistikErgebnis.setText(endAusgabe);
         return zahl;
     }
 
@@ -177,7 +185,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         } else {
             range = maximumNummerSuchen() - minimumNummerSuchen();
         }
-        textViewStatistikErgebnis.setText("Die Spannweite ist: " + range);
+        endAusgabe = getString(R.string.rechner_statistik_ausgabe_spannweite) + range;
+        textViewStatistikErgebnis.setText(endAusgabe);
         return range;
     }
 
@@ -187,7 +196,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             aMittel += number;
         }
         aMittel /= numbers.length;
-        textViewStatistikErgebnis.setText("Das Arithmetische Mittel ist: " + aMittel);
+        endAusgabe = getString(R.string.rechner_statistik_ausgabe_arithmetischesMittel) + aMittel ;
+        textViewStatistikErgebnis.setText(endAusgabe);
         return aMittel;
     }
 
@@ -201,10 +211,10 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
         if (gMittel > 0) {
             gMittel = Math.pow(gMittel, (double) 1 / numbers.length);
-            solutionOrNot = "Das Geometrische Mittel ist: " + gMittel;
+            solutionOrNot = getString(R.string.rechner_statistik_ausgabe_geoMetrischesMittel) + gMittel;
             textViewStatistikErgebnis.setText(solutionOrNot);
         } else {
-            solutionOrNot = "Das Geometrische Mittel hat keine Lösung";
+            solutionOrNot = getString(R.string.rechner_statistik_ausgabe_geoMittelNoSolutionTxt);
             textViewStatistikErgebnis.setText(solutionOrNot);
         }
         return solutionOrNot;
@@ -217,10 +227,12 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             median = numbers[(numbers.length / 2) - 1];
             median2 = numbers[(numbers.length / 2)];
 
-            textViewStatistikErgebnis.setText("Der Median ist: \nMedian.1: " + median + "\nMedian.2: " + median2);
+            endAusgabe = getString(R.string.rechner_statistik_ausgabe_median) + "\nMedian.1: " + median + "\nMedian.2: " + median2;
+            textViewStatistikErgebnis.setText(endAusgabe);
         } else {
             median = numbers[numbers.length / 2];
-            textViewStatistikErgebnis.setText("Der Median ist: " + median);
+            endAusgabe = getString(R.string.rechner_statistik_ausgabe_median) + median ;
+            textViewStatistikErgebnis.setText(endAusgabe);
         }
         return median;
     }
@@ -242,7 +254,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                 modcount = count;
             }
         }
-        textViewStatistikErgebnis.setText("Der Modus ist " + mod);
+        endAusgabe = getString(R.string.rechner_statistik_ausgabe_modus) + mod;
+        textViewStatistikErgebnis.setText(endAusgabe);
         return mod;
     }
 
@@ -252,14 +265,16 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             varianz += Math.pow(number - arithmetischesMittelBerechnen(), 2);
         }
         varianz /= numbers.length;
-        textViewStatistikErgebnis.setText("Der Varianz ist: " + varianz);
+        endAusgabe = getString(R.string.rechner_statistik_ausgabe_varianz) + varianz ;
+        textViewStatistikErgebnis.setText(endAusgabe);
         return varianz;
     }
 
     private double standardabweichungBerechnen() {
         double standardabweichung;
         standardabweichung = Math.sqrt(varianzBerechnen());
-        textViewStatistikErgebnis.setText("Die Standardabweichung ist: " + standardabweichung);
+        endAusgabe = getString(R.string.rechner_statistik_ausgabe_standardabweichung) + standardabweichung ;
+        textViewStatistikErgebnis.setText(endAusgabe);
         return standardabweichung;
     }
 

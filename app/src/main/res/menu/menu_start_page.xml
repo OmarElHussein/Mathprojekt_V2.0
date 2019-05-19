@@ -2,14 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="settings"
-        app:showAsAction="never"
-        android:id="@+id/menuItemSettings"
-        /><!--android:onClick="openSettingsActivity"-->
+    <item
+        android:id="@+id/menuItemLanguage"
+        android:title="@string/strpage_language"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/menuItemLanguageGerman"
+                android:onClick="changeLanguageToGerman"
+                android:title="German" />
+            <item
+                android:id="@+id/menuItemLanguageEnglish"
+                android:onClick="changeLanguageToEnglish"
+                android:title="English" />
+        </menu>
+    </item>
 
-    <item android:title="about"
-        app:showAsAction="never"
+    <item
         android:id="@+id/menuItemAbout"
-        android:onClick="openAboutActivity"/>
+        android:onClick="openAboutActivity"
+        android:title="@string/about"
+        app:showAsAction="never" />
 
 </menu>

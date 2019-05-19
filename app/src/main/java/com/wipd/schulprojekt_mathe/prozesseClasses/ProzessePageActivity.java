@@ -9,6 +9,8 @@ import android.view.View;
 
 import com.wipd.schulprojekt_mathe.R;
 
+import java.util.Objects;
+
 
 public class ProzessePageActivity extends AppCompatActivity {
 
@@ -23,10 +25,20 @@ public class ProzessePageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prozesse_page);
 
+        toolbarEigenschaften();
+    }
+
+    /**
+     * Erstellt ein Toolbar mit den Eigenschaften
+     *      - Title
+     *      - zurück Pfeil
+     */
+    private void toolbarEigenschaften() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.processes_title);
     }
 
     /**
@@ -35,8 +47,7 @@ public class ProzessePageActivity extends AppCompatActivity {
      */
     public void openProzesseRechnerPage_Sparvertrag(View view) {
         Intent intent = new Intent(this, ProzesseRechnerActivity.class);
-        buttonInhalt = "Sparvertrag";
-        intent.putExtra(buttonInhalt, buttonInhalt);
+        buttonInhalt = getString(R.string.savings_contract);
         startActivity(intent);
     }
 
@@ -46,8 +57,7 @@ public class ProzessePageActivity extends AppCompatActivity {
      */
     public void openProzessRechnerPage_Zellwachstum(View view) {
         Intent intent = new Intent(this, ProzesseRechnerActivity.class);
-        buttonInhalt = "Zellwachstum";
-        intent.putExtra(buttonInhalt, buttonInhalt);
+        buttonInhalt = getString(R.string.cell_growth);
         startActivity(intent);
     }
 

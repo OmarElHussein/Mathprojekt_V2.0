@@ -1,13 +1,11 @@
 package com.wipd.schulprojekt_mathe.quadratischeGleichungenClasses;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -17,7 +15,8 @@ import android.widget.Toast;
 
 import com.wipd.schulprojekt_mathe.R;
 
-@SuppressLint("ALL")
+import java.util.Objects;
+
 public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
 
     private EditText editText_a_quadrat, editText_b, editText_c;
@@ -25,18 +24,18 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
     private Spinner spinnerNachkomma;
 
     private String[] spinnerValues = {"0", "1", "2", "3", "4", "5", "6"};
+
     private final String wurzel = " \u221a ";
     private final String plusMinus = " \u00b1 ";
     private final String slash = " \u2044 ";
+    private String message_felder_ausfuellen;
     private boolean btnAktiv;
-
-    private Toolbar toolbar;
 
     double p, q, a, d, x1, x2;
 
     /**
      * Erstellt den Layout und verbindet dies mit der Klasse
-     *
+     * Sachen in der Methode passieren direkt mit dem Start der Seite
      * @param savedInstanceState um speicher zu können
      */
     @Override
@@ -44,11 +43,7 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quadratische_gleichungen_rechner);
 
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(QuadratischeGleichungenPageActivity.extra_page_dateien);
+        toolbarEigenschaften();
 
         komponente_Initzialisieren();
 
@@ -56,6 +51,19 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
 
         spinnerNachkomma.setSelection(2);
 
+    }
+
+    /**
+     * Erstellt ein Toolbar mit den eigenschaften
+     *      - title
+     *      - zurück Pfeil
+     */
+    private void toolbarEigenschaften() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(QuadratischeGleichungenPageActivity.extra_page_dateien);
     }
 
     /**
@@ -68,6 +76,8 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
         spinnerNachkomma = findViewById(R.id.spinnerNachkommastellen);
 
         textViewErgebnis = findViewById(R.id.textViewErgebnis);
+
+        message_felder_ausfuellen = getString(R.string.fill_fields_message);
     }
 
     /**
@@ -105,11 +115,11 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
                 pqFormelBerechnung();
 
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, message_felder_ausfuellen, Toast.LENGTH_SHORT).show();
             }
 
         } else {
-            Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, message_felder_ausfuellen, Toast.LENGTH_SHORT).show();
         }
         clearFocusFromFields();
         btnAktiv = true;
@@ -145,14 +155,13 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
     public void formelZeigen(View view) {
         if (editText_a_quadrat.length() > 0 && editText_b.length() > 0 && editText_c.length() > 0) {
             if (btnAktiv) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("- (" + p + slash + 2 + ") " + plusMinus + wurzel + "(" + p + slash + 2 + ")²" + " - " + q);
+                String sb = ("- (" + p + slash + 2 + ") " + plusMinus + wurzel + "(" + p + slash + 2 + ")²" + " - " + q);
                 textViewErgebnis.setText(sb);
             } else {
-                Toast.makeText(this, "Bitte erstmal ausrechnen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.message_erstmal_ausrechnen), Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, message_felder_ausfuellen, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -178,12 +187,14 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
             x2 = berechneNachkommaX(x2);
 
             if (d == 0) {
-                textViewErgebnis.setText("x = " + x1);
+                String answer = "x = " + x1;
+                textViewErgebnis.setText(answer);
             } else if (d > 0) {
-                textViewErgebnis.setText("x1 = " + x1 + "\nx2 = " + x2);
+                String answer = "x1 = " + x1 + "\nx2 = " + x2;
+                textViewErgebnis.setText(answer);
             }
         } else {
-            textViewErgebnis.setText("Keine Lösung");
+            textViewErgebnis.setText(getString(R.string.rechner_qg_text_keineLoesung));
         }
     }
 

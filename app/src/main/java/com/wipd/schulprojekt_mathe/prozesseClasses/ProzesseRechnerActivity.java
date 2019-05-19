@@ -1,7 +1,6 @@
 package com.wipd.schulprojekt_mathe.prozesseClasses;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -34,9 +33,11 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     private TableLayout tableLayoutProzesse;
 
     private Spinner spinnerProzesse;
-    private String[] spinnerValues = {"Sparvertrag", "Zellwachstum"};
 
     private boolean isCollapsed = false;
+
+    private String[] spinnerValues;
+
 
     /**
      * Die Darstellung oder Kreatierung und die Verbindung zwischen
@@ -53,6 +54,8 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        String pageTitle = ProzessePageActivity.buttonInhalt;
+        getSupportActionBar().setTitle(pageTitle);
 
         viewsInitzialisieren();
         spinnerSettingValues();
@@ -85,6 +88,17 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         textVieweingabeZwei = findViewById(R.id.textViewEingabe2);
         textVieweingabeDrei = findViewById(R.id.textViewEingabeDrei);
 
+        stringValuesInitialisation();
+
+    }
+
+    /**
+     * Initialisiert Variablen aus String Resourcen
+     */
+    private void stringValuesInitialisation() {
+        String sparvertag = getString(R.string.savings_contract);
+        String zellwachstum = getString(R.string.cell_growth);
+        spinnerValues = new String[]{sparvertag, zellwachstum};
     }
 
     /**
@@ -137,12 +151,11 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
                     berechneSparvertrag();
                 }
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
             }
 
-
         } else {
-            Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -160,12 +173,11 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      * von der Liste um fehler zu vermeiden
      */
     private void activateSpinner() {
-        Intent intent = getIntent();
-        String methodeAuswahl = intent.getStringExtra(ProzessePageActivity.buttonInhalt);
+        String methodeAuswahl = ProzessePageActivity.buttonInhalt;
 
-        if (methodeAuswahl.equalsIgnoreCase("Sparvertrag")) {
+        if (methodeAuswahl.equalsIgnoreCase(spinnerValues[0])) {
             spinnerProzesse.setSelection(0);
-        } else if (methodeAuswahl.equalsIgnoreCase("Zellwachstum")) {
+        } else if (methodeAuswahl.equalsIgnoreCase(spinnerValues[1])) {
             spinnerProzesse.setSelection(1);
         }
     }
@@ -212,9 +224,9 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      * um danach die Seite anzupassen
      */
     private void switchungButtons_Tables() {
-        if (spinnerProzesse.getSelectedItem().toString().equals(spinnerValues[0])) {
+        if (spinnerProzesse.getSelectedItem().toString().equalsIgnoreCase(spinnerValues[0])) {
             setSparvertragTable();
-        } else if (spinnerProzesse.getSelectedItem().toString().equals(spinnerValues[1])) {
+        } else if (spinnerProzesse.getSelectedItem().toString().equalsIgnoreCase(spinnerValues[1])) {
             setZellwachstumTable();
         }
     }
@@ -224,11 +236,11 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      */
     private void setZellwachstumTable() {
         isCollapsed = true;
-        spalte2Titel.setText("Zellmenge");
-        spalte1Titel.setText("Tag");
-        textVieweingabeEins.setText("Bitte die Aktuelle Zellmenge eingeben: ");
-        textVieweingabeZwei.setText("Bitte den Wachtumsfaktor eingeben: ");
-        textVieweingabeDrei.setText("Bitte die Laufzeit der Hochrechnung eingeben: ");
+        spalte2Titel.setText(getString(R.string.rechner_page_txtZellmenge));
+        spalte1Titel.setText(getString(R.string.rechner_page_txtDay));
+        textVieweingabeEins.setText(getString(R.string.rechner_page_eingabeZellmenge));
+        textVieweingabeZwei.setText(getString(R.string.rechner_page_eingabeWachstumsfaktor));
+        textVieweingabeDrei.setText(getString(R.string.rechner_page_eingabeLaufzeitZellwachstum));
         spalte3Titel.setText("");
         spalte4Titel.setText("");
         tableLayoutProzesse.setColumnCollapsed(2, isCollapsed);
@@ -240,13 +252,13 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      */
     private void setSparvertragTable() {
         isCollapsed = false;
-        spalte1Titel.setText("Jahr");
-        spalte2Titel.setText("Kapital");
-        spalte3Titel.setText("Zinsbetrag");
-        spalte4Titel.setText("Jahresendbetrag");
-        textVieweingabeEins.setText("Bitte Kapital eingeben: ");
-        textVieweingabeZwei.setText("Bitte den Zinssatz eingeben: ");
-        textVieweingabeDrei.setText("Bitte die Laufzeit in Jahren eingeben: ");
+        spalte1Titel.setText(getString(R.string.rechner_page_txtJahr));
+        spalte2Titel.setText(getString(R.string.rechner_page_txtKapital));
+        spalte3Titel.setText(getString(R.string.rechner_page_txtZinsbetrag));
+        spalte4Titel.setText(getString(R.string.rechner_page_txtJahresendbetrag));
+        textVieweingabeEins.setText(getString(R.string.rechner_page_eingabeKapital));
+        textVieweingabeZwei.setText(getString(R.string.rechner_page_eingabeZinssatz));
+        textVieweingabeDrei.setText(getString(R.string.rechner_page_eingabeLaufzeit));
         tableLayoutProzesse.setColumnCollapsed(2, isCollapsed);
         tableLayoutProzesse.setColumnCollapsed(3, isCollapsed);
     }

@@ -93,6 +93,7 @@
             android:layout_marginStart="16dp"
             android:background="@drawable/button_round_shape"
             android:onClick="checkInputSize"
+            android:tooltipText="@string/tooltiptext_bestaetigung"
             app:layout_constraintBottom_toBottomOf="@+id/editTextInputSize"
             app:layout_constraintStart_toEndOf="@+id/editTextInputSize"
             app:layout_constraintTop_toTopOf="@+id/editTextInputSize"

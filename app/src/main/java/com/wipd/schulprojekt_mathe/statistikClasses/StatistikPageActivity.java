@@ -1,6 +1,5 @@
 package com.wipd.schulprojekt_mathe.statistikClasses;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +11,9 @@ import com.wipd.schulprojekt_mathe.R;
 
 import java.util.Objects;
 
-@SuppressLint("ALL")
 public class StatistikPageActivity extends AppCompatActivity {
 
-    public static String extra_statistik_dateien = "";
+    public static String extra_statistik_dateien;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +24,7 @@ public class StatistikPageActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Statistik");
+        getSupportActionBar().setTitle(R.string.titleStatistik);
 
     }
 
@@ -38,61 +36,61 @@ public class StatistikPageActivity extends AppCompatActivity {
 
     public void openStatistikRechner_btnMinimum(View view) {
         Intent intent = new Intent(this, StatistikRechnerActivity.class);
-        extra_statistik_dateien = "Minimum";
+        extra_statistik_dateien = getString(R.string.btnMinimum);
         startActivity(intent);
     }
 
     public void openStatistikRechner_btnMaximum(View view) {
         Intent intent = new Intent(this, StatistikRechnerActivity.class);
-        extra_statistik_dateien = "Maximum";
+        extra_statistik_dateien = getString(R.string.btnMax);
         startActivity(intent);
     }
 
     public void openStatistikRechner_btnSpannweite(View view) {
         Intent intent = new Intent(this, StatistikRechnerActivity.class);
-        extra_statistik_dateien = "Spannweite";
+        extra_statistik_dateien = getString(R.string.btnSpannweite);
         startActivity(intent);
     }
 
     public void openStatistikRechner_btnArithmetischesMittel(View view) {
         Intent intent = new Intent(this, StatistikRechnerActivity.class);
-        extra_statistik_dateien = "Arithmetisches Mittel";
+        extra_statistik_dateien = getString(R.string.btnArithmeticMean);
         startActivity(intent);
     }
 
     public void openStatistikRechner_btnGeometrischesMittel(View view) {
         Intent intent = new Intent(this, StatistikRechnerActivity.class);
-        extra_statistik_dateien = "Geometrisches Mittel";
+        extra_statistik_dateien = getString(R.string.btnGeometricMedium);
         startActivity(intent);
     }
 
     public void openStatistikRechner_btnMedian(View view) {
         Intent intent = new Intent(this, StatistikRechnerActivity.class);
-        extra_statistik_dateien = "Median";
+        extra_statistik_dateien = getString(R.string.btnMedian);
         startActivity(intent);
     }
 
     public void openStatistikRechner_btnVarianz(View view) {
         Intent intent = new Intent(this, StatistikRechnerActivity.class);
-        extra_statistik_dateien = "Varianz";
+        extra_statistik_dateien = getString(R.string.btnVariance);
         startActivity(intent);
     }
 
     public void openStatistikRechner_btnStandardabweichung(View view) {
         Intent intent = new Intent(this, StatistikRechnerActivity.class);
-        extra_statistik_dateien = "Standardabweichung";
+        extra_statistik_dateien = getString(R.string.btnStandardabweichung);
         startActivity(intent);
     }
 
     public void openStatistikRechner_btnModalwert(View view) {
         Intent intent = new Intent(this, StatistikRechnerActivity.class);
-        extra_statistik_dateien = "Modalwert";
+        extra_statistik_dateien = getString(R.string.btnModal);
         startActivity(intent);
     }
 
     public void openStatistikRechner_btnAllesZsm(View view) {
         Intent intent = new Intent(this, StatistikRechnerActivity.class);
-        extra_statistik_dateien = "Alles zusammen";
+        extra_statistik_dateien = getString(R.string.btnAlles);
         startActivity(intent);
     }
 

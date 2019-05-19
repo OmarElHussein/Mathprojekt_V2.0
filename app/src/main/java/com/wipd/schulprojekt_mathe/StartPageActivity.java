@@ -1,20 +1,24 @@
 package com.wipd.schulprojekt_mathe;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.wipd.schulprojekt_mathe.matrixClasses.MatrixPageActivity;
 import com.wipd.schulprojekt_mathe.prozesseClasses.ProzessePageActivity;
 //import com.wipd.schulprojekt_mathe.settingsManager.SettingsActivity;
 import com.wipd.schulprojekt_mathe.quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity;
 import com.wipd.schulprojekt_mathe.statistikClasses.StatistikPageActivity;
+
+import java.util.Locale;
 //import com.wipd.schulprojekt_mathe.vektorenClasses.VektorenPageActivty;
 
 
@@ -36,7 +40,6 @@ public class StartPageActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
     }
 
     /**
@@ -78,6 +81,7 @@ public class StartPageActivity extends AppCompatActivity {
 
     /**
      * Öffnet eine Page auf ButtonClick
+     *
      * @param view nötig um die Methode zu Zeigen und funkionieren zulassen
      */
     public void openStatistikPageActivity(View view) {
@@ -87,6 +91,7 @@ public class StartPageActivity extends AppCompatActivity {
 
     /**
      * Öffnet eine Page auf ButtonClick
+     *
      * @param view nötig um die Methode zu Zeigen und funkionieren zulassen
      */
     public void openProzessePageActivity(View view) {
@@ -96,6 +101,7 @@ public class StartPageActivity extends AppCompatActivity {
 
     /**
      * Öffnet eine Page auf ButtonClick
+     *
      * @param view nötig um die Methode zu Zeigen und funkionieren zulassen
      */
     public void openQuadratischeGleichungenPageActivity(View view) {
@@ -114,6 +120,7 @@ public class StartPageActivity extends AppCompatActivity {
 
     /**
      * Öffnet eine Page auf ButtonClick
+     *
      * @param view nötig um die Methode zu Zeigen und funkionieren zulassen
      */
     public void openMatirxPageActivty(View view) {
@@ -121,5 +128,52 @@ public class StartPageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Ändert die Sprache auf MenuItem Click
+     *
+     * @param item ist nötig um ein Action zu ermöglichen
+     */
+    public void changeLanguageToEnglish(MenuItem item) {
+        setLanguage("en");
+    }
+
+    /**
+     * Ändert die Sprache auf MenuItem Click
+     *
+     * @param item ist nötig um ein Action zu ermöglichen
+     */
+    public void changeLanguageToGerman(MenuItem item) {
+        setLanguage("de");
+    }
+
+    /**
+     * Diese Methode wechselt die Sprachen
+     *
+     * @param language die ausgewählte Sprache
+     */
+    private void setLanguage(String language) {
+        //Das Lokal, verantwortlich auch für die Sprache
+        Locale locale = new Locale(language);
+
+        //Resourcen verantwortlich für die Wörter und andere resourcen
+        Resources res = getResources();
+
+        //Verantwortlich für die Zeigeeigenschaften
+        DisplayMetrics dm = res.getDisplayMetrics();
+
+        //Verantwortlich für die Einstellungen
+        Configuration config = res.getConfiguration();
+
+        //Die Einstellungen werden auf das neue Lokal (Sprache) gesetzt
+        config.setLocale(locale);
+
+        //Resourcen werden aktualisiert mit das benutzen der neue Einstellungen und Zeigeeigenschaften
+        res.updateConfiguration(config, dm);
+
+        //Hier wird die App einmal aktualisiert (neu gestartet) um die neue Sprache Fehlerfrei zu erhalten
+        Intent refresh = new Intent(this, StartPageActivity.class);
+        finish();
+        startActivity(refresh);
+    }
 
 }

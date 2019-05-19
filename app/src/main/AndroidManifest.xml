@@ -41,7 +41,8 @@
             android:parentActivityName=".StartPageActivity" />
         <activity
             android:name=".StartPageActivity"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:configChanges="locale|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
