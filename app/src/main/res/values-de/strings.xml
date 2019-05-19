@@ -55,6 +55,7 @@
     <string name="rechner_statistik_ausgabe_spannweite">"Die Spannweite ist: "</string>
     <string name="rechner_statistik_ausgabe_standardabweichung">"Die Standardabweichung ist: "</string>
     <string name="rechner_statistik_ausgabe_varianz">"Die Varianz ist: "</string>
-    <string name="btnMax">Maximum</string>
     <string name="btnMinimum">Minimum</string>
+    <string name="btnMax">Maximum</string>
+    <string name="strpage_matrix">Matrix</string>
 </resources>

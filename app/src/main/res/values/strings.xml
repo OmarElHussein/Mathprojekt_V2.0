@@ -6,7 +6,7 @@
     <string name="strpage_statistics">Statistics</string>
     <string name="strpage_quadratic_equations">Quadratic\n  Equations</string>
     <string name="strpage_vectors">Vectors</string>
-    <string name="strpage_matrix" translatable="false">Matrix</string>
+    <string name="strpage_matrix">Matrix</string>
     <string name="ergebnis_text1">Round result to</string>
     <string name="decimal_places">decimal places</string>
     <string name="btn_formula">Show formula</string>
