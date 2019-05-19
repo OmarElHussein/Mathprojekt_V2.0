@@ -58,4 +58,6 @@
     <string name="btnMinimum">Minimum</string>
     <string name="btnMax">Maximum</string>
     <string name="strpage_matrix">Matrix</string>
+    <string name="rechner_statistik_text_zahlGeben">Give the</string>
+    <string name="rechner_statistik_textZahlNachCounter">". number: "</string>
 </resources>

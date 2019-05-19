@@ -119,7 +119,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                 numbers[i] = Double.parseDouble(editTextInputs.getText().toString());
                 i++;
                 if (i < arraySize) {
-                    ausgabe = "Geben Sie die " + (i + 1) + ". Zahl ein: ";
+                    ausgabe = getString(R.string.rechner_statistik_text_zahlGeben) + (i + 1) + getString(R.string.rechner_statistik_textZahlNachCounter);
                 }
                 String infoCounter = ausgabe + "(" + i + "/" + arraySize + ")";
                 textViewInfoCounter.setText(infoCounter);
@@ -196,7 +196,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             aMittel += number;
         }
         aMittel /= numbers.length;
-        endAusgabe = getString(R.string.rechner_statistik_ausgabe_arithmetischesMittel) + aMittel ;
+        endAusgabe = getString(R.string.rechner_statistik_ausgabe_arithmetischesMittel) + aMittel;
         textViewStatistikErgebnis.setText(endAusgabe);
         return aMittel;
     }
@@ -231,7 +231,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             textViewStatistikErgebnis.setText(endAusgabe);
         } else {
             median = numbers[numbers.length / 2];
-            endAusgabe = getString(R.string.rechner_statistik_ausgabe_median) + median ;
+            endAusgabe = getString(R.string.rechner_statistik_ausgabe_median) + median;
             textViewStatistikErgebnis.setText(endAusgabe);
         }
         return median;
@@ -265,7 +265,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             varianz += Math.pow(number - arithmetischesMittelBerechnen(), 2);
         }
         varianz /= numbers.length;
-        endAusgabe = getString(R.string.rechner_statistik_ausgabe_varianz) + varianz ;
+        endAusgabe = getString(R.string.rechner_statistik_ausgabe_varianz) + varianz;
         textViewStatistikErgebnis.setText(endAusgabe);
         return varianz;
     }
@@ -273,7 +273,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private double standardabweichungBerechnen() {
         double standardabweichung;
         standardabweichung = Math.sqrt(varianzBerechnen());
-        endAusgabe = getString(R.string.rechner_statistik_ausgabe_standardabweichung) + standardabweichung ;
+        endAusgabe = getString(R.string.rechner_statistik_ausgabe_standardabweichung) + standardabweichung;
         textViewStatistikErgebnis.setText(endAusgabe);
         return standardabweichung;
     }

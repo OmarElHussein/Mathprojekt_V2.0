@@ -58,4 +58,6 @@
     <string name="rechner_statistik_ausgabe_varianz">The variance is:</string>
     <string name="rechner_statistik_ausgabe_standardabweichung">The Standard Deviation is:</string>
     <string name="btnMax">Maximum</string>
+    <string name="rechner_statistik_text_zahlGeben">Give the</string>
+    <string name="rechner_statistik_textZahlNachCounter">. number</string>
 </resources>
