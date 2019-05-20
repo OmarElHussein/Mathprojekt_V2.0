@@ -121,8 +121,12 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                 if (i < arraySize) {
                     ausgabe = getString(R.string.rechner_statistik_text_zahlGeben) + (i + 1) + getString(R.string.rechner_statistik_textZahlNachCounter);
                 }
-                String infoCounter = ausgabe + "(" + i + "/" + arraySize + ")";
-                textViewInfoCounter.setText(infoCounter);
+                //TODO...
+                    String infoCounter = ausgabe + "(" + i + "/" + arraySize + ")";
+                    textViewInfoCounter.setText(infoCounter);
+
+
+
                 editTextInputs.setText("");
             } catch (NumberFormatException e) {
                 Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
@@ -302,37 +306,26 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         spinnerIsOn = false;
 
         if (isFelledFilled) {
-            switch (itemCase) {
-                case "Maximum":
-                    maximumNummerSuchen();
-                    break;
-                case "Minimum":
-                    minimumNummerSuchen();
-                    break;
-                case "Spannweite":
-                    spannweiteBerechnen();
-                    break;
-                case "Arithmetisches Mittel":
-                    arithmetischesMittelBerechnen();
-                    break;
-                case "Geometrisches Mittel":
-                    geometrischesMittelBerechnen();
-                    break;
-                case "Median":
-                    medianBerechnen();
-                    break;
-                case "Varianz":
-                    varianzBerechnen();
-                    break;
-                case "Standardabweichung":
-                    standardabweichungBerechnen();
-                    break;
-                case "Modalwert":
-                    modusBerechnen();
-                    break;
-                case "Alles zusammen":
-                    alleszusammenBerechnen();
-                    break;
+            if (spinnerValues[0].equals(itemCase)) {
+                maximumNummerSuchen();
+            } else if (spinnerValues[1].equals(itemCase)) {
+                minimumNummerSuchen();
+            } else if (spinnerValues[2].equals(itemCase)) {
+                spannweiteBerechnen();
+            } else if (spinnerValues[3].equals(itemCase)) {
+                arithmetischesMittelBerechnen();
+            } else if (spinnerValues[4].equals(itemCase)) {
+                geometrischesMittelBerechnen();
+            } else if (spinnerValues[5].equals(itemCase)) {
+                medianBerechnen();
+            } else if (spinnerValues[6].equals(itemCase)) {
+                varianzBerechnen();
+            } else if (spinnerValues[7].equals(itemCase)) {
+                standardabweichungBerechnen();
+            } else if (spinnerValues[8].equals(itemCase)) {
+                modusBerechnen();
+            } else if (spinnerValues[9].equals(itemCase)) {
+                alleszusammenBerechnen();
             }
         }
     }

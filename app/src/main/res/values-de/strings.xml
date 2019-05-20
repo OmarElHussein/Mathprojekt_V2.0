@@ -59,5 +59,5 @@
     <string name="btnMax">Maximum</string>
     <string name="strpage_matrix">Matrix</string>
     <string name="rechner_statistik_text_zahlGeben">"Geben Sie die "</string>
-    <string name="rechner_statistik_textZahlNachCounter">". Zahl ein: "</string>
+    <string name="rechner_statistik_textZahlNachCounter">".Zahl ein: "</string>
 </resources>

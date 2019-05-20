@@ -40,6 +40,9 @@ public class StartPageActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Locale.setDefault(new Locale("de"));
+        
     }
 
     /**
