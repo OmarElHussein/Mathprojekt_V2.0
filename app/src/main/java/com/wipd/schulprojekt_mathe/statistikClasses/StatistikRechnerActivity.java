@@ -319,11 +319,11 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             } else if (spinnerValues[5].equals(itemCase)) {
                 medianBerechnen();
             } else if (spinnerValues[6].equals(itemCase)) {
-                varianzBerechnen();
-            } else if (spinnerValues[7].equals(itemCase)) {
-                standardabweichungBerechnen();
-            } else if (spinnerValues[8].equals(itemCase)) {
                 modusBerechnen();
+            } else if (spinnerValues[7].equals(itemCase)) {
+                varianzBerechnen();
+            } else if (spinnerValues[8].equals(itemCase)) {
+                standardabweichungBerechnen();
             } else if (spinnerValues[9].equals(itemCase)) {
                 alleszusammenBerechnen();
             }

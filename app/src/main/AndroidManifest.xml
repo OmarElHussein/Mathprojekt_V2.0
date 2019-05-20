@@ -38,11 +38,11 @@
         <activity
             android:name=".matrixClasses.MatrixPageActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".StartPageActivity" />
+            android:parentActivityName=".StartPageActivity"/>
         <activity
             android:name=".StartPageActivity"
             android:launchMode="singleTop"
-            android:configChanges="locale|orientation">
+            android:configChanges="locale">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

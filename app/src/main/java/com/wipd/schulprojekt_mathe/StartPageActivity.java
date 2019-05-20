@@ -1,6 +1,9 @@
 package com.wipd.schulprojekt_mathe;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -25,6 +28,8 @@ import java.util.Locale;
 public class StartPageActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private final String LANGUAGE_NAME = "name";
+    private final String SHARED_PREFS = "sharedPrefs";
 
     /**
      * erstellt die Verbindung ziwschen layout und code, und die Seite selbst
@@ -35,14 +40,14 @@ public class StartPageActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setLanguage(loadLanguage(), false);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Locale.setDefault(new Locale("de"));
-        
     }
 
     /**
@@ -137,7 +142,7 @@ public class StartPageActivity extends AppCompatActivity {
      * @param item ist nötig um ein Action zu ermöglichen
      */
     public void changeLanguageToEnglish(MenuItem item) {
-        setLanguage("en");
+        setLanguage("en", true);
     }
 
     /**
@@ -146,7 +151,7 @@ public class StartPageActivity extends AppCompatActivity {
      * @param item ist nötig um ein Action zu ermöglichen
      */
     public void changeLanguageToGerman(MenuItem item) {
-        setLanguage("de");
+        setLanguage("de", true);
     }
 
     /**
@@ -154,10 +159,10 @@ public class StartPageActivity extends AppCompatActivity {
      *
      * @param language die ausgewählte Sprache
      */
-    private void setLanguage(String language) {
+    private void setLanguage(String language, boolean refresh) {
         //Das Lokal, verantwortlich auch für die Sprache
         Locale locale = new Locale(language);
-
+        saveLanguage(language);
         //Resourcen verantwortlich für die Wörter und andere resourcen
         Resources res = getResources();
 
@@ -174,9 +179,27 @@ public class StartPageActivity extends AppCompatActivity {
         res.updateConfiguration(config, dm);
 
         //Hier wird die App einmal aktualisiert (neu gestartet) um die neue Sprache Fehlerfrei zu erhalten
-        Intent refresh = new Intent(this, StartPageActivity.class);
-        finish();
-        startActivity(refresh);
+        refreshActivity(refresh);
+    }
+
+    private void refreshActivity(boolean restart) {
+        if (restart) {
+            Intent refresh = new Intent(this, StartPageActivity.class);
+            finish();
+            startActivity(refresh);
+        }
+    }
+
+    private void saveLanguage(String language) {
+        SharedPreferences preferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(LANGUAGE_NAME, language);
+        editor.apply();
+    }
+
+    private String loadLanguage() {
+        SharedPreferences preferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        return preferences.getString(LANGUAGE_NAME, "");
     }
 
 }
