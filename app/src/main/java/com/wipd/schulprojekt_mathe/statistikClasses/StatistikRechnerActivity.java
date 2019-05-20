@@ -122,9 +122,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                     ausgabe = getString(R.string.rechner_statistik_text_zahlGeben) + (i + 1) + getString(R.string.rechner_statistik_textZahlNachCounter);
                 }
                 //TODO...
-                    String infoCounter = ausgabe + "(" + i + "/" + arraySize + ")";
-                    textViewInfoCounter.setText(infoCounter);
-
+                String infoCounter = ausgabe + "(" + i + "/" + arraySize + ")";
+                textViewInfoCounter.setText(infoCounter);
 
 
                 editTextInputs.setText("");
@@ -226,15 +225,14 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
     private double medianBerechnen() {
         Arrays.sort(numbers);
-        double median, median2;
+        double median;
         if (numbers.length % 2 == 0) {
-            median = numbers[(numbers.length / 2) - 1];
-            median2 = numbers[(numbers.length / 2)];
-
-            endAusgabe = getString(R.string.rechner_statistik_ausgabe_median) + "\nMedian.1: " + median + "\nMedian.2: " + median2;
+            //ToDo: Median muss noch richtig berechnet werden bei gerade und ungerade zahlen.
+            median = numbers[((numbers.length / 2) + ((numbers.length / 2) + 1)) / 2];
+            endAusgabe = getString(R.string.rechner_statistik_ausgabe_median) + median;
             textViewStatistikErgebnis.setText(endAusgabe);
         } else {
-            median = numbers[numbers.length / 2];
+            median = numbers[((numbers.length) / 2)];
             endAusgabe = getString(R.string.rechner_statistik_ausgabe_median) + median;
             textViewStatistikErgebnis.setText(endAusgabe);
         }

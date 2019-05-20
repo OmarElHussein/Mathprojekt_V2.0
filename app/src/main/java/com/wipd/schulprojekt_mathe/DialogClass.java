@@ -9,11 +9,12 @@ public class DialogClass extends AppCompatDialogFragment {
 
     /**
      * Erstellt ein Custom Dialog mit eigenschaften die wir brauchen
-     * Custom Dialog ist ein kleines Fenster mit Informationen
-     * @param title     erstellt ein Title für das kleine Fenster
-     * @param message   erstellt das Inhalt von dem Fenster
-     * @param btnTitle  erstellt den Title von dem Button der angezeigt wird
-     * @param context   is "this" und das ist nötig um zu spezialisieren wozu es gehört
+     * Custom Dialog ist ein kleines Fenster mit den Informationen:
+     *
+     * @param title    - erstellt ein Title für das kleine Fenster
+     * @param message  - erstellt der Inhalt vom Fenster
+     * @param btnTitle - erstellt das Title vom Button der angezeigt wird
+     * @param context  - is "this" und das ist nötig um zu spezialisieren wozu es gehört (welche Klasse)
      */
     public void customDialog(String title, String message, String btnTitle, Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);

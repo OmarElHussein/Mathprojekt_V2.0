@@ -61,11 +61,6 @@ public class StartPageActivity extends AppCompatActivity {
         return true;
     }
 
-    //public void openSettingsActivity(MenuItem item) {
-    //   Intent intent = new Intent(this, SettingsActivity.class);
-    //   startActivity(intent);
-    //}
-
     /**
      * Ein action wenn auf About Item gecklickt wird
      *

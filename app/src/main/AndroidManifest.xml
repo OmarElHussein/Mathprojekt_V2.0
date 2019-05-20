@@ -12,6 +12,10 @@
         android:theme="@style/MyTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".StartPageActivity"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
             android:name=".quadratischeGleichungenClasses.QuadratischeGleichungenRechnerActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity" />
@@ -38,11 +42,10 @@
         <activity
             android:name=".matrixClasses.MatrixPageActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".StartPageActivity"/>
+            android:parentActivityName=".StartPageActivity" />
         <activity
-            android:name=".StartPageActivity"
-            android:launchMode="singleTop"
-            android:configChanges="locale">
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

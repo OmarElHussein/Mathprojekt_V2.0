@@ -5,7 +5,8 @@
     android:id="@+id/scrollViewStartPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.wipd.schulprojekt_mathe.StartPageActivity">
+    tools:context="com.wipd.schulprojekt_mathe.StartPageActivity"
+    android:theme="@style/MyTheme">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintStartPage"
