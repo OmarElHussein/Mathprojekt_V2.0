@@ -226,13 +226,16 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private double medianBerechnen() {
         Arrays.sort(numbers);
         double median;
+        double median2;
         if (numbers.length % 2 == 0) {
-            //ToDo: Median muss noch richtig berechnet werden bei gerade und ungerade zahlen.
-            median = numbers[((numbers.length / 2) + ((numbers.length / 2) + 1)) / 2];
+            median = numbers[(numbers.length / 2) - 1];
+            median2 = numbers[numbers.length / 2];
+            median += median2;
+            median /= 2;
             endAusgabe = getString(R.string.rechner_statistik_ausgabe_median) + median;
             textViewStatistikErgebnis.setText(endAusgabe);
         } else {
-            median = numbers[((numbers.length) / 2)];
+            median = numbers[numbers.length / 2];
             endAusgabe = getString(R.string.rechner_statistik_ausgabe_median) + median;
             textViewStatistikErgebnis.setText(endAusgabe);
         }
