@@ -1,11 +1,13 @@
 package com.wipd.schulprojekt_mathe.prozesseClasses;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -14,7 +16,6 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.wipd.schulprojekt_mathe.CloseKeyboardClass;
 import com.wipd.schulprojekt_mathe.R;
 
 import java.util.Objects;
@@ -145,8 +146,9 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
                 kapital = Double.parseDouble(editTextKapital.getText().toString());
                 zinssatz = Double.parseDouble(editTextZinssatz.getText().toString());
                 laufzeit = Integer.parseInt(editTextLaufzeit.getText().toString());
-                CloseKeyboardClass ckc = new CloseKeyboardClass();
-                ckc.tastaturSchliessen(view);
+
+                tastaturSchliessen(view);
+
                 if (spinnerProzesse.getSelectedItem().equals(spinnerValues[1])) {
                     berechneZellwachstum();
                 } else if (spinnerProzesse.getSelectedItem().equals(spinnerValues[0])) {
@@ -319,6 +321,15 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
         return true;
+    }
+
+    /**
+     * Diese Methode schließt die Tastatur, wird meistens benutzt nachdem man auf einem
+     * Button clickt und die Tastatur danach schließen sollte
+     */
+    private void tastaturSchliessen(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
 }
