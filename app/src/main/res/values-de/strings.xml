@@ -12,7 +12,7 @@
     <string name="btn_delete">Löschen</string>
     <string name="btn_formula">Formel zeigen</string>
     <string name="txtView_ergebnis">= Ergebnis</string>
-    <string name="btn_Quadratic_Equations">PQ Formel</string>
+    <string name="btn_Quadratic_Equations">Quadratische Gleichungen</string>
     <string name="quadratic_equations_title">Quadratische Gleichungen</string>
     <string name="processes_title">Prozesse</string>
     <string name="savings_contract">Sparvertrag</string>

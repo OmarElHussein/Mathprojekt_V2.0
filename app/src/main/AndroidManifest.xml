@@ -17,28 +17,22 @@
             android:launchMode="singleTop" />
         <activity
             android:name=".quadratischeGleichungenClasses.QuadratischeGleichungenRechnerActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity" />
+            android:launchMode="singleTop" />
         <activity
             android:name=".quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".StartPageActivity" />
+            android:launchMode="singleTop"/>
         <activity
             android:name=".statistikClasses.StatistikRechnerActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".statistikClasses.StatistikPageActivity" />
+            android:launchMode="singleTop"/>
         <activity
             android:name=".statistikClasses.StatistikPageActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".StartPageActivity" />
+            android:launchMode="singleTop"/>
         <activity
             android:name=".prozesseClasses.ProzesseRechnerActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".prozesseClasses.ProzessePageActivity" />
+            android:launchMode="singleTop"/>
         <activity
             android:name=".prozesseClasses.ProzessePageActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".StartPageActivity" />
+            android:launchMode="singleTop" />
         <activity
             android:name=".matrixClasses.MatrixPageActivity"
             android:launchMode="singleTop"

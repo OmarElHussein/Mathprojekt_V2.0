@@ -13,7 +13,7 @@
     <string name="btn_calculate">Calculate</string>
     <string name="btn_delete">Delete</string>
     <string name="txtView_ergebnis">= Result</string>
-    <string name="btn_Quadratic_Equations">PQ Formula</string>
+    <string name="btn_Quadratic_Equations">Quadratic Equations</string>
     <string name="quadratic_equations_title">Quadratic Equations</string>
     <string name="processes_title">processes</string>
     <string name="savings_contract">savings contract</string>
