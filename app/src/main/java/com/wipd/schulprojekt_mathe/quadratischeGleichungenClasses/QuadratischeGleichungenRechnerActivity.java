@@ -36,6 +36,7 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
     /**
      * Erstellt den Layout und verbindet dies mit der Klasse
      * Sachen in der Methode passieren direkt mit dem Start der Seite
+     *
      * @param savedInstanceState um speicher zu können
      */
     @Override
@@ -55,8 +56,8 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
 
     /**
      * Erstellt ein Toolbar mit den eigenschaften
-     *      - title
-     *      - zurück Pfeil
+     * - title
+     * - zurück Pfeil
      */
     private void toolbarEigenschaften() {
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -87,7 +88,7 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
      * @param item ist das back button
      * @return gibt true zurück um was zu ändern
      * Note: hier wird die Methode nur aufgerufen um Animationen anzupassen und auch in andere stellen
-     *         wo nur onBackPressed in die Methode aufgerufen wird
+     * wo nur onBackPressed in die Methode aufgerufen wird
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
