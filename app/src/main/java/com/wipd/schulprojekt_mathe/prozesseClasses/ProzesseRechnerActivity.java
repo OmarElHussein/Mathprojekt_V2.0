@@ -14,6 +14,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wipd.schulprojekt_mathe.CloseKeyboardClass;
 import com.wipd.schulprojekt_mathe.R;
 
 import java.util.Objects;
@@ -144,7 +145,8 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
                 kapital = Double.parseDouble(editTextKapital.getText().toString());
                 zinssatz = Double.parseDouble(editTextZinssatz.getText().toString());
                 laufzeit = Integer.parseInt(editTextLaufzeit.getText().toString());
-
+                CloseKeyboardClass ckc = new CloseKeyboardClass();
+                ckc.tastaturSchliessen(view);
                 if (spinnerProzesse.getSelectedItem().equals(spinnerValues[1])) {
                     berechneZellwachstum();
                 } else if (spinnerProzesse.getSelectedItem().equals(spinnerValues[0])) {

@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/MyTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".CloseKeyboardClass"></activity>
         <activity
             android:name=".StartPageActivity"
             android:configChanges="locale"
@@ -20,23 +21,22 @@
             android:launchMode="singleTop" />
         <activity
             android:name=".quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop" />
         <activity
             android:name=".statistikClasses.StatistikRechnerActivity"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop" />
         <activity
             android:name=".statistikClasses.StatistikPageActivity"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop" />
         <activity
             android:name=".prozesseClasses.ProzesseRechnerActivity"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop" />
         <activity
             android:name=".prozesseClasses.ProzessePageActivity"
             android:launchMode="singleTop" />
         <activity
             android:name=".matrixClasses.MatrixPageActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".StartPageActivity" />
+            android:launchMode="singleTop" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">

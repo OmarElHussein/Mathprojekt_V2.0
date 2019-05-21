@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wipd.schulprojekt_mathe.CloseKeyboardClass;
 import com.wipd.schulprojekt_mathe.R;
 
 import java.util.Objects;
@@ -110,7 +111,8 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
                 p = Double.parseDouble(editText_b.getText().toString());
                 q = Double.parseDouble(editText_c.getText().toString());
 
-                tastaturSchliessen(view);
+                CloseKeyboardClass ckc = new CloseKeyboardClass();
+                ckc.tastaturSchliessen(view);
 
                 pqFormelBerechnung();
 
@@ -123,15 +125,6 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
         }
         clearFocusFromFields();
         btnAktiv = true;
-    }
-
-    /**
-     * Diese Methode schließt die Tastatur, wird meistens benutzt nachdem man auf einem
-     * Button clickt und die Tastatur danach schließen sollte
-     */
-    private void tastaturSchliessen(View view) {
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     /**
