@@ -47,7 +47,7 @@ public class ProzessePageActivity extends AppCompatActivity {
      */
     public void openProzesseRechnerPage_Sparvertrag(View view) {
         Intent intent = new Intent(this, ProzesseRechnerActivity.class);
-        buttonInhalt = getString(R.string.savings_contract);
+        buttonInhalt = getString(R.string.btn_wachstumsprozess);
         startActivity(intent);
     }
 
@@ -57,7 +57,7 @@ public class ProzessePageActivity extends AppCompatActivity {
      */
     public void openProzessRechnerPage_Zellwachstum(View view) {
         Intent intent = new Intent(this, ProzesseRechnerActivity.class);
-        buttonInhalt = getString(R.string.cell_growth);
+        buttonInhalt = getString(R.string.btn_zerfallsprozess);
         startActivity(intent);
     }
 

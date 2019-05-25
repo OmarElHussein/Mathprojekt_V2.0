@@ -98,8 +98,8 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      * Initialisiert Variablen aus String Resourcen
      */
     private void stringValuesInitialisation() {
-        String sparvertag = getString(R.string.savings_contract);
-        String zellwachstum = getString(R.string.cell_growth);
+        String sparvertag = getString(R.string.btn_wachstumsprozess);
+        String zellwachstum = getString(R.string.btn_zerfallsprozess);
         spinnerValues = new String[]{sparvertag, zellwachstum};
     }
 

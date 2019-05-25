@@ -16,8 +16,8 @@
     <string name="btn_Quadratic_Equations">Quadratic Equations</string>
     <string name="quadratic_equations_title">Quadratic Equations</string>
     <string name="processes_title">processes</string>
-    <string name="savings_contract">savings contract</string>
-    <string name="cell_growth">cell growth</string>
+    <string name="btn_wachstumsprozess">Growth process</string>
+    <string name="btn_zerfallsprozess">Decay process</string>
     <string name="fill_fields_message">Please fill all fields</string>
     <string name="rechner_page_txtJahr">Year</string>
     <string name="rechner_page_txtKapital">Capital</string>

@@ -38,7 +38,7 @@ public class QuadratischeGleichungenPageActivity extends AppCompatActivity {
      */
     public void openQuadratischeGleichungenRechner(View view){
         Intent intent = new Intent(this, QuadratischeGleichungenRechnerActivity.class);
-        extra_page_dateien = getString(R.string.quadratic_equations_title);
+        extra_page_dateien = getString(R.string.btn_Quadratic_Equations);
         startActivity(intent);
     }
 
