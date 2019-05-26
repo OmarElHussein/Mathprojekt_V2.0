@@ -8,7 +8,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <include
             android:id="@+id/toolbar"
@@ -21,8 +21,6 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/button_rectangle_shape"
-            android:textAlignment="viewEnd"
-            android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -34,7 +32,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="100dp"
             android:layout_marginEnd="32dp"
-            android:text="Bitte Kapital eingeben:"
+            android:text="@string/rechner_page_eingabeKapital"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -50,7 +48,8 @@
             android:ems="12"
             android:inputType="numberSigned|numberDecimal"
             android:maxLength="12"
-            android:paddingLeft="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textViewEingabeEins"
             app:layout_constraintTop_toBottomOf="@+id/textViewEingabeEins" />
@@ -62,7 +61,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:text="Bitte den Zinssatz eingeben: "
+            android:text="@string/rechner_page_eingabeZinssatz"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/editTextKapital"
             app:layout_constraintTop_toBottomOf="@+id/editTextKapital" />
@@ -76,9 +75,10 @@
             android:layout_marginEnd="248dp"
             android:background="@drawable/edit_text_rectangle_with_border_shape"
             android:ems="5"
-            android:inputType="numberDecimal"
-            android:maxLength="3"
-            android:paddingLeft="5dp"
+            android:inputType="numberSigned|numberDecimal"
+            android:maxLength="5"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textViewEingabe2"
             app:layout_constraintTop_toBottomOf="@+id/textViewEingabe2" />
@@ -90,7 +90,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:text="Bitte die Laufzeit in Jahren eingeben: "
+            android:text="@string/rechner_page_eingabeLaufzeit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/editTextZinssatz"
             app:layout_constraintTop_toBottomOf="@+id/editTextZinssatz" />
@@ -106,7 +106,8 @@
             android:ems="2"
             android:inputType="number"
             android:maxLength="2"
-            android:paddingLeft="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textViewEingabeDrei"
             app:layout_constraintTop_toBottomOf="@+id/textViewEingabeDrei" />
@@ -145,7 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="2"
                     android:background="@color/colorDarkWhite"
-                    android:text="Jahr"
+                    android:text="@string/rechner_page_txtJahr"
                     android:textColor="@color/colorBlue"
                     android:textSize="16sp" />
 
@@ -154,7 +155,7 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="2"
                     android:background="@color/colorDarkWhite"
-                    android:text="Kapital"
+                    android:text="@string/rechner_page_txtKapital"
                     android:textColor="@color/colorBlue"
                     android:textSize="16sp" />
 
@@ -163,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="2"
                     android:background="@color/colorDarkWhite"
-                    android:text="Zinsbetrag"
+                    android:text="@string/rechner_page_txtZinsbetrag"
                     android:textColor="@color/colorBlue"
                     android:textSize="16sp" />
 
@@ -172,7 +173,7 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="2"
                     android:background="@color/colorDarkWhite"
-                    android:text="Jahresendbetrag"
+                    android:text="@string/rechner_page_txtJahresendbetrag"
                     android:textColor="@color/colorBlue"
                     android:textSize="16sp" />
 

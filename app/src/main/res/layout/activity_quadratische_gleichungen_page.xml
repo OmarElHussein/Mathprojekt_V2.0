@@ -20,7 +20,7 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/button_round_edges_top_bottom"
         android:onClick="openQuadratischeGleichungenRechner"
-        android:text="Quadratische Gleichungen"
+        android:text="@string/btn_Quadratic_Equations"
         android:textColor="@color/colorBlue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

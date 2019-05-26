@@ -1,12 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Math-Software</string>
     <string name="strpage_language">language</string>
     <string name="about">about</string>
     <string name="processes">Processes</string>
     <string name="strpage_statistics">Statistics</string>
-    <string name="strpage_quadratic_equations">Quadratic\n  Equations</string>
+    <string name="strpage_quadratic_equations">"  Quadratic \n  Equations"</string>
     <string name="strpage_vectors">Vectors</string>
-    <string name="strpage_matrix">Matrix</string>
     <string name="ergebnis_text1">Round result to</string>
     <string name="decimal_places">decimal places</string>
     <string name="btn_formula">Show formula</string>
@@ -21,17 +20,16 @@
     <string name="fill_fields_message">Please fill all fields</string>
     <string name="rechner_page_txtJahr">Year</string>
     <string name="rechner_page_txtKapital">Capital</string>
-    <string name="rechner_page_txtZinsbetrag">Interest</string>
+    <string name="rechner_page_txtZinsbetrag">Amount</string>
     <string name="rechner_page_txtJahresendbetrag">Year-end amount</string>
     <string name="rechner_page_eingabeKapital">Please enter capital:</string>
-    <string name="rechner_page_eingabeZinssatz">"Please enter the interest rate: "</string>
+    <string name="rechner_page_eingabeZinssatz">Please enter the interest rate</string>
     <string name="rechner_page_eingabeLaufzeit">Please enter the term in years:</string>
     <string name="rechner_page_txtZellmenge">Cellset</string>
     <string name="rechner_page_txtDay">Day</string>
     <string name="rechner_page_eingabeZellmenge">Please enter the current cell quantity:</string>
     <string name="rechner_page_eingabeWachstumsfaktor">Please enter the growth factor:</string>
     <string name="rechner_page_eingabeLaufzeitZellwachstum">Please specify the duration of the extrapolation in days:</string>
-    <string name="btnMinimum">Minimum</string>
     <string name="btnSpannweite">Range</string>
     <string name="btnArithmeticMean">Arithmetic mean</string>
     <string name="btnGeometricMedium">Geometric medium</string>
@@ -41,23 +39,25 @@
     <string name="btnStandardabweichung">Standard deviation</string>
     <string name="btnAlles">Altogether</string>
     <string name="rechner_statistik_frage_zahleneingabe">How many numbers do you want to enter?</string>
-    <string name="rechner_statistik_counter_eingabe">Enter the 1st digit: </string>
+    <string name="rechner_statistik_counter_eingabe">"Give the 1.number: "</string>
     <string name="tooltiptext_bestaetigung">Confirm</string>
     <string name="titleStatistik">Statistics</string>
     <string name="rechner_qg_text_keineLoesung">No Solution</string>
     <string name="message_erstmal_ausrechnen">Please calculate first</string>
     <string name="message_groesse_eingabe">Enter the size</string>
-    <string name="rechner_statistik_ausgabe_biggestNumber">The biggest Number is:</string>
-    <string name="rechner_statistik_ausgabe_kleinsteZahl">The smallest number is:</string>
-    <string name="rechner_statistik_ausgabe_spannweite">The range is:</string>
-    <string name="rechner_statistik_ausgabe_arithmetischesMittel">The Arithmetic Mean is:</string>
-    <string name="rechner_statistik_ausgabe_geoMetrischesMittel">The Geometric Medium is:</string>
-    <string name="rechner_statistik_ausgabe_geoMittelNoSolutionTxt">The Geometric Medium has no solution!</string>
-    <string name="rechner_statistik_ausgabe_median">The Median is:</string>
-    <string name="rechner_statistik_ausgabe_modus">The Modal is:</string>
-    <string name="rechner_statistik_ausgabe_varianz">The variance is:</string>
-    <string name="rechner_statistik_ausgabe_standardabweichung">The Standard Deviation is:</string>
+    <string name="rechner_statistik_ausgabe_biggestNumber">"The biggest number is: "</string>
+    <string name="rechner_statistik_ausgabe_kleinsteZahl">"The smallest number is: "</string>
+    <string name="rechner_statistik_ausgabe_spannweite">"The range is: "</string>
+    <string name="rechner_statistik_ausgabe_arithmetischesMittel">"The arithmetic Mean is: "</string>
+    <string name="rechner_statistik_ausgabe_geoMetrischesMittel">"The geometric Medium is: "</string>
+    <string name="rechner_statistik_ausgabe_geoMittelNoSolutionTxt">The geometric Medium has no solution!</string>
+    <string name="rechner_statistik_ausgabe_median">"The median is: "</string>
+    <string name="rechner_statistik_ausgabe_modus">"The modal is: "</string>
+    <string name="rechner_statistik_ausgabe_varianz">"The variance is: "</string>
+    <string name="rechner_statistik_ausgabe_standardabweichung">"The standard deviation is: "</string>
+    <string name="btnMinimum">Minimum</string>
     <string name="btnMax">Maximum</string>
-    <string name="rechner_statistik_text_zahlGeben">Give the</string>
-    <string name="rechner_statistik_textZahlNachCounter">. number</string>
+    <string name="strpage_matrix">Matrix</string>
+    <string name="rechner_statistik_text_zahlGeben">"Give the "</string>
+    <string name="rechner_statistik_textZahlNachCounter">".number: "</string>
 </resources>

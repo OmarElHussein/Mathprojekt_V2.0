@@ -1,12 +1,13 @@
 package com.wipd.schulprojekt_mathe.prozesseClasses;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wipd.schulprojekt_mathe.R;
+
+import java.util.Objects;
 
 @SuppressLint("ALL")
 public class ProzesseRechnerActivity extends AppCompatActivity {
@@ -31,30 +34,30 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
     private TableLayout tableLayoutProzesse;
 
-    private ArrayAdapter<String> adapter;
-
     private Spinner spinnerProzesse;
-    private String[] spinnerValues = {"Sparvertrag", "Zellwachstum"};
 
     private boolean isCollapsed = false;
 
-    private Toolbar toolbar;
+    private String[] spinnerValues;
+
 
     /**
      * Die Darstellung oder Kreatierung und die Verbindung zwischen
      * die Klasse und die dazu gehörige Layout Datei
      *
-     * @param savedInstanceState kann werte speichern und sie zu andere Activities bringen.
+     * @param savedInstanceState um speicher zu können
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prozesse_rechner);
 
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        String pageTitle = ProzessePageActivity.buttonInhalt;
+        getSupportActionBar().setTitle(pageTitle);
 
         viewsInitzialisieren();
         spinnerSettingValues();
@@ -87,6 +90,17 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         textVieweingabeZwei = findViewById(R.id.textViewEingabe2);
         textVieweingabeDrei = findViewById(R.id.textViewEingabeDrei);
 
+        stringValuesInitialisation();
+
+    }
+
+    /**
+     * Initialisiert Variablen aus String Resourcen
+     */
+    private void stringValuesInitialisation() {
+        String sparvertag = getString(R.string.btn_wachstumsprozess);
+        String zellwachstum = getString(R.string.btn_zerfallsprozess);
+        spinnerValues = new String[]{sparvertag, zellwachstum};
     }
 
     /**
@@ -99,6 +113,9 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         textViewJahresendbetrag.setText("");
     }
 
+    /**
+     * löscht den Text von Eingaben Felder
+     */
     private void deleteAllData() {
         resetTextViews();
         editTextKapital.setText("");
@@ -130,21 +147,27 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
                 zinssatz = Double.parseDouble(editTextZinssatz.getText().toString());
                 laufzeit = Integer.parseInt(editTextLaufzeit.getText().toString());
 
+                tastaturSchliessen(view);
+
                 if (spinnerProzesse.getSelectedItem().equals(spinnerValues[1])) {
                     berechneZellwachstum();
                 } else if (spinnerProzesse.getSelectedItem().equals(spinnerValues[0])) {
                     berechneSparvertrag();
                 }
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
             }
 
-
         } else {
-            Toast.makeText(this, "Bitte Felder ausfüllen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
         }
     }
 
+    /**
+     * Wenn auf den Button geclickt wird, werden die Texte in den Eingaben Felder gelöscht
+     *
+     * @param view ist wichtig um das Zeigen der Methode zu ermöglicher in .XML
+     */
     public void deleteDataFromPage(View view) {
         deleteAllData();
     }
@@ -154,12 +177,11 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      * von der Liste um fehler zu vermeiden
      */
     private void activateSpinner() {
-        Intent intent = getIntent();
-        String methodeAuswahl = intent.getStringExtra(ProzessePageActivity.buttonInhalt);
+        String methodeAuswahl = ProzessePageActivity.buttonInhalt;
 
-        if (methodeAuswahl.equalsIgnoreCase("Sparvertrag")) {
+        if (methodeAuswahl.equalsIgnoreCase(spinnerValues[0])) {
             spinnerProzesse.setSelection(0);
-        } else if (methodeAuswahl.equalsIgnoreCase("Zellwachstum")) {
+        } else if (methodeAuswahl.equalsIgnoreCase(spinnerValues[1])) {
             spinnerProzesse.setSelection(1);
         }
     }
@@ -185,7 +207,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      */
     private void spinnerSettingValues() {
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, spinnerValues);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, spinnerValues);
         spinnerProzesse.setAdapter(adapter);
 
         spinnerProzesse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -206,9 +228,9 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      * um danach die Seite anzupassen
      */
     private void switchungButtons_Tables() {
-        if (spinnerProzesse.getSelectedItem().toString().equals(spinnerValues[0])) {
+        if (spinnerProzesse.getSelectedItem().toString().equalsIgnoreCase(spinnerValues[0])) {
             setSparvertragTable();
-        } else if (spinnerProzesse.getSelectedItem().toString().equals(spinnerValues[1])) {
+        } else if (spinnerProzesse.getSelectedItem().toString().equalsIgnoreCase(spinnerValues[1])) {
             setZellwachstumTable();
         }
     }
@@ -218,11 +240,11 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      */
     private void setZellwachstumTable() {
         isCollapsed = true;
-        spalte2Titel.setText("Zellmenge");
-        spalte1Titel.setText("Tag");
-        textVieweingabeEins.setText("Bitte die Aktuelle Zellmenge eingeben: ");
-        textVieweingabeZwei.setText("Bitte den Wachtumsfaktor eingeben: ");
-        textVieweingabeDrei.setText("Bitte die Laufzeit der Hochrechnung eingeben: ");
+        spalte2Titel.setText(getString(R.string.rechner_page_txtZellmenge));
+        spalte1Titel.setText(getString(R.string.rechner_page_txtDay));
+        textVieweingabeEins.setText(getString(R.string.rechner_page_eingabeZellmenge));
+        textVieweingabeZwei.setText(getString(R.string.rechner_page_eingabeWachstumsfaktor));
+        textVieweingabeDrei.setText(getString(R.string.rechner_page_eingabeLaufzeitZellwachstum));
         spalte3Titel.setText("");
         spalte4Titel.setText("");
         tableLayoutProzesse.setColumnCollapsed(2, isCollapsed);
@@ -234,13 +256,13 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      */
     private void setSparvertragTable() {
         isCollapsed = false;
-        spalte1Titel.setText("Jahr");
-        spalte2Titel.setText("Kapital");
-        spalte3Titel.setText("Zinsbetrag");
-        spalte4Titel.setText("Jahresendbetrag");
-        textVieweingabeEins.setText("Bitte Kapital eingeben: ");
-        textVieweingabeZwei.setText("Bitte den Zinssatz eingeben: ");
-        textVieweingabeDrei.setText("Bitte die Laufzeit in Jahren eingeben: ");
+        spalte1Titel.setText(getString(R.string.rechner_page_txtJahr));
+        spalte2Titel.setText(getString(R.string.rechner_page_txtKapital));
+        spalte3Titel.setText(getString(R.string.rechner_page_txtZinsbetrag));
+        spalte4Titel.setText(getString(R.string.rechner_page_txtJahresendbetrag));
+        textVieweingabeEins.setText(getString(R.string.rechner_page_eingabeKapital));
+        textVieweingabeZwei.setText(getString(R.string.rechner_page_eingabeZinssatz));
+        textVieweingabeDrei.setText(getString(R.string.rechner_page_eingabeLaufzeit));
         tableLayoutProzesse.setColumnCollapsed(2, isCollapsed);
         tableLayoutProzesse.setColumnCollapsed(3, isCollapsed);
     }
@@ -289,10 +311,25 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * die Eigenschafter der zurück Pfeil im Toolbar
+     *
+     * @param item der Pfeil ist ein item und benötigt den Parameter
+     * @return true wenn gecklickt wird
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
         return true;
+    }
+
+    /**
+     * Diese Methode schließt die Tastatur, wird meistens benutzt nachdem man auf einem
+     * Button clickt und die Tastatur danach schließen sollte
+     */
+    private void tastaturSchliessen(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
 }

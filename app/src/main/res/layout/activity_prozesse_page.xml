@@ -11,29 +11,29 @@
         layout="@layout/toolbar"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnWachstumsprozess"
         android:layout_width="0dp"
-        android:layout_height="49dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:background="@drawable/top_right_left_corner_round"
         android:onClick="openProzesseRechnerPage_Sparvertrag"
-        android:text="Sparvertrag"
+        android:text="@string/btn_wachstumsprozess"
         android:textColor="@color/colorBlue"
-        app:layout_constraintEnd_toEndOf="@+id/button4"
-        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="@+id/btnZerfallsprozess"
+        app:layout_constraintStart_toStartOf="@+id/btnZerfallsprozess"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnZerfallsprozess"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_right_left_corner_round"
         android:onClick="openProzessRechnerPage_Zellwachstum"
-        android:text="Zellwachstum"
+        android:text="@string/btn_zerfallsprozess"
         android:textColor="@color/colorBlue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btnWachstumsprozess" />
 </android.support.constraint.ConstraintLayout>
