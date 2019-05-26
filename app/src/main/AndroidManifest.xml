@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/MyTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".matrixClasses.MatrixRechnerActivity"></activity>
         <activity
             android:name=".StartPageActivity"
             android:configChanges="locale"
