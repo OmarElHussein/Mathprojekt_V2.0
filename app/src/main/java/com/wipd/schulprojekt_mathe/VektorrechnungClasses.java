@@ -13,9 +13,9 @@ public class VektorrechnungClasses extends AppCompatActivity {
 
 
     }
-    private editTexta1;
-
-    a1 = findViewById(R.id.a1);
+//    private editTexta1;
+//
+//    a1 = findViewById(R.id.a1);
 
 
 

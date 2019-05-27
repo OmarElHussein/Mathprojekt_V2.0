@@ -149,10 +149,10 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
                 tastaturSchliessen(view);
 
-                if (spinnerProzesse.getSelectedItem().equals(spinnerValues[1])) {
-                    berechneZellwachstum();
-                } else if (spinnerProzesse.getSelectedItem().equals(spinnerValues[0])) {
+                if (spinnerProzesse.getSelectedItem().equals(spinnerValues[0])) {
                     berechneSparvertrag();
+                } else if (spinnerProzesse.getSelectedItem().equals(spinnerValues[1])) {
+                    berechneZellwachstum();
                 }
             } catch (NumberFormatException e) {
                 Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
@@ -283,10 +283,10 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
             double jb = zb + kapital;
             jb = Math.round(jb * 100.) / 100.;
 
+            setTextViewsInTable(i, zb, jb);
+
             kapital = jb;
             kapital = Math.round(kapital * 100.) / 100.;
-
-            setTextViewsInTable(i, zb, jb);
         }
 
     }
