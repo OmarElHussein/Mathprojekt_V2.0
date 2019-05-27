@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wipd.schulprojekt_mathe.DialogClass;
 import com.wipd.schulprojekt_mathe.R;
 
 import java.util.Objects;
@@ -222,6 +223,12 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
         editText_a_quadrat.clearFocus();
         editText_b.clearFocus();
         editText_c.clearFocus();
+    }
+
+    public void infoPqFormel(View view) {
+        DialogClass dg = new DialogClass();
+        dg.customDialog("PQ Formel", "Um eine Gleichung wie z.B:\nx² + 2x + 1 = 0 nach x aufzulösen, setzen wir im nun Folgenden die PQ Formel ein",
+                "Ok", this);
     }
 
     /**

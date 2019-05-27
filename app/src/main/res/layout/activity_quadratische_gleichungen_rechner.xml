@@ -199,4 +199,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnAusrechnen"
         app:layout_constraintTop_toTopOf="@+id/btnAusrechnen" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button_rectangle_shape"
+        android:onClick="infoPqFormel"
+        app:layout_constraintBottom_toTopOf="@+id/editText_c_eingabe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@mipmap/ic_info" />
+
 </android.support.constraint.ConstraintLayout>

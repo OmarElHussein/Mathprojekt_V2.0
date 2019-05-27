@@ -16,6 +16,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wipd.schulprojekt_mathe.DialogClass;
 import com.wipd.schulprojekt_mathe.R;
 
 import java.util.Objects;
