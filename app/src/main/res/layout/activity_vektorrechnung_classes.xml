@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".VektorrechnungClasses">
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="132dp"
+        android:layout_height="33dp"
+        android:text="Löschen"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="301dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="131dp"
+        android:layout_height="36dp"
+        android:text="Neue Eingabe"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="222dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="137dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:text="Eingabe Vektor:"
+        app:layout_constraintBottom_toTopOf="@+id/editTexta3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="12dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="b1"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="b2"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="184dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="b3"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="203dp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="a1"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="94dp" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="a2"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="113dp" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="a3"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="132dp" />
+
+    <EditText
+        android:id="@+id/editTextb3"
+        android:layout_width="123dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="72dp" />
+
+    <EditText
+        android:id="@+id/editTextb2"
+        android:layout_width="125dp"
+        android:layout_height="54dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="151dp" />
+
+    <EditText
+        android:id="@+id/editTexta2"
+        android:layout_width="127dp"
+        android:layout_height="54dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="89dp" />
+
+    <EditText
+        android:id="@+id/editTexta3"
+        android:layout_width="124dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="113dp" />
+
+    <EditText
+        android:id="@+id/editTextb1"
+        android:layout_width="125dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="137dp" />
+
+    <EditText
+        android:id="@+id/editTextb3"
+        android:layout_width="125dp"
+        android:layout_height="63dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="215dp"
+        android:layout_height="25dp"
+        android:text="Multiplikation mit einer Zahl"
+        tools:layout_editor_absoluteX="192dp"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="70dp"
+        android:layout_height="39dp"
+        android:text="Neu"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="72dp" />
+
+    <EditText
+        android:id="@+id/editText16"
+        android:layout_width="118dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="283dp"
+        tools:layout_editor_absoluteY="72dp" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="235dp"
+        android:layout_height="23dp"
+        android:text="Multiplikation mit zweier Vektoren"
+        tools:layout_editor_absoluteX="187dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="68dp"
+        android:layout_height="38dp"
+        android:text="neu"
+        tools:layout_editor_absoluteX="214dp"
+        tools:layout_editor_absoluteY="151dp" />
+
+    <EditText
+        android:id="@+id/editText17"
+        android:layout_width="119dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="282dp"
+        tools:layout_editor_absoluteY="151dp" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="220dp"
+        android:layout_height="23dp"
+        android:text="Addition zweier Vektoren"
+        tools:layout_editor_absoluteX="187dp"
+        tools:layout_editor_absoluteY="190dp" />
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="67dp"
+        android:layout_height="40dp"
+        android:text="neu"
+        tools:layout_editor_absoluteX="214dp"
+        tools:layout_editor_absoluteY="213dp" />
+
+    <EditText
+        android:id="@+id/editText18"
+        android:layout_width="122dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="281dp"
+        tools:layout_editor_absoluteY="213dp" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="215dp"
+        android:layout_height="24dp"
+        android:text="Multi. einer Zahl"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="291dp" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="214dp"
+        android:layout_height="28dp"
+        android:text="Multi. zweier Vektoren"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="351dp" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="217dp"
+        android:layout_height="24dp"
+        android:text="Addi. zweier Vektoren"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="419dp" />
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="115dp"
+        android:layout_height="43dp"
+        android:text="Ergebnis:"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="451dp" />
+
+</android.support.constraint.ConstraintLayout>
