@@ -34,6 +34,8 @@
         <activity
             android:name=".prozesseClasses.ProzessePageActivity"
             android:launchMode="singleTop" />
+        <activity android:name=".matrixClasses.MatrixRechnerActivity"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".matrixClasses.MatrixPageActivity"
             android:launchMode="singleTop" />

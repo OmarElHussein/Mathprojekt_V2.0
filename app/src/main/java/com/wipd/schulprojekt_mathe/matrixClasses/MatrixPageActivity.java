@@ -25,5 +25,6 @@ public class MatrixPageActivity extends AppCompatActivity {
     }
     public void oeffeneMultiplikationZweierMatrizen (View view) {
         Intent intent = new Intent(this, MatrixRechnerActivity.class);
+        startActivity(intent);
     }
 }
