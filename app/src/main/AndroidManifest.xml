@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/MyTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".VektorrechnungClasses"></activity>
+        <activity android:name=".VektorrechnungClasses"/>
         <activity
             android:name=".StartPageActivity"
             android:configChanges="locale"

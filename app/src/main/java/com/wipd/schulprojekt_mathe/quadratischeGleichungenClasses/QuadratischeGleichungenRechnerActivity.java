@@ -171,7 +171,6 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
         d = Math.pow(t, 2);
         d = d - q;
 
-
         if (d >= 0) {
             x1 = -(p / 2) - Math.sqrt(d);
             x2 = (-p / 2) + Math.sqrt(d);
@@ -204,7 +203,6 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
 
         x = Math.round(x * pow) / pow;
         return x;
-
     }
 
     /**
@@ -225,6 +223,9 @@ public class QuadratischeGleichungenRechnerActivity extends AppCompatActivity {
         editText_c.clearFocus();
     }
 
+    /**
+     * Hier wird ein info angezeigt
+     */
     public void infoPqFormel(View view) {
         DialogClass dg = new DialogClass();
         dg.customDialog("PQ Formel", "Um eine Gleichung wie z.B:\nx² + 2x + 1 = 0 nach x aufzulösen, setzen wir im nun Folgenden die PQ Formel ein",

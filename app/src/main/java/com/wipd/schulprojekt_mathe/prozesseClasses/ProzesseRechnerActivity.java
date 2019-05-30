@@ -289,7 +289,6 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
             kapital = jb;
             kapital = Math.round(kapital * 100.) / 100.;
         }
-
     }
 
     /**
@@ -302,14 +301,12 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         setZellwachstumTable();
         tableLayoutProzesse.setVisibility(View.VISIBLE);
 
-
         for (int i = 0; i <= laufzeit; i++) {
             double fx = kapital * Math.pow(zinssatz, i); //kapital == zellmenge, zinssatz == wachtumsfaktor
 
             textViewJahr.setText(textViewJahr.getText().toString() + i + "\n");
             textViewKapital.setText(textViewKapital.getText().toString() + fx + "\n");
         }
-
     }
 
     /**
