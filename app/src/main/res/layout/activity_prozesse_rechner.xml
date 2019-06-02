@@ -1,227 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".prozesseClasses.ProzesseRechnerActivity">
 
-    <android.support.constraint.ConstraintLayout
+    <!--<android.support.constraint.ConstraintLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <Spinner
+        android:id="@+id/spinnerProzesse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_rectangle_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+    <TextView
+        android:id="@+id/textViewEingabeEins"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/rechner_page_eingabeStartwert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <EditText
+        android:id="@+id/editTextKapital"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="115dp"
+        android:background="@drawable/edit_text_rectangle_with_border_shape"
+        android:ems="12"
+        android:inputType="numberSigned|numberDecimal"
+        android:maxLength="12"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewEingabeEins"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEingabeEins" />
+
+    <TextView
+        android:id="@+id/textViewEingabe2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/rechner_page_eingabeWachstumsfaktor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextKapital"
+        app:layout_constraintTop_toBottomOf="@+id/editTextKapital" />
+
+    <EditText
+        android:id="@+id/editTextZinssatz"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="248dp"
+        android:background="@drawable/edit_text_rectangle_with_border_shape"
+        android:ems="8"
+        android:inputType="numberSigned|numberDecimal"
+        android:maxLength="8"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewEingabe2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEingabe2" />
+
+    <TextView
+        android:id="@+id/textViewEingabeDrei"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/rechner_page_eingabeLaufzeit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextZinssatz"
+        app:layout_constraintTop_toBottomOf="@+id/editTextZinssatz" />
+
+    <EditText
+        android:id="@+id/editTextLaufzeit"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="296dp"
+        android:background="@drawable/edit_text_rectangle_with_border_shape"
+        android:ems="2"
+        android:inputType="number"
+        android:maxLength="2"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewEingabeDrei"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEingabeDrei" />
+
+    <ImageButton
+        android:id="@+id/imageButtonCheckProzess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_round_shape"
+        android:onClick="prozessBerechnung"
+        app:layout_constraintEnd_toEndOf="@+id/editTextLaufzeit"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextLaufzeit"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLaufzeit"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="visible">
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
-
-        <Spinner
-            android:id="@+id/spinnerProzesse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/button_rectangle_shape"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-
-        <TextView
-            android:id="@+id/textViewEingabeEins"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="32dp"
-            android:text="@string/rechner_page_eingabeKapital"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-        <EditText
-            android:id="@+id/editTextKapital"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="115dp"
-            android:background="@drawable/edit_text_rectangle_with_border_shape"
-            android:ems="12"
-            android:inputType="numberSigned|numberDecimal"
-            android:maxLength="12"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textViewEingabeEins"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEingabeEins" />
-
-        <TextView
-            android:id="@+id/textViewEingabe2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:text="@string/rechner_page_eingabeZinssatz"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/editTextKapital"
-            app:layout_constraintTop_toBottomOf="@+id/editTextKapital" />
-
-        <EditText
-            android:id="@+id/editTextZinssatz"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="248dp"
-            android:background="@drawable/edit_text_rectangle_with_border_shape"
-            android:ems="5"
-            android:inputType="numberSigned|numberDecimal"
-            android:maxLength="5"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textViewEingabe2"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEingabe2" />
-
-        <TextView
-            android:id="@+id/textViewEingabeDrei"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:text="@string/rechner_page_eingabeLaufzeit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/editTextZinssatz"
-            app:layout_constraintTop_toBottomOf="@+id/editTextZinssatz" />
-
-        <EditText
-            android:id="@+id/editTextLaufzeit"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="296dp"
-            android:background="@drawable/edit_text_rectangle_with_border_shape"
-            android:ems="2"
-            android:inputType="number"
-            android:maxLength="2"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textViewEingabeDrei"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEingabeDrei" />
-
-        <ImageButton
-            android:id="@+id/imageButtonCheckProzess"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/button_round_shape"
-            android:onClick="prozessBerechnung"
-            app:layout_constraintEnd_toEndOf="@+id/editTextLaufzeit"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/editTextLaufzeit"
-            app:layout_constraintTop_toBottomOf="@+id/editTextLaufzeit"
-            app:srcCompat="@mipmap/ic_check" />
-
-        <TableLayout
-            android:id="@+id/tableProzesse"
+        <HorizontalScrollView
+            android:id="@+id/tableScroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButtonCheckProzess">
+            android:background="@drawable/edit_text_rectangle_with_border_shape"
+            android:paddingStart="1dp"
+            android:paddingEnd="20dp"
+            android:visibility="invisible">
 
-            <TableRow>
+            <TableLayout
+                android:id="@+id/tableProzesse"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="0dp"
+                android:paddingStart="1dp"
+                android:paddingEnd="1dp"
+                android:visibility="invisible">
 
-                <TextView
-                    android:id="@+id/spalte1Titel"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="2"
-                    android:background="@color/colorDarkWhite"
-                    android:text="@string/rechner_page_txtJahr"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="16sp" />
+                <TableRow>
 
-                <TextView
-                    android:id="@+id/spalte2Titel"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="2"
-                    android:background="@color/colorDarkWhite"
-                    android:text="@string/rechner_page_txtKapital"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/spalte1Titel"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@color/colorDarkWhite"
+                        android:padding="5dp"
+                        android:text="@string/rechner_page_txtSchritte"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/spalte3Titel"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="2"
-                    android:background="@color/colorDarkWhite"
-                    android:text="@string/rechner_page_txtZinsbetrag"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/spalte2Titel"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@color/colorDarkWhite"
+                        android:padding="5dp"
+                        android:text="@string/rechner_page_txtStartwert"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/spalte4Titel"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="2"
-                    android:background="@color/colorDarkWhite"
-                    android:text="@string/rechner_page_txtJahresendbetrag"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/spalte3Titel"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@color/colorDarkWhite"
+                        android:padding="5dp"
+                        android:text="@string/rechner_page_txtWachstumswert"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="16sp" />
 
-
-            </TableRow>
-
-
-            <TableRow>
-
-                <TextView
-                    android:id="@+id/textViewJahr"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="2" />
-
-                <TextView
-                    android:id="@+id/textViewKapital"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2" />
-
-                <TextView
-                    android:id="@+id/textViewZinsbetrag"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2" />
-
-                <TextView
-                    android:id="@+id/textViewJahresendbetrag"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2" />
-            </TableRow>
+                    <TextView
+                        android:id="@+id/spalte4Titel"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@color/colorDarkWhite"
+                        android:padding="5dp"
+                        android:text="@string/rechner_page_txtEndwert"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="16sp" />
 
 
-        </TableLayout>
+                </TableRow>
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="32dp"
-            android:background="@drawable/button_round_shape"
-            android:onClick="deleteDataFromPage"
-            app:layout_constraintBottom_toBottomOf="@+id/imageButtonCheckProzess"
-            app:layout_constraintStart_toEndOf="@+id/imageButtonCheckProzess"
-            app:layout_constraintTop_toTopOf="@+id/imageButtonCheckProzess"
-            app:srcCompat="@mipmap/ic_clear" />
 
-    </android.support.constraint.ConstraintLayout>
+                <TableRow>
 
-</ScrollView>
+                    <TextView
+                        android:id="@+id/textViewJahr"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+
+                    <TextView
+                        android:id="@+id/textViewKapital"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+
+                    <TextView
+                        android:id="@+id/textViewZinsbetrag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+
+                    <TextView
+                        android:id="@+id/textViewJahresendbetrag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+                </TableRow>
+
+
+            </TableLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/button_round_shape"
+        android:onClick="deleteDataFromPage"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonCheckProzess"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonCheckProzess"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonCheckProzess"
+        app:srcCompat="@drawable/ic_clear" />
+
+</android.support.constraint.ConstraintLayout>
+
+    <!--</ScrollView>-->

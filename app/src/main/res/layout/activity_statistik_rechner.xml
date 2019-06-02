@@ -84,7 +84,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/editTextInputs"
             app:layout_constraintStart_toEndOf="@+id/editTextInputs"
             app:layout_constraintTop_toTopOf="@+id/editTextInputs"
-            app:srcCompat="@mipmap/ic_check"
+            app:srcCompat="@drawable/ic_check"
             tools:ignore="ContentDescription" />
 
         <ImageButton
@@ -97,7 +97,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/editTextInputSize"
             app:layout_constraintStart_toEndOf="@+id/editTextInputSize"
             app:layout_constraintTop_toTopOf="@+id/editTextInputSize"
-            app:srcCompat="@mipmap/ic_check"
+            app:srcCompat="@drawable/ic_check"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -144,7 +144,7 @@
             android:onClick="clearAll"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/spinnerStatistik"
-            app:srcCompat="@mipmap/ic_refresh"
+            app:srcCompat="@drawable/ic_refresh"
             tools:ignore="ContentDescription" />
 
     </android.support.constraint.ConstraintLayout>

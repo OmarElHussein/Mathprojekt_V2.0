@@ -15,12 +15,10 @@ import android.view.View;
 
 import com.wipd.schulprojekt_mathe.matrixClasses.MatrixPageActivity;
 import com.wipd.schulprojekt_mathe.prozesseClasses.ProzessePageActivity;
-//import com.wipd.schulprojekt_mathe.settingsManager.SettingsActivity;
 import com.wipd.schulprojekt_mathe.quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity;
 import com.wipd.schulprojekt_mathe.statistikClasses.StatistikPageActivity;
 
 import java.util.Locale;
-//import com.wipd.schulprojekt_mathe.vektorenClasses.VektorenPageActivty;
 
 
 public class StartPageActivity extends AppCompatActivity {
@@ -114,10 +112,10 @@ public class StartPageActivity extends AppCompatActivity {
      * Öffnet eine Page auf ButtonClick
      * @param view nötig um die Methode zu Zeigen und funkionieren zulassen
      */
-    // public void openVektorenPageActivity(View view){
-    //     Intent intent = new Intent(this, VektorenPageActivty.class);
-    //    startActivity(intent);
-    //}
+     public void openVektorenPageActivity(View view){
+        Intent intent = new Intent(this, VektorrechnungClasses.class);
+        startActivity(intent);
+    }
 
     /**
      * Öffnet eine Page auf ButtonClick

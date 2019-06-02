@@ -68,7 +68,7 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="@+id/editText_Zweiter_Array"
         app:layout_constraintTop_toBottomOf="@+id/editText_Zweiter_Array"
-        app:srcCompat="@mipmap/ic_check" />
+        app:srcCompat="@drawable/ic_check" />
 
 
 </android.support.constraint.ConstraintLayout>

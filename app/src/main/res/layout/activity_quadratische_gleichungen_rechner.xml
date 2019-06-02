@@ -210,6 +210,6 @@
         android:onClick="infoPqFormel"
         app:layout_constraintBottom_toTopOf="@+id/editText_c_eingabe"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@mipmap/ic_info" />
+        app:srcCompat="@drawable/ic_info" />
 
 </android.support.constraint.ConstraintLayout>

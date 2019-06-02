@@ -45,7 +45,7 @@
             android:background="@drawable/button_round_shape"
             android:contentDescription="@string/processes"
             android:onClick="openProzessePageActivity"
-            android:src="@mipmap/ic_prozesse"
+            android:src="@drawable/ic_prozesse"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +59,7 @@
             android:background="@drawable/button_round_shape"
             android:contentDescription="Statistik"
             android:onClick="openStatistikPageActivity"
-            android:src="@mipmap/ic_statistik"
+            android:src="@drawable/ic_statistik"
             app:layout_constraintEnd_toStartOf="@+id/btnProzesse"
             app:layout_constraintTop_toBottomOf="@+id/btnProzesse" />
 
@@ -71,7 +71,7 @@
             android:background="@drawable/button_round_shape"
             android:contentDescription="Quadratische Gleichungen"
             android:onClick="openQuadratischeGleichungenPageActivity"
-            android:src="@mipmap/ic_math"
+            android:src="@drawable/ic_math"
             app:layout_constraintStart_toEndOf="@+id/btnProzesse"
             app:layout_constraintTop_toBottomOf="@+id/btnProzesse" />
 
@@ -83,7 +83,8 @@
             android:background="@drawable/button_round_shape"
             android:contentDescription="Vektoren"
 
-            android:src="@mipmap/ic_quadratische_gleichungen"
+            android:onClick="openVektorenPageActivity"
+            android:src="@drawable/ic_vektoren"
             app:layout_constraintEnd_toStartOf="@+id/btnQuadratischeGleichungen"
             app:layout_constraintStart_toEndOf="@+id/btnStatistik"
             app:layout_constraintTop_toBottomOf="@+id/btnStatistik" />
@@ -98,7 +99,7 @@
             android:background="@drawable/button_rectangle_shape"
             android:contentDescription="Matrix"
             android:onClick="openMatirxPageActivty"
-            android:src="@mipmap/ic_matrix"
+            android:src="@drawable/ic_matrix"
             app:layout_constraintEnd_toEndOf="@+id/btnQuadratischeGleichungen"
             app:layout_constraintStart_toStartOf="@+id/btnStatistik"
             app:layout_constraintTop_toBottomOf="@+id/btnVektoren" />

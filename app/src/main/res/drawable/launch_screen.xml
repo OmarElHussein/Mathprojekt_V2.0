@@ -9,8 +9,8 @@
     </item>
 
     <item>
-        <bitmap android:src="@drawable/ic_androidwithheart"
-            android:gravity="center" />
+        <bitmap android:src="@drawable/android_with_heart__1_"
+            android:gravity="center"/>
     </item>
 
 </layer-list>

@@ -61,6 +61,18 @@ public class ProzessePageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openProzessRechnerPage_expoWachstum(View view) {
+        Intent intent = new Intent(this, ProzesseRechnerActivity.class);
+        buttonInhalt = getString(R.string.btn_expo_growth);
+        startActivity(intent);
+    }
+
+    public void openProzessRechnerPage_expoZerfall(View view) {
+        Intent intent = new Intent(this, ProzesseRechnerActivity.class);
+        buttonInhalt = getString(R.string.btn_expo_decay);
+        startActivity(intent);
+    }
+
     /**
      * Die eigenschaften von das zurück Pfeil Top von den Toolbar
      * @param item benötigt den item

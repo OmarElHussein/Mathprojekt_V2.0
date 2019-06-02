@@ -1,7 +1,9 @@
 package com.wipd.schulprojekt_mathe;
 
+import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,12 +16,6 @@ public class VektorrechnungClasses extends AppCompatActivity {
      * deklarieren und Importieren
      */
 
-    private Button buttonNeu;
-    private Button buttonBestaetigen;
-    private Button buttonBestaetigen2;
-    private Button buttonNewEingabe;
-    private Button buttonLoeschen;
-    private Button buttonErgebnis;
     private EditText editTextArray2;
     private EditText editTextZahl;
     private EditText editTextVektor;
@@ -29,8 +25,8 @@ public class VektorrechnungClasses extends AppCompatActivity {
     private EditText editTextErgebnisVektor;
     private int groesse;
     private int i = 0, j = 0;
-    private double vektorA[];
-    private double vektorB[];
+    private double[] vektorA;
+    private double[] vektorB;
 
 
     /**
@@ -39,6 +35,9 @@ public class VektorrechnungClasses extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_vektorrechnung_classes);
+
         editTextVektor = findViewById(R.id.editTextVektor);
         editTextErgebnis2Vektor = findViewById(R.id.editTextErgebnis2Vektor);
         editTextErgebnisZahl = findViewById(R.id.editTextErgebnisZahl);
@@ -46,9 +45,6 @@ public class VektorrechnungClasses extends AppCompatActivity {
         editTextArray2 = findViewById(R.id.editTextArray2);
         editTextZahl = findViewById(R.id.editTextZahl);
         editTextVektor2 = findViewById(R.id.editTextVektor2);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vektorrechnung_classes);
-
 
     }
 
@@ -114,7 +110,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
          * Zbs. VektorA * Zahl = ErgebnisZahl
          */
 
-        double summe[] = new double[groesse];
+        double[] summe = new double[groesse];
         double multiplikation = 0;
         try {
             /** Rechnung Vektor mit/* einer Zahl */
@@ -135,7 +131,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
          * ((VektorA) + (VektorB) * Zahl = ErgebnisZahl
          */
 
-        double summe1[] = new double[groesse];
+        double[] summe1 = new double[groesse];
         try{
             /** Rechnung mit zweier Vektoren * Zahl */
 
@@ -152,7 +148,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
          * (VektorA) + (VektorB) = ErgebnisZahl
          */
 
-        double summe3[] = new double[groesse];
+        double[] summe3 = new double[groesse];
         try{
             /** Rechnung mit Addition zweier Vektoren
              *
@@ -168,5 +164,3 @@ public class VektorrechnungClasses extends AppCompatActivity {
         }
 
     }
-
-

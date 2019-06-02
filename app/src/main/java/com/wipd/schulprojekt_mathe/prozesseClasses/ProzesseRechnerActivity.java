@@ -11,12 +11,12 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.HorizontalScrollView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.wipd.schulprojekt_mathe.DialogClass;
 import com.wipd.schulprojekt_mathe.R;
 
 import java.util.Objects;
@@ -25,6 +25,7 @@ import java.util.Objects;
 public class ProzesseRechnerActivity extends AppCompatActivity {
 
     private EditText editTextKapital, editTextZinssatz, editTextLaufzeit;
+    private HorizontalScrollView tableScroll;
 
     private TextView textViewJahr, textViewKapital, textViewZinsbetrag, textViewJahresendbetrag;
     private TextView spalte1Titel, spalte2Titel, spalte3Titel, spalte4Titel;
@@ -40,10 +41,10 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     private boolean isCollapsed = false;
 
     private String[] spinnerValues;
-
+    private String pageTitle;
 
     /**
-     * Die Darstellung oder Kreatierung und die Verbindung zwischen
+     * Die Erstellung und die Verbindung zwischen
      * die Klasse und die dazu gehörige Layout Datei
      *
      * @param savedInstanceState um speicher zu können
@@ -57,7 +58,8 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        String pageTitle = ProzessePageActivity.buttonInhalt;
+
+        pageTitle = ProzessePageActivity.buttonInhalt;
         getSupportActionBar().setTitle(pageTitle);
 
         viewsInitzialisieren();
@@ -86,6 +88,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         spalte4Titel = findViewById(R.id.spalte4Titel);
 
         spinnerProzesse = findViewById(R.id.spinnerProzesse);
+        tableScroll = findViewById(R.id.tableScroll);
 
         textVieweingabeEins = findViewById(R.id.textViewEingabeEins);
         textVieweingabeZwei = findViewById(R.id.textViewEingabe2);
@@ -99,9 +102,11 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      * Initialisiert Variablen aus String Resourcen
      */
     private void stringValuesInitialisation() {
-        String sparvertag = getString(R.string.btn_wachstumsprozess);
-        String zellwachstum = getString(R.string.btn_zerfallsprozess);
-        spinnerValues = new String[]{sparvertag, zellwachstum};
+        String wachstumsProzess = getString(R.string.btn_wachstumsprozess);
+        String zerfallsProzess = getString(R.string.btn_zerfallsprozess);
+        String expoWachstumsProzess = getString(R.string.btn_expo_growth);
+        String expoZerfallsProzess = getString(R.string.btn_expo_decay);
+        spinnerValues = new String[]{wachstumsProzess, zerfallsProzess, expoWachstumsProzess, expoZerfallsProzess};
     }
 
     /**
@@ -150,10 +155,14 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
                 tastaturSchliessen(view);
 
-                if (spinnerProzesse.getSelectedItem().equals(spinnerValues[0])) {
-                    berechneSparvertrag();
-                } else if (spinnerProzesse.getSelectedItem().equals(spinnerValues[1])) {
-                    berechneZellwachstum();
+                if (spinnerProzesse.getSelectedItem().equals(getString(R.string.btn_wachstumsprozess))) {
+                    berechneWachstumsprozess();
+                } else if (spinnerProzesse.getSelectedItem().equals(getString(R.string.btn_zerfallsprozess))) {
+                    berechneZerfallsprozess();
+                } else if (spinnerProzesse.getSelectedItem().equals(getString(R.string.btn_expo_growth))) {
+                    berechneExpo_wachstum();
+                } else if (spinnerProzesse.getSelectedItem().equals(getString(R.string.btn_expo_decay))) {
+                    berechneExpo_zerfall();
                 }
             } catch (NumberFormatException e) {
                 Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
@@ -184,6 +193,10 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
             spinnerProzesse.setSelection(0);
         } else if (methodeAuswahl.equalsIgnoreCase(spinnerValues[1])) {
             spinnerProzesse.setSelection(1);
+        } else if (methodeAuswahl.equalsIgnoreCase(spinnerValues[2])) {
+            spinnerProzesse.setSelection(2);
+        } else if (methodeAuswahl.equalsIgnoreCase(spinnerValues[3])) {
+            spinnerProzesse.setSelection(3);
         }
     }
 
@@ -215,6 +228,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switchungButtons_Tables();
+                Objects.requireNonNull(getSupportActionBar()).setTitle(spinnerProzesse.getSelectedItem().toString());
             }
 
             @Override
@@ -229,20 +243,24 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
      * um danach die Seite anzupassen
      */
     private void switchungButtons_Tables() {
-        if (spinnerProzesse.getSelectedItem().toString().equalsIgnoreCase(spinnerValues[0])) {
-            setSparvertragTable();
-        } else if (spinnerProzesse.getSelectedItem().toString().equalsIgnoreCase(spinnerValues[1])) {
-            setZellwachstumTable();
+        if (spinnerProzesse.getSelectedItem().equals(getString(R.string.btn_wachstumsprozess))) {
+            setWachstumsTable();
+        } else if (spinnerProzesse.getSelectedItem().toString().equals(getString(R.string.btn_zerfallsprozess))) {
+            setZerfallsTable();
+        } else if (spinnerProzesse.getSelectedItem().toString().equals(getString(R.string.btn_expo_growth))) {
+            setWachstumsTable();
+        } else if (spinnerProzesse.getSelectedItem().toString().equals(getString(R.string.btn_expo_decay))) {
+            setZerfallsTable();
         }
     }
 
     /**
      * Hier werden die Texte für die Zellwachstum Seite angepasst (Tabelle und Text)
      */
-    private void setZellwachstumTable() {
+    private void setZerfallsTable() {
         isCollapsed = true;
-        spalte2Titel.setText(getString(R.string.rechner_page_txtZellmenge));
-        spalte1Titel.setText(getString(R.string.rechner_page_txtDay));
+        spalte2Titel.setText(getString(R.string.rechner_page_txtMenge));
+        spalte1Titel.setText(getString(R.string.rechner_page_txtTime));
         textVieweingabeEins.setText(getString(R.string.rechner_page_eingabeZellmenge));
         textVieweingabeZwei.setText(getString(R.string.rechner_page_eingabeWachstumsfaktor));
         textVieweingabeDrei.setText(getString(R.string.rechner_page_eingabeLaufzeitZellwachstum));
@@ -255,13 +273,13 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     /**
      * Hier werden die Texte für die Sparvertrag Seite angepasst (Tabelle und Text)
      */
-    private void setSparvertragTable() {
+    private void setWachstumsTable() {
         isCollapsed = false;
-        spalte1Titel.setText(getString(R.string.rechner_page_txtJahr));
-        spalte2Titel.setText(getString(R.string.rechner_page_txtKapital));
-        spalte3Titel.setText(getString(R.string.rechner_page_txtZinsbetrag));
-        spalte4Titel.setText(getString(R.string.rechner_page_txtJahresendbetrag));
-        textVieweingabeEins.setText(getString(R.string.rechner_page_eingabeKapital));
+        spalte1Titel.setText(getString(R.string.rechner_page_txtSchritte));
+        spalte2Titel.setText(getString(R.string.rechner_page_txtStartwert));
+        spalte3Titel.setText(getString(R.string.rechner_page_txtWachstumswert));
+        spalte4Titel.setText(getString(R.string.rechner_page_txtEndwert));
+        textVieweingabeEins.setText(getString(R.string.rechner_page_eingabeStartwert));
         textVieweingabeZwei.setText(getString(R.string.rechner_page_eingabeZinssatz));
         textVieweingabeDrei.setText(getString(R.string.rechner_page_eingabeLaufzeit));
         tableLayoutProzesse.setColumnCollapsed(2, isCollapsed);
@@ -271,12 +289,13 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     /**
      * Die berechnung von Sparvertäge Prozessen
      */
-    private void berechneSparvertrag() {
+    private void berechneWachstumsprozess() {
 
         clearFocus();
         resetTextViews();
-        setSparvertragTable();
+        setWachstumsTable();
         tableLayoutProzesse.setVisibility(View.VISIBLE);
+        tableScroll.setVisibility(View.VISIBLE);
 
         for (int i = 1; i <= laufzeit; i++) {
             double zb = (zinssatz * kapital) / 100;
@@ -284,25 +303,60 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
             double jb = zb + kapital;
             jb = Math.round(jb * 100.) / 100.;
 
-            setTextViewsInTable(i, zb, jb);
-
             kapital = jb;
             kapital = Math.round(kapital * 100.) / 100.;
+
+            setTextViewsInTable(i, zb, jb);
         }
     }
 
     /**
      * Die berechnung von Zellwachstum Prozessen
      */
-    private void berechneZellwachstum() {
-
+    private void berechneZerfallsprozess() {
         clearFocus();
         resetTextViews();
-        setZellwachstumTable();
+        setWachstumsTable();
         tableLayoutProzesse.setVisibility(View.VISIBLE);
+        tableScroll.setVisibility(View.VISIBLE);
+
+        for (int i = 1; i <= laufzeit; i++) {
+            double zb = (-zinssatz * kapital) / 100;
+            zb = Math.round(zb * 100.) / 100.;
+            double jb = kapital + zb;
+            jb = Math.round(jb * 100.) / 100.;
+
+            kapital = jb;
+            kapital = Math.round(kapital * 100.) / 100.;
+
+            setTextViewsInTable(i, zb, jb);
+        }
+    }
+
+    private void berechneExpo_wachstum() {
+        clearFocus();
+        resetTextViews();
+        setZerfallsTable();
+        tableLayoutProzesse.setVisibility(View.VISIBLE);
+        tableScroll.setVisibility(View.VISIBLE);
 
         for (int i = 0; i <= laufzeit; i++) {
             double fx = kapital * Math.pow(zinssatz, i); //kapital == zellmenge, zinssatz == wachtumsfaktor
+
+            textViewJahr.setText(textViewJahr.getText().toString() + i + "\n");
+            textViewKapital.setText(textViewKapital.getText().toString() + fx + "\n");
+        }
+    }
+
+    private void berechneExpo_zerfall() {
+        clearFocus();
+        resetTextViews();
+        setZerfallsTable();
+        tableLayoutProzesse.setVisibility(View.VISIBLE);
+        tableScroll.setVisibility(View.VISIBLE);
+
+        for (int i = 0; i <= laufzeit; i++) {
+            double fx = kapital * Math.pow(zinssatz, -i); //kapital == zellmenge, zinssatz == wachtumsfaktor
 
             textViewJahr.setText(textViewJahr.getText().toString() + i + "\n");
             textViewKapital.setText(textViewKapital.getText().toString() + fx + "\n");

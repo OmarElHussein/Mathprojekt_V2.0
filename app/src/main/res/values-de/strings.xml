@@ -18,18 +18,18 @@
     <string name="btn_wachstumsprozess">Wachstumsprozess</string>
     <string name="btn_zerfallsprozess">Zerfallsprozess</string>
     <string name="fill_fields_message">Bitte Felder ausfüllen</string>
-    <string name="rechner_page_txtJahr">Jahr</string>
-    <string name="rechner_page_eingabeKapital">"Bitte Kapital eingeben: "</string>
-    <string name="rechner_page_eingabeZinssatz">"Bitte den Zinssatz eingeben: "</string>
-    <string name="rechner_page_txtJahresendbetrag">Jahresendbetrag</string>
-    <string name="rechner_page_txtKapital">Kapital</string>
-    <string name="rechner_page_txtZinsbetrag">Zinsbetrag</string>
-    <string name="rechner_page_eingabeLaufzeit">"Bitte die Laufzeit in Jahren eingeben: "</string>
-    <string name="rechner_page_eingabeLaufzeitZellwachstum">Bitte die Laufzeit der Hochrechnung in Tagen angeben:</string>
+    <string name="rechner_page_txtSchritte">Schritt</string>
+    <string name="rechner_page_eingabeStartwert">"Bitte Startwert eingeben: "</string>
+    <string name="rechner_page_eingabeZinssatz">"Bitte den Wachstumsfaktor eingeben: "</string>
+    <string name="rechner_page_txtEndwert">Endwert</string>
+    <string name="rechner_page_txtStartwert">Startwert</string>
+    <string name="rechner_page_txtWachstumswert">Wachstum in %</string>
+    <string name="rechner_page_eingabeLaufzeit">"Bitte die Laufzeit eingeben: "</string>
+    <string name="rechner_page_eingabeLaufzeitZellwachstum">Bitte die Laufzeit der Hochrechnung angeben:</string>
     <string name="rechner_page_eingabeWachstumsfaktor">Bitte den Wachstumsfaktor eingeben:</string>
-    <string name="rechner_page_eingabeZellmenge">Bitte die Aktuelle Zellmenge eingeben:</string>
-    <string name="rechner_page_txtDay">Tag</string>
-    <string name="rechner_page_txtZellmenge">Zellmenge</string>
+    <string name="rechner_page_eingabeZellmenge">Bitte die Menge eingeben:</string>
+    <string name="rechner_page_txtTime">Zeit</string>
+    <string name="rechner_page_txtMenge">Wachstumsmenge</string>
     <string name="btnMedian">Median</string>
     <string name="btnAlles">Alles Zusammen</string>
     <string name="btnArithmeticMean">Arithmetisches Mittel</string>
@@ -60,4 +60,6 @@
     <string name="strpage_matrix">Matrix</string>
     <string name="rechner_statistik_text_zahlGeben">"Geben Sie die "</string>
     <string name="rechner_statistik_textZahlNachCounter">".Zahl ein: "</string>
+    <string name="btn_expo_decay">Exponentielle Abnahme - Zerfall</string>
+    <string name="btn_expo_growth">Exponentielle Zunahme - Wachstum</string>
 </resources>
