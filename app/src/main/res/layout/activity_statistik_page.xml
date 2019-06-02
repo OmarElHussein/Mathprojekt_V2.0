@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonMinimum" />
 
         <Button
-            android:id="@+id/buttonLöschen"
+            android:id="@+id/buttonLoeschen"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button_without_corners_middle"
@@ -74,10 +74,10 @@
             android:onClick="openStatistikRechner_btnGeometrischesMittel"
             android:text="@string/btnGeometricMedium"
             android:textColor="@color/colorBlue"
-            app:layout_constraintEnd_toEndOf="@+id/buttonLöschen"
+            app:layout_constraintEnd_toEndOf="@+id/buttonLoeschen"
             app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="@+id/buttonLöschen"
-            app:layout_constraintTop_toBottomOf="@+id/buttonLöschen" />
+            app:layout_constraintStart_toStartOf="@+id/buttonLoeschen"
+            app:layout_constraintTop_toBottomOf="@+id/buttonLoeschen" />
 
         <Button
             android:id="@+id/button6"

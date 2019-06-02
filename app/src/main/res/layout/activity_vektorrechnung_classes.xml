@@ -7,12 +7,12 @@
     tools:context=".VektorrechnungClasses">
 
     <Button
-        android:id="@+id/buttonBestätigen"
+        android:id="@+id/buttonBestaetigen"
         android:layout_width="131dp"
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="setButtonBestätigen"
+        android:onClick="setButtonBestaetigen"
         android:text="Bestätigen"
         app:layout_constraintBottom_toTopOf="@+id/editTextVektor"
         app:layout_constraintTop_toBottomOf="@+id/editTextArray2"
@@ -39,23 +39,23 @@
         tools:layout_editor_absoluteY="407dp" />
 
     <Button
-        android:id="@+id/buttonLöschen"
+        android:id="@+id/buttonLoeschen"
         android:layout_width="132dp"
         android:layout_height="33dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="setButtonLöschen"
+        android:onClick="setButtonLoeschen"
         android:text="Löschen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonNewEingabe"
         tools:layout_editor_absoluteX="26dp" />
 
     <Button
-        android:id="@+id/buttonBestätigen2"
+        android:id="@+id/buttonBestaetigen2"
         android:layout_width="131dp"
         android:layout_height="36dp"
         android:layout_marginBottom="8dp"
-        android:onClick="setButtonBestätigen2"
+        android:onClick="setButtonBestaetigen2"
         android:text="Bestätigen"
         app:layout_constraintBottom_toTopOf="@+id/buttonNewEingabe"
         tools:layout_editor_absoluteX="21dp" />
@@ -175,7 +175,7 @@
         android:layout_marginBottom="72dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/buttonBestätigen2"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBestaetigen2"
         app:layout_constraintEnd_toStartOf="@+id/textView20"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

@@ -15,10 +15,10 @@ public class VektorrechnungClasses extends AppCompatActivity {
      */
 
     private Button buttonNeu;
-    private Button buttonBestätigen;
-    private Button buttonBestätigen2;
+    private Button buttonBestaetigen;
+    private Button buttonBestaetigen2;
     private Button buttonNewEingabe;
-    private Button buttonLöschen;
+    private Button buttonLoeschen;
     private Button buttonErgebnis;
     private EditText editTextArray2;
     private EditText editTextZahl;
@@ -39,6 +39,13 @@ public class VektorrechnungClasses extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        editTextVektor = findViewById(R.id.editTextVektor);
+        editTextErgebnis2Vektor = findViewById(R.id.editTextErgebnis2Vektor);
+        editTextErgebnisZahl = findViewById(R.id.editTextErgebnisZahl);
+        editTextErgebnisVektor = findViewById(R.id.editTextErgebnisVektor);
+        editTextArray2 = findViewById(R.id.editTextArray2);
+        editTextZahl = findViewById(R.id.editTextZahl);
+        editTextVektor2 = findViewById(R.id.editTextVektor2);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vektorrechnung_classes);
 
@@ -50,7 +57,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
 
     }
 
-    public void setButtonBestätigen(View view) {
+    public void setButtonBestaetigen(View view) {
         /** Eingabe Vektor in Array
          */
         groesse = Integer.parseInt(editTextArray2.getText().toString());
@@ -59,7 +66,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
         vektorB = new double[groesse];
     }
 
-    public void setButtonBestätigen2(View view) {
+    public void setButtonBestaetigen2(View view) {
         /** Eingabe Vektor A und Vektor B Speichern
          * */
         try {
@@ -90,7 +97,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
         editTextArray2.setText(" ");
     }
 
-    public void setButtonLöschen(View view) {
+    public void setButtonLoeschen(View view) {
         /** Löscht alle Felder + Ergebnis */
 
         editTextArray2.setText(" ");
