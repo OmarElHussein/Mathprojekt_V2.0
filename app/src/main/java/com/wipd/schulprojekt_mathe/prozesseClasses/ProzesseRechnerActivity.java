@@ -17,6 +17,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wipd.schulprojekt_mathe.DialogClass;
 import com.wipd.schulprojekt_mathe.R;
 
 import java.util.Objects;
@@ -42,6 +43,8 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
 
     private String[] spinnerValues;
     private String pageTitle;
+
+
 
     /**
      * Die Erstellung und die Verbindung zwischen
@@ -383,5 +386,15 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
+    public void buttonInfo(View view){
+        DialogClass info = new DialogClass();
+
+        info.customDialog("Exponentielles Wachstum", "Bei der Exponentialfunktion steht die Variable x oder manchmal auch n im Exponenten. Die allgemeine Form einer Exponentialfunktion lautet: \uD835\uDC53(\uD835\uDC65)=\uD835\uDC50⋅\uD835\u2093\uD835\uDC65 oder\n" +
+                "\uD835\uDC53(\uD835\uDC5B)=\uD835\uDC50⋅\uD835\uDC4E\uD835\uDC5B", "OK", this);
+
+
+    }
+
 
 }
