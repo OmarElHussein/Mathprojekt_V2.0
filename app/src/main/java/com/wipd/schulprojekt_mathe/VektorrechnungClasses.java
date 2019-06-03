@@ -49,7 +49,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
     }
 
     public void buttonNeu(View view) {
-        editTextZahl.setText(" ");
+        editTextZahl.setText("");
 
     }
 
@@ -88,21 +88,21 @@ public class VektorrechnungClasses extends AppCompatActivity {
     public void setButtonNewEingabe(View view) {
         /** Löscht die Eingabe */
 
-        editTextVektor.setText(" ");
-        editTextVektor2.setText(" ");
-        editTextArray2.setText(" ");
+        editTextVektor.setText("");
+        editTextVektor2.setText("");
+        editTextArray2.setText("");
     }
 
     public void setButtonLoeschen(View view) {
         /** Löscht alle Felder + Ergebnis */
 
-        editTextArray2.setText(" ");
-        editTextZahl.setText(" ");
-        editTextVektor.setText(" ");
-        editTextVektor2.setText(" ");
-        editTextErgebnisZahl.setText(" ");
-        editTextErgebnis2Vektor.setText(" ");
-        editTextErgebnisVektor.setText(" ");
+        editTextArray2.setText("");
+        editTextZahl.setText("");
+        editTextVektor.setText("");
+        editTextVektor2.setText("");
+        editTextErgebnisZahl.setText("");
+        editTextErgebnis2Vektor.setText("");
+        editTextErgebnisVektor.setText("");
     }
 
     public void setButtonErgebnis(View view) {
@@ -111,7 +111,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
          */
 
         double[] summe = new double[groesse];
-        double multiplikation = 0;
+        double multiplikation = 1;
         try {
             /** Rechnung Vektor mit/* einer Zahl */
 
@@ -156,7 +156,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
 
             for (int i = 0; i < groesse; i ++){
                 summe3[i] = vektorA[i] + vektorB[i];
-                editTextVektor.setText("Summe: " + summe3[i] + "\n");
+                editTextErgebnisVektor.setText("Summe: " + summe3[i] + "\n");
             }
         } catch (NumberFormatException e1) {
             Toast.makeText(this, "Sicher?", Toast.LENGTH_SHORT).show();

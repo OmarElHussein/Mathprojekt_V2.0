@@ -142,10 +142,10 @@
         android:id="@+id/buttonErgebnis"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:onClick="setButtonErgebnis"
         android:text="Ergebnis:"
         app:layout_constraintEnd_toEndOf="@+id/buttonLoeschen"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/buttonLoeschen"
         app:layout_constraintTop_toBottomOf="@+id/buttonLoeschen" />
 
