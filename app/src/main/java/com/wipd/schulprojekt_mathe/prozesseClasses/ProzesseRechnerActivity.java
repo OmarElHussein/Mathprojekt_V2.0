@@ -88,7 +88,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         spalte4Titel = findViewById(R.id.spalte4Titel);
 
         spinnerProzesse = findViewById(R.id.spinnerProzesse);
-        tableScroll = findViewById(R.id.tableScroll);
+        tableScroll = findViewById(R.id.horizontalScroll);
 
         textVieweingabeEins = findViewById(R.id.textViewEingabeEins);
         textVieweingabeZwei = findViewById(R.id.textViewEingabe2);

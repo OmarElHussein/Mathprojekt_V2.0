@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".prozesseClasses.ProzesseRechnerActivity">
@@ -125,8 +126,8 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextLaufzeit"
         app:srcCompat="@drawable/ic_check" />
 
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/tableScroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -138,26 +139,24 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        app:layout_constraintVertical_bias="0.0"
-        tools:visibility="visible">
+        tools:visibility="invisible">
 
         <HorizontalScrollView
-            android:id="@+id/tableScroll"
+            android:id="@+id/horizontalScroll"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_rectangle_with_border_shape"
+            android:layout_height="match_parent"
             android:paddingStart="1dp"
-            android:paddingEnd="20dp"
-            android:visibility="invisible">
+            android:paddingEnd="20dp">
 
             <TableLayout
                 android:id="@+id/tableProzesse"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="1dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="0dp"
+                android:background="@drawable/edit_text_rectangle_with_border_shape"
                 android:paddingStart="1dp"
                 android:paddingEnd="1dp"
                 android:visibility="invisible">
@@ -240,8 +239,10 @@
 
 
             </TableLayout>
+
         </HorizontalScrollView>
-    </ScrollView>
+
+    </android.support.v4.widget.NestedScrollView>
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -257,4 +258,4 @@
 
 </android.support.constraint.ConstraintLayout>
 
-    <!--</ScrollView>-->
+    <!--</android.support.constraint.ConstraintLayout>-->

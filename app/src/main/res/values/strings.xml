@@ -52,7 +52,6 @@
     <string name="rechner_statistik_ausgabe_spannweite">The range is:</string>
     <string name="rechner_statistik_ausgabe_arithmetischesMittel">The Arithmetic Mean is:</string>
     <string name="rechner_statistik_ausgabe_geoMetrischesMittel">The Geometric Medium is:</string>
-    <string name="rechner_statistik_ausgabe_geoMittelNoSolutionTxt">The Geometric Medium has no solution!</string>
     <string name="rechner_statistik_ausgabe_median">The Median is:</string>
     <string name="rechner_statistik_ausgabe_modus">The Modal is:</string>
     <string name="rechner_statistik_ausgabe_varianz">The variance is:</string>
@@ -62,4 +61,5 @@
     <string name="rechner_statistik_textZahlNachCounter">. number</string>
     <string name="btn_expo_growth">Exponential growth</string>
     <string name="btn_expo_decay">Exponential decrease - decay</string>
+    <string name="number">Number</string>
 </resources>

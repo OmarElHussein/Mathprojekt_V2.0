@@ -1,5 +1,6 @@
 package com.wipd.schulprojekt_mathe.statistikClasses;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,13 +29,19 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private String statistik_button_dateien, ausgabe, endAusgabe;
     private String[] spinnerValues;
 
+    private TableLayout tableStatistik;
+    private TableLayout tableStatistikAusgaben;
+    private TextView textViewMaxErgebnis, textViewMinErgebnis, textViewArMittelErgebnis, textViewGeoMittelErgebnis,
+                    textViewSpannweiteErgebnis, textViewMedianErgebnis, textViewModalErgebnis, textViewVarianzErgebnis,
+                    textViewStandAbweichungErgebnis, textViewZaehler;
+
 
     private boolean clearBtnActive = false;
     private boolean isFieldFilled = false;
     private boolean spinnerIsOn = true;
 
     private ImageButton btnCheckInputs, btnCheckInputSize;
-    private TextView textViewInfoCounter, textViewStatistikErgebnis;
+    private TextView textViewInfoCounter;
     private Spinner spinnerStatistik;
 
 
@@ -45,9 +53,26 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         toolbarEigenschaften();
 
         komponente_Initzialisieren();
+        table_komponente_Initialisieren();
 
         setSpinner_layout_Values();
 
+    }
+
+    private void table_komponente_Initialisieren() {
+        tableStatistik = findViewById(R.id.tableStatistik);
+        tableStatistikAusgaben = findViewById(R.id.tableStatistikAusgaben);
+
+        textViewMaxErgebnis = findViewById(R.id.textViewErgebnisMax);
+        textViewMinErgebnis = findViewById(R.id.textViewErgebnisMin);
+        textViewArMittelErgebnis = findViewById(R.id.textViewErgebnisArMittel);
+        textViewGeoMittelErgebnis = findViewById(R.id.textViewErgebnisGeoMittel);
+        textViewSpannweiteErgebnis= findViewById(R.id.textViewErgebnisSpannweite);
+        textViewMedianErgebnis = findViewById(R.id.textViewErgebnisMedian);
+        textViewModalErgebnis = findViewById(R.id.textViewErgebnisModus);
+        textViewStandAbweichungErgebnis = findViewById(R.id.textViewErgebnisStandAbweichung);
+        textViewVarianzErgebnis = findViewById(R.id.textViewErgebnisVarianz);
+        textViewZaehler = findViewById(R.id.textViewErgebnisZaehler);
     }
 
     private void komponente_Initzialisieren() {
@@ -58,7 +83,6 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         btnCheckInputSize = findViewById(R.id.imageButtonCheckInputSize);
 
         textViewInfoCounter = findViewById(R.id.textViewInfoCounter);
-        textViewStatistikErgebnis = findViewById(R.id.textViewStatistikErgebnis);
 
         spinnerStatistik = findViewById(R.id.spinnerStatistik);
 
@@ -112,11 +136,13 @@ public class StatistikRechnerActivity extends AppCompatActivity {
      * Hier werden die inputs von dem Benutzer in eine Array gespeichert
      * und eine Ausgabe (Zähler) erstellt
      */
+    @SuppressLint("SetTextI18n")
     public void checkInputs(View view) {
 
         if ((editTextInputs.getText().length() > 0) && !(i > arraySize - 1)) {
             try {
                 numbers[i] = Double.parseDouble(editTextInputs.getText().toString());
+                textViewZaehler.setText(textViewZaehler.getText() + "" + numbers[i] + "\n");
                 i++;
                 if (i < arraySize) {
                     ausgabe = getString(R.string.rechner_statistik_text_zahlGeben) + (i + 1) + getString(R.string.rechner_statistik_textZahlNachCounter);
@@ -135,7 +161,9 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
         if (i == arraySize) {
             buttonSuchen_methodeAusfuehren(spinnerStatistik.getSelectedItem().toString());
-            textViewStatistikErgebnis.setVisibility(View.VISIBLE);
+            tableStatistik.setVisibility(View.VISIBLE);
+            tableStatistikAusgaben.setVisibility(View.VISIBLE);
+
 
             editTextInputs.setEnabled(false);
             btnCheckInputSize.setEnabled(false);
@@ -159,7 +187,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             checkInputSize(view);
             checkInputs(view);
 
-            textViewStatistikErgebnis.setVisibility(View.INVISIBLE);
+            tableStatistik.setVisibility(View.INVISIBLE);
+            tableStatistikAusgaben.setVisibility(View.INVISIBLE);
             btnCheckInputSize.setEnabled(true);
             editTextInputs.setEnabled(true);
         }
@@ -168,16 +197,16 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private double maximumNummerSuchen() {
         Arrays.sort(numbers);
         double zahl = numbers[arraySize - 1];
-        endAusgabe = getString(R.string.rechner_statistik_ausgabe_biggestNumber) + zahl;
-        textViewStatistikErgebnis.setText(endAusgabe);
+        endAusgabe = Double.toString(zahl);
+        textViewMaxErgebnis.setText(endAusgabe);
         return zahl;
     }
 
     private double minimumNummerSuchen() {
         Arrays.sort(numbers);
         double zahl = numbers[0];
-        endAusgabe = getString(R.string.rechner_statistik_ausgabe_kleinsteZahl) + zahl;
-        textViewStatistikErgebnis.setText(endAusgabe);
+        endAusgabe = Double.toString(zahl);
+        textViewMinErgebnis.setText(endAusgabe);
         return zahl;
     }
 
@@ -188,8 +217,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         } else {
             range = maximumNummerSuchen() - minimumNummerSuchen();
         }
-        endAusgabe = getString(R.string.rechner_statistik_ausgabe_spannweite) + range;
-        textViewStatistikErgebnis.setText(endAusgabe);
+        endAusgabe = Double.toString(range);
+        textViewSpannweiteErgebnis.setText(endAusgabe);
         return range;
     }
 
@@ -199,8 +228,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             aMittel += number;
         }
         aMittel /= numbers.length;
-        endAusgabe = getString(R.string.rechner_statistik_ausgabe_arithmetischesMittel) + aMittel;
-        textViewStatistikErgebnis.setText(endAusgabe);
+        endAusgabe = Double.toString(aMittel);
+        textViewArMittelErgebnis.setText(endAusgabe);
         return aMittel;
     }
 
@@ -214,11 +243,11 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
         if (gMittel > 0) {
             gMittel = Math.pow(gMittel, (double) 1 / numbers.length);
-            output = getString(R.string.rechner_statistik_ausgabe_geoMetrischesMittel) + gMittel;
-            textViewStatistikErgebnis.setText(output);
+            output = Double.toString(gMittel);
+            textViewGeoMittelErgebnis.setText(output);
         } else {
-            output = getString(R.string.rechner_statistik_ausgabe_geoMittelNoSolutionTxt);
-            textViewStatistikErgebnis.setText(output);
+            output = getString(R.string.rechner_qg_text_keineLoesung);
+            textViewGeoMittelErgebnis.setText(output);
         }
         return output;
     }
@@ -232,12 +261,12 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             median2 = numbers[numbers.length / 2];
             median += median2;
             median /= 2;
-            endAusgabe = getString(R.string.rechner_statistik_ausgabe_median) + median;
-            textViewStatistikErgebnis.setText(endAusgabe);
+            endAusgabe = Double.toString(median);
+            textViewMedianErgebnis.setText(endAusgabe);
         } else {
             median = numbers[numbers.length / 2];
-            endAusgabe = getString(R.string.rechner_statistik_ausgabe_median) + median;
-            textViewStatistikErgebnis.setText(endAusgabe);
+            endAusgabe = Double.toString(median);
+            textViewMedianErgebnis.setText(endAusgabe);
         }
         return median;
     }
@@ -259,8 +288,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                 modcount = count;
             }
         }
-        endAusgabe = getString(R.string.rechner_statistik_ausgabe_modus) + mod;
-        textViewStatistikErgebnis.setText(endAusgabe);
+        endAusgabe = Double.toString(mod);
+        textViewModalErgebnis.setText(endAusgabe);
         return mod;
     }
 
@@ -270,30 +299,46 @@ public class StatistikRechnerActivity extends AppCompatActivity {
             varianz += Math.pow(number - arithmetischesMittelBerechnen(), 2);
         }
         varianz /= numbers.length;
-        endAusgabe = getString(R.string.rechner_statistik_ausgabe_varianz) + varianz;
-        textViewStatistikErgebnis.setText(endAusgabe);
+        endAusgabe = Double.toString(varianz);
+        textViewVarianzErgebnis.setText(endAusgabe);
         return varianz;
     }
 
     private double standardabweichungBerechnen() {
         double standardabweichung;
         standardabweichung = Math.sqrt(varianzBerechnen());
-        endAusgabe = getString(R.string.rechner_statistik_ausgabe_standardabweichung) + standardabweichung;
-        textViewStatistikErgebnis.setText(endAusgabe);
+        endAusgabe = Double.toString(standardabweichung);
+        textViewStandAbweichungErgebnis.setText(endAusgabe);
         return standardabweichung;
     }
 
     private void alleszusammenBerechnen() {
-        String ausgabe = getString(R.string.rechner_statistik_ausgabe_biggestNumber) + maximumNummerSuchen() +
-                "\n" + getString(R.string.rechner_statistik_ausgabe_kleinsteZahl) + minimumNummerSuchen() +
-                "\n" + getString(R.string.rechner_statistik_ausgabe_spannweite) + spannweiteBerechnen() +
-                "\n" + getString(R.string.rechner_statistik_ausgabe_arithmetischesMittel) + arithmetischesMittelBerechnen() +
-                "\n" + geometrischesMittelBerechnen() +
-                "\n" + getString(R.string.rechner_statistik_ausgabe_median) + medianBerechnen() +
-                "\n" + getString(R.string.rechner_statistik_ausgabe_modus) + modusBerechnen() +
-                "\n" + getString(R.string.rechner_statistik_ausgabe_varianz) + varianzBerechnen() +
-                "\n" + getString(R.string.rechner_statistik_ausgabe_standardabweichung) + standardabweichungBerechnen();
-        textViewStatistikErgebnis.setText(ausgabe);
+        String max = Double.toString(maximumNummerSuchen());
+        textViewMaxErgebnis.setText(max);
+
+        String min = Double.toString(minimumNummerSuchen());
+        textViewMinErgebnis.setText(min);
+
+        String arMittel = Double.toString(arithmetischesMittelBerechnen());
+        textViewArMittelErgebnis.setText(arMittel);
+
+        String geoMittel = geometrischesMittelBerechnen();
+        textViewGeoMittelErgebnis.setText(geoMittel);
+
+        String varianz = Double.toString(varianzBerechnen());
+        textViewVarianzErgebnis.setText(varianz);
+
+        String spannweite = Double.toString(spannweiteBerechnen());
+        textViewSpannweiteErgebnis.setText(spannweite);
+
+        String standAbweichung = Double.toString(standardabweichungBerechnen());
+        textViewStandAbweichungErgebnis.setText(standAbweichung);
+
+        String modus = Double.toString(modusBerechnen());
+        textViewModalErgebnis.setText(modus);
+
+        String median = Double.toString(medianBerechnen());
+        textViewMedianErgebnis.setText(median);
     }
 
     /**

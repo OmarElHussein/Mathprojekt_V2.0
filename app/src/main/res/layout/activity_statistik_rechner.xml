@@ -1,152 +1,343 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".statistikClasses.StatistikRechnerActivity">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!--<android.support.constraint.ConstraintLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
-        <Spinner
-            android:id="@+id/spinnerStatistik"
+    <Spinner
+        android:id="@+id/spinnerStatistik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_rectangle_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/rechner_statistik_frage_zahleneingabe"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <EditText
+        android:id="@+id/editTextInputSize"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_rectangle_with_border_shape"
+        android:ems="3"
+        android:inputType="number"
+        android:maxLength="3"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="Autofill,LabelFor" />
+
+    <EditText
+        android:id="@+id/editTextInputs"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_rectangle_with_border_shape"
+        android:ems="6"
+        android:inputType="numberSigned|numberDecimal"
+        android:maxLength="6"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/textViewInfoCounter"
+        app:layout_constraintTop_toBottomOf="@+id/textViewInfoCounter"
+        tools:ignore="Autofill,LabelFor" />
+
+    <ImageButton
+        android:id="@+id/imageButtonCheckInputSize"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/button_round_shape"
+        android:onClick="checkInputs"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextInputs"
+        app:layout_constraintStart_toEndOf="@+id/editTextInputs"
+        app:layout_constraintTop_toTopOf="@+id/editTextInputs"
+        app:srcCompat="@drawable/ic_check"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/imageButtonCheckInputs"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/button_round_shape"
+        android:onClick="checkInputSize"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextInputSize"
+        app:layout_constraintStart_toEndOf="@+id/editTextInputSize"
+        app:layout_constraintTop_toTopOf="@+id/editTextInputSize"
+        app:srcCompat="@drawable/ic_check"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textViewInfoCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/rechner_statistik_counter_eingabe"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/editTextInputSize"
+        app:layout_constraintTop_toBottomOf="@+id/editTextInputSize" />
+
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_round_shape"
+        android:onClick="clearAll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spinnerStatistik"
+        app:srcCompat="@drawable/ic_refresh"
+        tools:ignore="ContentDescription" />
+
+    <ScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nestedScrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonCheckInputSize"
+        app:layout_constraintTop_toTopOf="@+id/nestedScrollView2">
+
+        <TableLayout
+            android:id="@+id/tableStatistik"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/button_rectangle_shape"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="120dp"
-            android:layout_marginEnd="32dp"
-            android:text="@string/rechner_statistik_frage_zahleneingabe"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar" />
-
-        <EditText
-            android:id="@+id/editTextInputSize"
-            android:layout_width="64dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
             android:background="@drawable/edit_text_rectangle_with_border_shape"
-            android:ems="3"
-            android:inputType="number"
-            android:maxLength="3"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            tools:ignore="Autofill,LabelFor" />
+            tools:visibility="invisible">
 
-        <EditText
-            android:id="@+id/editTextInputs"
-            android:layout_width="64dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/edit_text_rectangle_with_border_shape"
-            android:ems="6"
-            android:inputType="numberSigned|numberDecimal"
-            android:maxLength="6"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:textSize="20sp"
-            android:visibility="invisible"
-            app:layout_constraintStart_toStartOf="@+id/textViewInfoCounter"
-            app:layout_constraintTop_toBottomOf="@+id/textViewInfoCounter"
-            tools:ignore="Autofill,LabelFor" />
+            <TableRow tools:ignore="UselessParent">
 
-        <ImageButton
-            android:id="@+id/imageButtonCheckInputSize"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="32dp"
-            android:background="@drawable/button_round_shape"
-            android:onClick="checkInputs"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/editTextInputs"
-            app:layout_constraintStart_toEndOf="@+id/editTextInputs"
-            app:layout_constraintTop_toTopOf="@+id/editTextInputs"
-            app:srcCompat="@drawable/ic_check"
-            tools:ignore="ContentDescription" />
+                <TextView
+                    android:id="@+id/textViewZahl"
+                    android:layout_weight="2"
+                    android:padding="5dp"
+                    android:text="@string/number" />
 
-        <ImageButton
-            android:id="@+id/imageButtonCheckInputs"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="32dp"
-            android:background="@drawable/button_round_shape"
-            android:onClick="checkInputSize"
-            app:layout_constraintBottom_toBottomOf="@+id/editTextInputSize"
-            app:layout_constraintStart_toEndOf="@+id/editTextInputSize"
-            app:layout_constraintTop_toTopOf="@+id/editTextInputSize"
-            app:srcCompat="@drawable/ic_check"
-            tools:ignore="ContentDescription" />
+                <TextView
+                    android:id="@+id/textViewErgebnisZaehler"
+                    android:layout_weight="3"
+                    android:padding="5dp" />
 
-        <TextView
-            android:id="@+id/textViewInfoCounter"
-            android:layout_width="wrap_content"
+            </TableRow>
+
+        </TableLayout>
+
+    </ScrollView>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="40dp"
+        android:fillViewport="true"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nestedScrollView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextInputs">
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="64dp"
-            android:text="@string/rechner_statistik_counter_eingabe"
-            android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            android:visibility="invisible"
-            app:layout_constraintStart_toStartOf="@+id/editTextInputSize"
-            app:layout_constraintTop_toBottomOf="@+id/editTextInputSize" />
+            tools:layout_editor_absoluteX="7dp"
+            tools:layout_editor_absoluteY="124dp">
+
+            <TableLayout
+                android:id="@+id/tableStatistikAusgaben"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/edit_text_rectangle_with_border_shape"
+                android:nextFocusLeft="@id/tableStatistik"
+                android:orientation="vertical"
+                android:visibility="invisible">
+
+                <TableRow android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/textViewTitleMax"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:text="@string/btnMax" />
+
+                    <TextView
+                        android:id="@+id/textViewErgebnisMax"
+                        android:layout_width="128dp"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/textViewTitleMin"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:text="@string/btnMinimum" />
+
+                    <TextView
+                        android:id="@+id/textViewErgebnisMin"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/textViewTitleArMittel"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:text="@string/btnArithmeticMean" />
+
+                    <TextView
+                        android:id="@+id/textViewErgebnisArMittel"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/textViewTitleGeoMittel"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:text="@string/btnGeometricMedium" />
+
+                    <TextView
+                        android:id="@+id/textViewErgebnisGeoMittel"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/textViewTitleSpannweite"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:text="@string/btnSpannweite" />
+
+                    <TextView
+                        android:id="@+id/textViewErgebnisSpannweite"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/textViewTitleMedian"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:text="@string/btnMedian" />
+
+                    <TextView
+                        android:id="@+id/textViewErgebnisMedian"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/textViewTitleModus"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:text="@string/btnModal" />
+
+                    <TextView
+                        android:id="@+id/textViewErgebnisModus"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/textViewTitleVarianz"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:text="@string/btnVariance" />
+
+                    <TextView
+                        android:id="@+id/textViewErgebnisVarianz"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+                <TableRow android:padding="5dp">
+
+                    <TextView
+                        android:id="@+id/textViewTitleStandAbweichung"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:text="@string/btnStandardabweichung" />
+
+                    <TextView
+                        android:id="@+id/textViewErgebnisStandAbweichung"
+                        android:layout_weight="2"
+                        android:padding="5dp" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </HorizontalScrollView>
+
+    </android.support.v4.widget.NestedScrollView>
 
 
-        <TextView
-            android:id="@+id/textViewStatistikErgebnis"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="64dp"
-            android:layout_marginBottom="32dp"
-            android:fontFamily="casual"
-            android:text="Die Größte Zahl ist: xx"
-            android:textColor="@color/colorBlue"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textViewInfoCounter"
-            app:layout_constraintTop_toBottomOf="@+id/editTextInputs"
-            tools:ignore="HardcodedText" />
+</android.support.constraint.ConstraintLayout>
 
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/button_round_shape"
-            android:onClick="clearAll"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/spinnerStatistik"
-            app:srcCompat="@drawable/ic_refresh"
-            tools:ignore="ContentDescription" />
-
-    </android.support.constraint.ConstraintLayout>
-
-</ScrollView>
+    <!--</android.support.constraint.ConstraintLayout>-->

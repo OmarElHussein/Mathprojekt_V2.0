@@ -48,7 +48,6 @@
     <string name="rechner_statistik_ausgabe_arithmetischesMittel">"Das Arithmetische Mittel ist: "</string>
     <string name="rechner_statistik_ausgabe_biggestNumber">"Die größte Zahl ist: "</string>
     <string name="rechner_statistik_ausgabe_geoMetrischesMittel">"Das Geometrische Mittel ist: "</string>
-    <string name="rechner_statistik_ausgabe_geoMittelNoSolutionTxt">Das Geometrische Mittel hat keine Lösung!</string>
     <string name="rechner_statistik_ausgabe_kleinsteZahl">"Die kleinste Zahl ist: "</string>
     <string name="rechner_statistik_ausgabe_median">"Der Median ist: "</string>
     <string name="rechner_statistik_ausgabe_modus">"Der Modalwert ist: "</string>
@@ -62,4 +61,5 @@
     <string name="rechner_statistik_textZahlNachCounter">".Zahl ein: "</string>
     <string name="btn_expo_decay">Exponentielle Abnahme - Zerfall</string>
     <string name="btn_expo_growth">Exponentielle Zunahme - Wachstum</string>
+    <string name="number">Zahl</string>
 </resources>
