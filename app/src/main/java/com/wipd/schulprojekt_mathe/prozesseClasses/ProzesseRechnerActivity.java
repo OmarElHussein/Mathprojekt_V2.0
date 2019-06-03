@@ -164,8 +164,6 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
                     berechneZerfallsprozess();
                 } else if (spinnerProzesse.getSelectedItem().equals(getString(R.string.btn_expo_growth))) {
                     berechneExpo_wachstum();
-                } else if (spinnerProzesse.getSelectedItem().equals(getString(R.string.btn_expo_decay))) {
-                    berechneExpo_zerfall();
                 }
             } catch (NumberFormatException e) {
                 Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
@@ -351,7 +349,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         }
     }
 
-    private void berechneExpo_zerfall() {
+    /*private void berechneExpo_zerfall() {
         clearFocus();
         resetTextViews();
         setZerfallsTable();
@@ -364,7 +362,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
             textViewJahr.setText(textViewJahr.getText().toString() + i + "\n");
             textViewKapital.setText(textViewKapital.getText().toString() + fx + "\n");
         }
-    }
+    }*/
 
     /**
      * die Eigenschafter der zurück Pfeil im Toolbar
@@ -388,6 +386,16 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
     }
 
     public void buttonInfo(View view){
+        if(pageTitle.equalsIgnoreCase(getString(R.string.btn_expo_growth))){
+            infoExonentiellesWachstum();
+        }else if (pageTitle.equalsIgnoreCase(getString(R.string.btn_expo_decay))) {
+
+
+        }
+
+    }
+
+    private void infoExonentiellesWachstum(){
         DialogClass info = new DialogClass();
 
         info.customDialog("Exponentielles Wachstum", "Bei der Exponentialfunktion steht die Variable x oder manchmal auch n im Exponenten. Die allgemeine Form einer Exponentialfunktion lautet: \uD835\uDC53(\uD835\uDC65)=\uD835\uDC50⋅\uD835\u2093\uD835\uDC65 oder\n" +
