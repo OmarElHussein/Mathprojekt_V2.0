@@ -10,65 +10,319 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-    <EditText
-        android:id="@+id/editText_Erste_Array"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:text="Geben Sie Anzahl von Artikeln"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="100dp"
+        android:text="Fülle die folgende Daten aus"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="44dp"
-        android:text="Anzahl der Kunden"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.083"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/editText_Erste_Array" />
-
-    <EditText
-        android:id="@+id/editText_Zweiter_Array"
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="@+id/editText_Erste_Array"
-        app:layout_constraintStart_toStartOf="@+id/editText_Erste_Array"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Zeile: "
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/editTextEingabeZeile"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Spalte:"
+        android:textAlignment="textEnd"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintEnd_toStartOf="@+id/editTextEingabeSpalte"
+        app:layout_constraintStart_toEndOf="@+id/editTextEingabeZeile"
+        app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+    <EditText
+        android:id="@+id/editTextEingabeZeile"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/edit_text_rectangle_with_border_shape"
+        android:ems="5"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:padding="5dp"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+    <EditText
+        android:id="@+id/editTextEingabeSpalte"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_rectangle_with_border_shape"
+        android:ems="5"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/colorBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
 
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/button_rectangle_shape"
-        app:layout_constraintEnd_toEndOf="@+id/editText_Zweiter_Array"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="@+id/editText_Zweiter_Array"
-        app:layout_constraintTop_toBottomOf="@+id/editText_Zweiter_Array"
+        android:onClick="matrixGroesseSpeicher"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEingabeSpalte"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEingabeSpalte"
         app:srcCompat="@drawable/ic_check" />
 
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/matrixRechnerSecondConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2">
+
+        <Button
+            android:id="@+id/button15"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/button_rectangle_shape"
+            android:onClick="ergebnisseMatrizen"
+            android:text="\uff1d"
+            app:layout_constraintBottom_toBottomOf="@+id/button14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button14"
+            app:layout_constraintTop_toTopOf="@+id/button14" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:text="x"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextEineZahlMatrix"
+            app:layout_constraintEnd_toStartOf="@+id/editTextEineZahlMatrix"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextEineZahlMatrix" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="64dp"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+            app:layout_constraintEnd_toStartOf="@+id/scrollView2"
+            app:layout_constraintStart_toStartOf="@+id/editTextEingabeWerte"
+            app:layout_constraintTop_toTopOf="@+id/scrollView2"
+            app:srcCompat="@drawable/brackets_grouping_symbol" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="@+id/editTextEingabeWerte"
+            app:layout_constraintStart_toEndOf="@+id/scrollView2"
+            app:layout_constraintTop_toTopOf="@+id/scrollView2"
+            app:srcCompat="@drawable/brackets_grouping_symbol_turned" />
+
+        <ScrollView
+            android:id="@+id/scrollView3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEingabeWerte">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableLayout
+                    android:id="@+id/tableLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_rectangle_with_border_shape">
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/titleMatrixEins"
+                            android:layout_weight="2"
+                            android:padding="5dp"
+                            android:text="Matrix Eins"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/titleMatrixZwei"
+                            android:layout_weight="2"
+                            android:padding="5dp"
+                            android:text="Matrix Zwei"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/titleMatrixErgebnis"
+                            android:layout_weight="2"
+                            android:padding="5dp"
+                            android:text="Matrix Ergebnis"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14sp" />
+
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/matrixEinsAusgabe"
+                            android:layout_weight="2"
+                            android:padding="5dp"
+                            android:textColor="@color/colorBlue"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/matrixZweiAusgabe"
+                            android:layout_weight="2"
+                            android:padding="5dp"
+                            android:textColor="@color/colorBlue"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/matrixErgebnisAusgabe"
+                            android:layout_weight="2"
+                            android:padding="5dp"
+                            android:textColor="@color/colorBlue"
+                            android:textSize="14sp" />
+
+                    </TableRow>
+
+                </TableLayout>
+            </HorizontalScrollView>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/button14"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_rectangle_shape"
+            android:onClick="matrixWerteSpeichern"
+            android:text="\u2713"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/editTextEingabeWerte"
+            app:layout_constraintTop_toTopOf="@+id/editTextEingabeWerte" />
+
+        <TextView
+            android:id="@+id/textViewMatrixEingabeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Geben Sie die Werte ein: "
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextEingabeWerte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_text_rectangle_with_border_shape"
+            android:ems="10"
+            android:imeOptions="actionDone"
+            android:inputType="numberSigned|numberDecimal"
+            android:padding="5dp"
+            android:textColor="@color/colorBlue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/textViewMatrixEingabeTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMatrixEingabeTitle" />
+
+        <EditText
+            android:id="@+id/editTextEineZahlMatrix"
+            android:layout_width="0dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/edit_text_rectangle_with_border_shape"
+            android:ems="10"
+            android:inputType="numberSigned|numberDecimal"
+            android:padding="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextEingabeWerte"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEingabeWerte" />
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEingabeWerte">
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center">
+
+                <TextView
+                    android:id="@+id/textViewHilfeMatrix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="matrix" />
+            </HorizontalScrollView>
+        </ScrollView>
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

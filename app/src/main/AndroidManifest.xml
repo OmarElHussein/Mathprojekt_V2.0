@@ -11,47 +11,57 @@
         android:supportsRtl="true"
         android:theme="@style/MyTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".VektorrechnungClasses"/>
+        <activity android:name=".VektorrechnungClasses" />
         <activity
             android:name=".StartPageActivity"
             android:configChanges="locale"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".quadratischeGleichungenClasses.QuadratischeGleichungenRechnerActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:configChanges="locale"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".quadratischeGleichungenClasses.QuadratischeGleichungenPageActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:configChanges="locale"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".statistikClasses.StatistikRechnerActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:configChanges="locale"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".statistikClasses.StatistikPageActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:configChanges="locale"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".prozesseClasses.ProzesseRechnerActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:configChanges="locale"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".prozesseClasses.ProzessePageActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".matrixClasses.MatrixRechnerActivity"
+            android:configChanges="locale"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".matrixClasses.MatrixRechnerActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:configChanges="locale"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".matrixClasses.MatrixPageActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:configChanges="locale"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:configChanges="locale"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

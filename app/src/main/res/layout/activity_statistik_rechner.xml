@@ -130,7 +130,9 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="120dp"
         app:layout_constraintBottom_toBottomOf="@+id/nestedScrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButtonCheckInputSize"
@@ -168,7 +170,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="40dp"
         android:fillViewport="true"
         android:padding="5dp"
@@ -191,17 +193,19 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="0dp"
                 android:background="@drawable/edit_text_rectangle_with_border_shape"
-                android:nextFocusLeft="@id/tableStatistik"
                 android:orientation="vertical"
                 android:visibility="invisible">
 
-                <TableRow android:padding="5dp">
+                <TableRow
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
                     <TextView
                         android:id="@+id/textViewTitleMax"
                         android:layout_weight="2"
                         android:padding="5dp"
-                        android:text="@string/btnMax" />
+                        android:text="@string/btnMax"
+                        android:textColor="@color/colorBlack" />
 
                     <TextView
                         android:id="@+id/textViewErgebnisMax"
@@ -217,7 +221,8 @@
                         android:id="@+id/textViewTitleMin"
                         android:layout_weight="2"
                         android:padding="5dp"
-                        android:text="@string/btnMinimum" />
+                        android:text="@string/btnMinimum"
+                        android:textColor="@color/colorBlack" />
 
                     <TextView
                         android:id="@+id/textViewErgebnisMin"
@@ -232,7 +237,8 @@
                         android:id="@+id/textViewTitleArMittel"
                         android:layout_weight="2"
                         android:padding="5dp"
-                        android:text="@string/btnArithmeticMean" />
+                        android:text="@string/btnArithmeticMean"
+                        android:textColor="@color/colorBlack" />
 
                     <TextView
                         android:id="@+id/textViewErgebnisArMittel"
@@ -247,7 +253,8 @@
                         android:id="@+id/textViewTitleGeoMittel"
                         android:layout_weight="2"
                         android:padding="5dp"
-                        android:text="@string/btnGeometricMedium" />
+                        android:text="@string/btnGeometricMedium"
+                        android:textColor="@color/colorBlack" />
 
                     <TextView
                         android:id="@+id/textViewErgebnisGeoMittel"
@@ -262,7 +269,8 @@
                         android:id="@+id/textViewTitleSpannweite"
                         android:layout_weight="2"
                         android:padding="5dp"
-                        android:text="@string/btnSpannweite" />
+                        android:text="@string/btnSpannweite"
+                        android:textColor="@color/colorBlack" />
 
                     <TextView
                         android:id="@+id/textViewErgebnisSpannweite"
@@ -277,7 +285,8 @@
                         android:id="@+id/textViewTitleMedian"
                         android:layout_weight="2"
                         android:padding="5dp"
-                        android:text="@string/btnMedian" />
+                        android:text="@string/btnMedian"
+                        android:textColor="@color/colorBlack" />
 
                     <TextView
                         android:id="@+id/textViewErgebnisMedian"
@@ -292,7 +301,8 @@
                         android:id="@+id/textViewTitleModus"
                         android:layout_weight="2"
                         android:padding="5dp"
-                        android:text="@string/btnModal" />
+                        android:text="@string/btnModal"
+                        android:textColor="@color/colorBlack" />
 
                     <TextView
                         android:id="@+id/textViewErgebnisModus"
@@ -307,7 +317,8 @@
                         android:id="@+id/textViewTitleVarianz"
                         android:layout_weight="2"
                         android:padding="5dp"
-                        android:text="@string/btnVariance" />
+                        android:text="@string/btnVariance"
+                        android:textColor="@color/colorBlack" />
 
                     <TextView
                         android:id="@+id/textViewErgebnisVarianz"
@@ -322,7 +333,8 @@
                         android:id="@+id/textViewTitleStandAbweichung"
                         android:layout_weight="2"
                         android:padding="5dp"
-                        android:text="@string/btnStandardabweichung" />
+                        android:text="@string/btnStandardabweichung"
+                        android:textColor="@color/colorBlack" />
 
                     <TextView
                         android:id="@+id/textViewErgebnisStandAbweichung"

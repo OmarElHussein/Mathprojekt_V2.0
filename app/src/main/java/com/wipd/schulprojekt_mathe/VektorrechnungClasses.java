@@ -54,7 +54,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
     }
 
     public void setButtonBestaetigen(View view) {
-        /** Eingabe Vektor in Array
+        /* Eingabe Vektor in Array
          */
         groesse = Integer.parseInt(editTextArray2.getText().toString());
         System.out.println("Die Array Größe ist: " + groesse);
@@ -63,7 +63,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
     }
 
     public void setButtonBestaetigen2(View view) {
-        /** Eingabe Vektor A und Vektor B Speichern
+        /* Eingabe Vektor A und Vektor B Speichern
          * */
         try {
             if (editTextVektor.getText().length() > 0 && i < groesse) {
@@ -86,7 +86,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
     }
 
     public void setButtonNewEingabe(View view) {
-        /** Löscht die Eingabe */
+        /* Löscht die Eingabe */
 
         editTextVektor.setText("");
         editTextVektor2.setText("");
@@ -94,7 +94,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
     }
 
     public void setButtonLoeschen(View view) {
-        /** Löscht alle Felder + Ergebnis */
+        /* Löscht alle Felder + Ergebnis */
 
         editTextArray2.setText("");
         editTextZahl.setText("");
@@ -106,14 +106,14 @@ public class VektorrechnungClasses extends AppCompatActivity {
     }
 
     public void setButtonErgebnis(View view) {
-        /** Multiplikation mit einer Zahl
+        /* Multiplikation mit einer Zahl
          * Zbs. VektorA * Zahl = ErgebnisZahl
          */
 
         double[] summe = new double[groesse];
         double multiplikation = 1;
         try {
-            /** Rechnung Vektor mit/* einer Zahl */
+            /* Rechnung Vektor mit/* einer Zahl */
 
             for (int i = 0; i < groesse; i++) {
                 summe[i] = (vektorA[i] * multiplikation);
@@ -127,13 +127,13 @@ public class VektorrechnungClasses extends AppCompatActivity {
         }catch (NumberFormatException e1) {
             Toast.makeText(this, "Sicher?", Toast.LENGTH_SHORT).show();
         }
-        /** Multiplikation mit zweier Vektoren
+        /* Multiplikation mit zweier Vektoren
          * ((VektorA) + (VektorB) * Zahl = ErgebnisZahl
          */
 
         double[] summe1 = new double[groesse];
         try{
-            /** Rechnung mit zweier Vektoren * Zahl */
+            /* Rechnung mit zweier Vektoren * Zahl */
 
             for(int i = 0; i < groesse; i ++){
                 summe1[i] = vektorA[i] * vektorB[i];
@@ -144,13 +144,13 @@ public class VektorrechnungClasses extends AppCompatActivity {
             Toast.makeText(this, "Sicher?", Toast.LENGTH_SHORT).show();
         }
 
-        /** Addition zweier Vektoren
+        /* Addition zweier Vektoren
          * (VektorA) + (VektorB) = ErgebnisZahl
          */
 
         double[] summe3 = new double[groesse];
         try{
-            /** Rechnung mit Addition zweier Vektoren
+            /* Rechnung mit Addition zweier Vektoren
              *
              */
 
