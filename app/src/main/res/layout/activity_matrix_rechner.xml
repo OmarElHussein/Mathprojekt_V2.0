@@ -325,4 +325,18 @@
         </ScrollView>
     </android.support.constraint.ConstraintLayout>
 
+    <ImageButton
+        android:id="@+id/imageButtoninfo"
+        android:layout_width="49dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="infobutton"
+        android:background="@drawable/button_rectangle_shape"
+        app:layout_constraintBottom_toTopOf="@+id/editTextEingabeSpalte"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/ic_info" />
+
 </android.support.constraint.ConstraintLayout>

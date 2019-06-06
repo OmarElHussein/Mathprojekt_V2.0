@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wipd.schulprojekt_mathe.DialogClass;
 import com.wipd.schulprojekt_mathe.R;
 
 import java.util.Objects;
@@ -46,8 +47,8 @@ public class MatrixRechnerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_matrix_rechner);
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_matrix_rechner);
 
         {//Title
             title = MatrixPageActivity.matrixTitle;
@@ -408,7 +409,11 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         spannableString.setSpan(green, index, index, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textViewHilfe.setText(spannableString);
     }
-
+    public void infobutton(View view) {
+        DialogClass dg = new DialogClass();
+        dg.customDialog("Matrix", "In der Mathematik versteht man unter einer Matrix (Plural Matrizen) eine rechteckige Anordnung (Tabelle) von Elementen meist mathematischer Objekte, etwa Zahlen. Mit diesen Objekten lässt sich dann in bestimmter Weise rechnen, indem man Matrizen addiert oder miteinander multipliziert.",
+                "Ok", this);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
