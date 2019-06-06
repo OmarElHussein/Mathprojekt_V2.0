@@ -43,6 +43,11 @@ public class MatrixRechnerActivity extends AppCompatActivity {
     private TextView textViewMatrixEins, textViewMatrixZwei, textViewMatrixErgebnis,
             textViewHilfe, textViewMatrixEingabeTitle, textViewX;
 
+    /**
+     * Creates Layout + Code connections
+     *
+     * @param savedInstanceState saves data/ loads data of layout
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,10 +78,17 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         textViewX = findViewById(R.id.textViewX);
     }
 
+    /**
+     * Speichert die Größe der Matrix je nachdenm welche Berechnung man gewählt hat
+     * Durch Button Click
+     *
+     * @param view needed to make it in Layout visible
+     */
     public void matrixGroesseSpeicher(View view) {
 
         if (editText_matrix_spalte.length() > 0 && editText_matrix_zeile.length() > 0) {
 
+            //Speichert die Größe von Addition Matrizen
             if (title.equals("Addition Matrizen")) {
                 spalte_groesse = Integer.parseInt(editText_matrix_spalte.getText().toString());
                 zeile_groesse = Integer.parseInt(editText_matrix_zeile.getText().toString());
@@ -96,6 +108,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
                 hilfeZeigen(0, matrixEins);
                 matrixSecondConstraint.setVisibility(View.VISIBLE);
 
+                //Speichert die Größe von Multiplikation Matrix
             } else if (title.equals("Multiplikation Matrizen")) {
 
                 if (countMatrix == 0) {
@@ -112,6 +125,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
                     editText_matrix_zeile.requestFocus();
                     countMatrix = 1;
 
+                    //Speichert und überprüft die Größe von die 2.Matrix in Multiplikation
                 } else if (editText_matrix_spalte.length() > 0 && editText_matrix_zeile.length() > 0 && countMatrix == 1) {
                     spalte_groesse2 = Integer.parseInt(editText_matrix_spalte.getText().toString());
                     zeile_groesse2 = Integer.parseInt(editText_matrix_zeile.getText().toString());
@@ -135,6 +149,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
                         Toast.makeText(this, "versuchen Sie es erneut", Toast.LENGTH_SHORT).show();
                     }
                 }
+                //Speichert Größe von Matrix * Zahl
             } else if (title.equals("Zahl mit Matrix")) {
                 spalte_groesse = Integer.parseInt(editText_matrix_spalte.getText().toString());
                 zeile_groesse = Integer.parseInt(editText_matrix_zeile.getText().toString());
@@ -158,36 +173,43 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Überpüft die Berechnung art und speichert die angegebene Werte in den Arrays
+     * mit überprüfungen von Null Arrays
+     * Durch Button Click
+     *
+     * @param view is needed to make in layout visible
+     */
     public void matrixWerteSpeichern(View view) {
         if (editText_matrix_werte.length() > 0) {
-            try {
-                if (title.equals("Addition Matrizen")) {
-                    try {
-                        zweiMatrizenWerteSpeichern(matrixLager, matrixLager2);
-                    } catch (NumberFormatException e) {
-                        Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
-                    }
-                } else if (title.equals("Multiplikation Matrizen")) {
-                    try {
-                        zweiMatrizenWerteSpeichern(matrixLager, matrixLager2);
-                    } catch (NumberFormatException e) {
-                        Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
-                    }
-                } else if (title.equals("Zahl mit Matrix")) {
-                    try {
-                        multiMitEinerZahlWerteSpeichern();
-                    } catch (NullPointerException e) {
-                        Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
-                    }
+            if (title.equals("Addition Matrizen")) {
+                try {
+                    zweiMatrizenWerteSpeichern(matrixLager, matrixLager2);
+                } catch (NumberFormatException e) {
+                    Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
                 }
-            } catch (NumberFormatException err) {
-                Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
+            } else if (title.equals("Multiplikation Matrizen")) {
+                try {
+                    zweiMatrizenWerteSpeichern(matrixLager, matrixLager2);
+                } catch (NumberFormatException e) {
+                    Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
+                }
+            } else if (title.equals("Zahl mit Matrix")) {
+                try {
+                    multiMitEinerZahlWerteSpeichern();
+                } catch (NumberFormatException e) {
+                    Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
+                }
             }
         } else {
             Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
         }
     }
 
+    /**
+     * Ergebnis und Ausgabe werden von diese Methode ausgeführt
+     * durch Button Click
+     */
     public void ergebnisseMatrizen(View view) {
         try {
             if (title.equals("Addition Matrizen")) {
@@ -217,6 +239,10 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Zeigt die Matrizen von Multiplikation
+     * in der Tabelle aus
+     */
     private void zeigeMultiMatrizen() {
         if (matrixEins != null && matrixZwei != null && matrixErgebnis != null) {
             StringBuilder stringErgebnis = new StringBuilder();
@@ -248,6 +274,9 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Zeigt die Matrizen von Summe in der Tabelle aus
+     */
     private void zeigeSummeMatrizen() {
         if (matrixEins != null && matrixZwei != null && matrixErgebnis != null) {
             StringBuilder stringErgebnis = new StringBuilder();
@@ -271,6 +300,9 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Zeigt die Matrix mit der Zahl aus
+     */
     @SuppressLint("SetTextI18n")
     private void zeigeEineMatrixMitZahl() {
         if (matrixEins != null) {
@@ -292,6 +324,9 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Speichert die Werte von eine Matrix und die Multiplizierte Zahl
+     */
     private void multiMitEinerZahlWerteSpeichern() {
         if (i < matrixLager.length) {
             matrixEinsSpeichern(matrixLager, "Geben Sie die Werte ein: (Matrix)");
@@ -314,14 +349,20 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Berechnet die Multiplikation von Matrix mit einer Zahl
+     */
     private void berechneMultiplikationMitEinerZahl() {
         for (int k = 0; k < matrixEins.length; k++) {
             for (int l = 0; l < matrixEins[k].length; l++) {
-                matrixErgebnis[k][l] = matrixEins[k][l] * eineZahlMatrix;
+                    matrixErgebnis[k][l] = matrixEins[k][l] * eineZahlMatrix;
             }
         }
     }
 
+    /**
+     * Berechnet das Produkt aus 2 Matrizen
+     */
     private void berechneMultiplikationZweierMatrizen() {
         for (int i = 0; i < zeile_groesse; i++) {
             for (int j = 0; j < spalte_groesse2; j++) {
@@ -332,6 +373,9 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Berechnet die Summe aus 2 Matrizen
+     */
     private void berechneAdditionZweierMatrizen() {
         for (int k = 0; k < matrixEins.length; k++) {
             for (int l = 0; l < matrixEins[k].length; l++) {
@@ -340,6 +384,11 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Speichert zwei Matrizen Werte die Gleich Groß sind wie bei Addition Matrizen
+     * @param matrixLager ist die Erste Matrix (Spalte * Zeile)
+     * @param matrixLager2 ist die Zweite Matrix (...)
+     */
     private void zweiMatrizenWerteSpeichern(double[] matrixLager, double[] matrixLager2) {
 
         if (i < matrixLager.length) {
@@ -372,6 +421,10 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Speichert die 2. Matrix
+     * @param matrixLager2 zeile * spalte von Matrix 2
+     */
     private void matrixZweiSpeichern(double[] matrixLager2) {
         matrixLager2[j] = Double.parseDouble(editText_matrix_werte.getText().toString());
         hilfeZeigen(j, matrixZwei);
@@ -381,6 +434,10 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         editText_matrix_werte.setText("");
     }
 
+    /**
+     * Speichert die 1. Matrix
+     * @param matrixLager zeile * spalte von Matrix 1
+     */
     private void matrixEinsSpeichern(double[] matrixLager, String s) {
         matrixLager[i] = Double.parseDouble(editText_matrix_werte.getText().toString());
         hilfeZeigen(i, matrixEins);
@@ -390,6 +447,11 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         editText_matrix_werte.setText("");
     }
 
+    /**
+     * Zeigt wie die Matrix aussieht um den Benutzer zu helfen
+     * @param index //not needed
+     * @param matrixTransferable ist die Matrix die gezeigt werden sollte
+     */
     private void hilfeZeigen(int index, double[][] matrixTransferable) {
         SpannableString spannableString;
         StringBuilder matrix = new StringBuilder();
@@ -407,6 +469,11 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         textViewHilfe.setText(spannableString);
     }
 
+    /**
+     * fängt alles wieder neu an
+     * durch Button Click
+     * @param view needed to view in layout
+     */
     public void clearAllMatrix(View view) {
         matrixSecondConstraint.setVisibility(View.INVISIBLE);
         matrixEins = null;
