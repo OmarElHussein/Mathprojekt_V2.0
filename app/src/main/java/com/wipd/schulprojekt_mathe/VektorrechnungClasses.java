@@ -56,12 +56,18 @@ public class VektorrechnungClasses extends AppCompatActivity {
     public void setButtonBestaetigen(View view) {
         /* Eingabe Vektor in Array
          */
-        groesse = Integer.parseInt(editTextArray2.getText().toString());
-        System.out.println("Die Array Größe ist: " + groesse);
-        vektorA = new double[groesse];
-        vektorB = new double[groesse];
-    }
+        try {
 
+
+            groesse = Integer.parseInt(editTextArray2.getText().toString());
+            System.out.println("Die Array Größe ist: " + groesse);
+            vektorA = new double[groesse];
+            vektorB = new double[groesse];
+
+        } catch (NumberFormatException e1) {
+            Toast.makeText(this, "sicher?", Toast.LENGTH_SHORT).show();
+        }
+    }
     public void setButtonBestaetigen2(View view) {
         /* Eingabe Vektor A und Vektor B Speichern
          * */
