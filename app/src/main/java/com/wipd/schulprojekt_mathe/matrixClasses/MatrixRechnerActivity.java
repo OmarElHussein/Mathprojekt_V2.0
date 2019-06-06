@@ -153,7 +153,6 @@ public class MatrixRechnerActivity extends AppCompatActivity {
 
                 editText_matrix_werte.requestFocus();
                 matrixSecondConstraint.setVisibility(View.VISIBLE);
-
             }
 
         } else {
