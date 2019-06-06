@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="26dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/button_rectangle_shape"
         android:onClick="setButtonNewEingabe"
         android:text="Neue Eingabe"
@@ -60,11 +60,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/button_rectangle_shape"
         android:onClick="setButtonLoeschen"
         android:text="Löschen"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonNewEingabe"
         app:layout_constraintEnd_toStartOf="@+id/buttonErgebnis"
         app:layout_constraintStart_toEndOf="@+id/buttonNewEingabe"
         app:layout_constraintTop_toTopOf="@+id/buttonNewEingabe" />
@@ -175,11 +174,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/button_rectangle_shape"
         android:onClick="setButtonErgebnis"
         android:text="Ergebnis:"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonLoeschen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonLoeschen"
         app:layout_constraintTop_toTopOf="@+id/buttonLoeschen" />
@@ -223,6 +221,7 @@
         android:ems="2"
         android:inputType="numberDecimal"
         android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNewEingabe"
         app:layout_constraintStart_toStartOf="@+id/editTextErgebnis2Vektor"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
