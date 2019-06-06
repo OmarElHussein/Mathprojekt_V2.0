@@ -43,7 +43,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
     private double[] matrixLager2;
 
     private TextView textViewMatrixEins, textViewMatrixZwei, textViewMatrixErgebnis,
-            textViewHilfe, textViewMatrixEingabeTitle;
+            textViewHilfe, textViewMatrixEingabeTitle, textViewX;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +72,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         textViewMatrixErgebnis = findViewById(R.id.matrixErgebnisAusgabe);
         textViewMatrixEingabeTitle = findViewById(R.id.textViewMatrixEingabeTitle);
         textViewHilfe = findViewById(R.id.textViewHilfeMatrix);
+        textViewX = findViewById(R.id.textViewX);
     }
 
     public void matrixGroesseSpeicher(View view) {
@@ -129,7 +130,9 @@ public class MatrixRechnerActivity extends AppCompatActivity {
                         matrixErgebnis = new double[zeile_groesse][spalte_groesse2];
 
                         countMatrix = 0;
+
                         matrixSecondConstraint.setVisibility(View.VISIBLE);
+                        textViewX.setVisibility(View.VISIBLE);
                     } else {
                         Toast.makeText(this, "versuchen Sie es erneut", Toast.LENGTH_SHORT).show();
                     }
@@ -146,9 +149,11 @@ public class MatrixRechnerActivity extends AppCompatActivity {
 
                 editText_matrix_zeile.clearFocus();
                 editText_matrix_spalte.clearFocus();
+                editText_eineZahlMatrix.setVisibility(View.VISIBLE);
 
                 editText_matrix_werte.requestFocus();
                 matrixSecondConstraint.setVisibility(View.VISIBLE);
+
             }
 
         } else {
@@ -411,12 +416,6 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         spannableString.setSpan(green, index, index, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textViewHilfe.setText(spannableString);
     }
-
-    /*public void infobutton(View view) {
-        DialogClass dg = new DialogClass();
-        dg.customDialog("Matrix", "In der Mathematik versteht man unter einer Matrix (Plural Matrizen) eine rechteckige Anordnung (Tabelle) von Elementen meist mathematischer Objekte, etwa Zahlen. Mit diesen Objekten lässt sich dann in bestimmter Weise rechnen, indem man Matrizen addiert oder miteinander multipliziert.",
-                "Ok", this);
-    }*/
 
     public void clearAllMatrix(View view) {
         matrixSecondConstraint.setVisibility(View.INVISIBLE);
