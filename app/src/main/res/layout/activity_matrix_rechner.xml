@@ -129,7 +129,7 @@
             app:layout_constraintTop_toTopOf="@+id/button14" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/textViewX"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -141,7 +141,8 @@
             app:layout_constraintEnd_toStartOf="@+id/editTextEineZahlMatrix"
             app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/editTextEineZahlMatrix" />
+            app:layout_constraintTop_toTopOf="@+id/editTextEineZahlMatrix"
+            android:visibility="invisible" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -298,7 +299,8 @@
             app:layout_constraintEnd_toStartOf="@+id/imageView"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/editTextEingabeWerte"
-            app:layout_constraintTop_toBottomOf="@+id/editTextEingabeWerte" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextEingabeWerte"
+            android:visibility="invisible" />
 
         <ScrollView
             android:id="@+id/scrollView2"
@@ -324,5 +326,17 @@
             </HorizontalScrollView>
         </ScrollView>
     </android.support.constraint.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_rectangle_shape"
+        android:onClick="clearAllMatrix"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintTop_toTopOf="@+id/imageButton3"
+        app:srcCompat="@drawable/ic_clear" />
 
 </android.support.constraint.ConstraintLayout>

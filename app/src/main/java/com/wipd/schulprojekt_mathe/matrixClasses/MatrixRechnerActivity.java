@@ -42,7 +42,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
     private double[] matrixLager2;
 
     private TextView textViewMatrixEins, textViewMatrixZwei, textViewMatrixErgebnis,
-            textViewHilfe, textViewMatrixEingabeTitle;
+            textViewHilfe, textViewMatrixEingabeTitle, textViewX;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +54,8 @@ public class MatrixRechnerActivity extends AppCompatActivity {
 
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
             Objects.requireNonNull(getSupportActionBar()).setTitle(title);
         }
 
@@ -71,6 +71,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         textViewMatrixErgebnis = findViewById(R.id.matrixErgebnisAusgabe);
         textViewMatrixEingabeTitle = findViewById(R.id.textViewMatrixEingabeTitle);
         textViewHilfe = findViewById(R.id.textViewHilfeMatrix);
+        textViewX = findViewById(R.id.textViewX);
     }
 
     public void matrixGroesseSpeicher(View view) {
@@ -94,6 +95,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
 
                 editText_matrix_werte.requestFocus();
                 hilfeZeigen(0, matrixEins);
+                matrixSecondConstraint.setVisibility(View.VISIBLE);
 
             } else if (title.equals("Multiplikation Matrizen")) {
 
@@ -146,6 +148,9 @@ public class MatrixRechnerActivity extends AppCompatActivity {
                 editText_matrix_spalte.clearFocus();
 
                 editText_matrix_werte.requestFocus();
+                matrixSecondConstraint.setVisibility(View.VISIBLE);
+                editText_eineZahlMatrix.setVisibility(View.VISIBLE);
+                textViewX.setVisibility(View.VISIBLE);
             }
 
         } else {
@@ -407,6 +412,16 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         spannableString = new SpannableString(matrix.toString());
         spannableString.setSpan(green, index, index, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textViewHilfe.setText(spannableString);
+    }
+
+    public void clearAllMatrix(View view) {
+        matrixSecondConstraint.setVisibility(View.INVISIBLE);
+        matrixEins = null;
+        matrixZwei = null;
+        editText_matrix_zeile.setText("");
+        editText_matrix_spalte.setText("");
+        editText_matrix_werte.setText("");
+        editText_eineZahlMatrix.setText("");
     }
 
     @Override
