@@ -47,15 +47,15 @@ public class MatrixRechnerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_matrix_rechner);
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_matrix_rechner);
 
         {//Title
             title = MatrixPageActivity.matrixTitle;
 
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
-            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
             Objects.requireNonNull(getSupportActionBar()).setTitle(title);
         }
@@ -95,7 +95,6 @@ public class MatrixRechnerActivity extends AppCompatActivity {
 
                 editText_matrix_werte.requestFocus();
                 hilfeZeigen(0, matrixEins);
-                matrixSecondConstraint.setVisibility(View.VISIBLE);
 
             } else if (title.equals("Multiplikation Matrizen")) {
 
@@ -148,7 +147,6 @@ public class MatrixRechnerActivity extends AppCompatActivity {
                 editText_matrix_spalte.clearFocus();
 
                 editText_matrix_werte.requestFocus();
-                matrixSecondConstraint.setVisibility(View.VISIBLE);
             }
 
         } else {
@@ -411,25 +409,11 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         spannableString.setSpan(green, index, index, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textViewHilfe.setText(spannableString);
     }
-
-    /*public void infobutton(View view) {
+    public void infobutton(View view) {
         DialogClass dg = new DialogClass();
         dg.customDialog("Matrix", "In der Mathematik versteht man unter einer Matrix (Plural Matrizen) eine rechteckige Anordnung (Tabelle) von Elementen meist mathematischer Objekte, etwa Zahlen. Mit diesen Objekten lässt sich dann in bestimmter Weise rechnen, indem man Matrizen addiert oder miteinander multipliziert.",
                 "Ok", this);
-    }*/
-
-    public void clearAllMatrix(View view) {
-        matrixSecondConstraint.setVisibility(View.INVISIBLE);
-        matrixEins = null;
-        matrixZwei = null;
-        matrixErgebnis = null;
-        editText_matrix_zeile.setText("");
-        editText_matrix_spalte.setText("");
-        editText_eineZahlMatrix.setText("");
-        editText_matrix_werte.setText("");
-        countMatrix = 0;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
