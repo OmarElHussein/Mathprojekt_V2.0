@@ -228,6 +228,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switchungButtons_Tables();
+                pageTitle = spinnerProzesse.getSelectedItem().toString();
                 Objects.requireNonNull(getSupportActionBar()).setTitle(spinnerProzesse.getSelectedItem().toString());
             }
 
@@ -348,21 +349,6 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         }
     }
 
-    /*private void berechneExpo_zerfall() {
-        clearFocus();
-        resetTextViews();
-        setZerfallsTable();
-        tableLayoutProzesse.setVisibility(View.VISIBLE);
-        tableScroll.setVisibility(View.VISIBLE);
-
-        for (int i = 0; i <= laufzeit; i++) {
-            double fx = kapital * Math.pow(zinssatz, -i); //kapital == zellmenge, zinssatz == wachtumsfaktor
-
-            textViewJahr.setText(textViewJahr.getText().toString() + i + "\n");
-            textViewKapital.setText(textViewKapital.getText().toString() + fx + "\n");
-        }
-    }*/
-
     /**
      * die Eigenschafter der zurück Pfeil im Toolbar
      *
@@ -388,10 +374,8 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         if(pageTitle.equalsIgnoreCase(getString(R.string.btn_expo_growth))){
             infoExonentiellesWachstum();
         }else if (pageTitle.equalsIgnoreCase(getString(R.string.btn_expo_decay))) {
-            
 
         }
-
     }
 
     private void infoExonentiellesWachstum(){
@@ -400,8 +384,5 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         info.customDialog("Exponentielles Wachstum", "Bei der Exponentialfunktion steht die Variable x oder manchmal auch n im Exponenten. Die allgemeine Form einer Exponentialfunktion lautet: \uD835\uDC53(\uD835\uDC65)=\uD835\uDC50⋅\uD835\u2093\uD835\uDC65 oder\n" +
                 "\uD835\uDC53(\uD835\uDC5B)=\uD835\uDC50⋅\uD835\uDC4E\uD835\uDC5B", "OK", this);
 
-
     }
-
-
 }
