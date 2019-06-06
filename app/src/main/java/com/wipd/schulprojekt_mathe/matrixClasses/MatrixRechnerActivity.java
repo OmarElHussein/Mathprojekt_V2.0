@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.wipd.schulprojekt_mathe.DialogClass;
 import com.wipd.schulprojekt_mathe.R;
 
 import java.util.Objects;
@@ -33,7 +32,6 @@ public class MatrixRechnerActivity extends AppCompatActivity {
     private int spalte_groesse, zeile_groesse;
     private int spalte_groesse2, zeile_groesse2;
     private int i = 0, j = 0, countMatrix = 0;
-    private boolean entrance;
     private double eineZahlMatrix = 0;
 
     private double[][] matrixEins;
@@ -296,31 +294,23 @@ public class MatrixRechnerActivity extends AppCompatActivity {
 
     private void multiMitEinerZahlWerteSpeichern() {
         if (i < matrixLager.length) {
-            entrance = false;
             matrixEinsSpeichern(matrixLager, "Geben Sie die Werte ein: (Matrix)");
-            if (i == matrixLager.length) {
-                if (!entrance) {
-                    editText_matrix_werte.clearFocus();
-                    editText_eineZahlMatrix.requestFocus();
+        } else if (i == matrixLager.length) {
 
-                    int c = 0;
-                    for (int k = 0; k < matrixEins.length; k++) {
-                        for (int l = 0; l < matrixEins[k].length; l++) {
-                            matrixEins[k][l] = matrixLager[c];
-                            c++;
-                        }
-                    }
-                    i = 0;
-                    entrance = true;
-
-                } else if (editText_eineZahlMatrix.length() > 0 && entrance) {
-                    eineZahlMatrix = Double.parseDouble(editText_eineZahlMatrix.getText().toString());
-                } else {
-                    Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
+            editText_matrix_werte.clearFocus();
+            editText_eineZahlMatrix.requestFocus();
+            int c = 0;
+            for (int k = 0; k < matrixEins.length; k++) {
+                for (int l = 0; l < matrixEins[k].length; l++) {
+                    matrixEins[k][l] = matrixLager[c];
+                    c++;
                 }
-                entrance = false;
             }
-
+            if (editText_eineZahlMatrix.length() > 0) {
+                eineZahlMatrix = Double.parseDouble(editText_eineZahlMatrix.getText().toString());
+                editText_eineZahlMatrix.clearFocus();
+                i = 0;
+            }
         }
     }
 
@@ -404,6 +394,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         SpannableString spannableString;
         StringBuilder matrix = new StringBuilder();
         ForegroundColorSpan green = new ForegroundColorSpan(Color.GREEN);
+
         for (int k = 0; k < matrixTransferable.length; k++) {
             for (int l = 0; l < matrixTransferable[k].length; l++) {
                 matrix.append("o");
@@ -426,6 +417,8 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         editText_eineZahlMatrix.setText("");
         editText_matrix_werte.setText("");
         countMatrix = 0;
+        i = 0;
+        j = 0;
     }
 
     @Override
