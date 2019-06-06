@@ -108,8 +108,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         String wachstumsProzess = getString(R.string.btn_wachstumsprozess);
         String zerfallsProzess = getString(R.string.btn_zerfallsprozess);
         String expoWachstumsProzess = getString(R.string.btn_expo_growth);
-        String expoZerfallsProzess = getString(R.string.btn_expo_decay);
-        spinnerValues = new String[]{wachstumsProzess, zerfallsProzess, expoWachstumsProzess, expoZerfallsProzess};
+        spinnerValues = new String[]{wachstumsProzess, zerfallsProzess, expoWachstumsProzess};
     }
 
     /**

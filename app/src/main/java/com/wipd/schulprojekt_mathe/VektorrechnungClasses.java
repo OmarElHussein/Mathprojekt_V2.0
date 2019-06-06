@@ -1,14 +1,14 @@
 package com.wipd.schulprojekt_mathe;
 
-import android.os.Debug;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Objects;
 
 public class VektorrechnungClasses extends AppCompatActivity {
 
@@ -37,6 +37,11 @@ public class VektorrechnungClasses extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vektorrechnung_classes);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.strpage_vectors);
 
         editTextVektor = findViewById(R.id.editTextVektor);
         editTextErgebnis2Vektor = findViewById(R.id.editTextErgebnis2Vektor);
@@ -169,4 +174,9 @@ public class VektorrechnungClasses extends AppCompatActivity {
             }
         }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return true;
     }
+}

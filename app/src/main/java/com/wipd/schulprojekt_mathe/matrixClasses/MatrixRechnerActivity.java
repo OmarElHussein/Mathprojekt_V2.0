@@ -409,11 +409,24 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         spannableString.setSpan(green, index, index, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textViewHilfe.setText(spannableString);
     }
-    public void infobutton(View view) {
+
+    /*public void infobutton(View view) {
         DialogClass dg = new DialogClass();
         dg.customDialog("Matrix", "In der Mathematik versteht man unter einer Matrix (Plural Matrizen) eine rechteckige Anordnung (Tabelle) von Elementen meist mathematischer Objekte, etwa Zahlen. Mit diesen Objekten lässt sich dann in bestimmter Weise rechnen, indem man Matrizen addiert oder miteinander multipliziert.",
                 "Ok", this);
+    }*/
+
+    public void clearAllMatrix(View view) {
+        matrixSecondConstraint.setVisibility(View.INVISIBLE);
+        matrixEins = null;
+        matrixZwei = null;
+        matrixErgebnis = null;
+        editText_matrix_zeile.setText("");
+        editText_matrix_spalte.setText("");
+        editText_eineZahlMatrix.setText("");
+        editText_matrix_werte.setText("");
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();

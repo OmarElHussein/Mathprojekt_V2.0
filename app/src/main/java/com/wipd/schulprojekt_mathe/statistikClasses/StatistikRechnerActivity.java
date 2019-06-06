@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -34,6 +35,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
     private TextView textViewMaxErgebnis, textViewMinErgebnis, textViewArMittelErgebnis, textViewGeoMittelErgebnis,
             textViewSpannweiteErgebnis, textViewMedianErgebnis, textViewModalErgebnis, textViewVarianzErgebnis,
             textViewStandAbweichungErgebnis, textViewZaehler;
+
+    private ScrollView scroller;
 
 
     private boolean clearBtnActive = false;
@@ -92,6 +95,8 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                 getString(R.string.btnSpannweite), getString(R.string.btnArithmeticMean),
                 getString(R.string.btnGeometricMedium), getString(R.string.btnMedian), getString(R.string.btnModal),
                 getString(R.string.btnVariance), getString(R.string.btnStandardabweichung), getString(R.string.btnAlles)};
+
+        scroller = findViewById(R.id.nestedScrollViewZahlen);
     }
 
     private void toolbarEigenschaften() {
@@ -123,6 +128,9 @@ public class StatistikRechnerActivity extends AppCompatActivity {
 
                 String counterEingabe = getString(R.string.rechner_statistik_counter_eingabe) + " (1/" + arraySize + ")";
                 textViewInfoCounter.setText(counterEingabe);
+
+                editTextInputs.requestFocus();
+                scroller.setVisibility(View.VISIBLE);
 
         } else {
             isFieldFilled = false;
