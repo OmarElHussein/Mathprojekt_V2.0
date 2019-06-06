@@ -127,6 +127,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
                         matrixErgebnis = new double[zeile_groesse][spalte_groesse2];
 
                         countMatrix = 0;
+                        matrixSecondConstraint.setVisibility(View.VISIBLE);
                     } else {
                         Toast.makeText(this, "versuchen Sie es erneut", Toast.LENGTH_SHORT).show();
                     }
@@ -150,7 +151,6 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
         }
-        matrixSecondConstraint.setVisibility(View.VISIBLE);
     }
 
     public void matrixWerteSpeichern(View view) {
@@ -186,14 +186,26 @@ public class MatrixRechnerActivity extends AppCompatActivity {
     public void ergebnisseMatrizen(View view) {
         try {
             if (title.equals("Addition Matrizen")) {
-                berechneAdditionZweierMatrizen();
-                zeigeSummeMatrizen();
+                try {
+                    berechneAdditionZweierMatrizen();
+                    zeigeSummeMatrizen();
+                } catch (NumberFormatException e) {
+                    Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
+                }
             } else if (title.equals("Multiplikation Matrizen")) {
-                berechneMultiplikationZweierMatrizen();
-                zeigeMultiMatrizen();
+                try {
+                    berechneMultiplikationZweierMatrizen();
+                    zeigeMultiMatrizen();
+                } catch (NullPointerException e) {
+                    Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
+                }
             } else if (title.equals("Zahl mit Matrix")) {
-                berechneMultiplikationMitEinerZahl();
-                zeigeEineMatrixMitZahl();
+                try {
+                    berechneMultiplikationMitEinerZahl();
+                    zeigeEineMatrixMitZahl();
+                } catch (NullPointerException e) {
+                    Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
+                }
             }
         } catch (NullPointerException err) {
             Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
