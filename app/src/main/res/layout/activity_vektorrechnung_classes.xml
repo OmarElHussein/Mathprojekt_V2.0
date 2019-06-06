@@ -14,8 +14,8 @@
         android:id="@+id/buttonBestaetigen"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="201dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="200dp"
         android:background="@drawable/button_rectangle_shape"
         android:onClick="setButtonBestaetigen"
         android:text="\u2713"
@@ -29,7 +29,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/edit_text_rectangle_with_border_shape"
         android:ems="10"
         android:inputType="number"
@@ -41,24 +41,33 @@
 
     <Button
         android:id="@+id/buttonNewEingabe"
-        android:layout_width="131dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_rectangle_shape"
         android:onClick="setButtonNewEingabe"
         android:text="Neue Eingabe"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLoeschen"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBestaetigen2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextErgebnisZahl" />
 
     <Button
         android:id="@+id/buttonLoeschen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_rectangle_shape"
         android:onClick="setButtonLoeschen"
         android:text="Löschen"
-        app:layout_constraintEnd_toEndOf="@+id/buttonNewEingabe"
-        app:layout_constraintStart_toStartOf="@+id/buttonNewEingabe"
-        app:layout_constraintTop_toBottomOf="@+id/buttonNewEingabe" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonErgebnis"
+        app:layout_constraintStart_toEndOf="@+id/buttonNewEingabe"
+        app:layout_constraintTop_toTopOf="@+id/buttonNewEingabe" />
 
     <Button
         android:id="@+id/buttonBestaetigen2"
@@ -67,6 +76,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/button_rectangle_shape"
         android:onClick="setButtonBestaetigen2"
         android:text="\u2713"
         app:layout_constraintBottom_toBottomOf="@+id/editTextVektor2"
@@ -80,6 +90,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Eingabe Vektor:"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -87,77 +99,90 @@
         android:id="@+id/textView18"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="Multiplikation mit einer Zahl"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="400dp" />
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
     <Button
         android:id="@+id/buttonNeu"
         android:layout_width="56dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="12dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/button_rectangle_shape"
         android:onClick="buttonNeu"
         android:text="Neu"
-        app:layout_constraintEnd_toStartOf="@+id/editTextZahl"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintBottom_toBottomOf="@+id/editTextZahl"
+        app:layout_constraintEnd_toEndOf="@+id/textView18"
+        app:layout_constraintStart_toEndOf="@+id/editTextZahl"
+        app:layout_constraintTop_toTopOf="@+id/editTextZahl" />
 
     <EditText
         android:id="@+id/editTextZahl"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        android:background="@drawable/edit_text_rectangle_with_border_shape"
         android:ems="10"
         android:inputType="numberDecimal"
         android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonNeu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="@+id/textView18"
         app:layout_constraintStart_toStartOf="@+id/textView18"
-        app:layout_constraintTop_toTopOf="@+id/buttonNeu"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:text="Multiplikation mit zweier Vektoren"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonNeu" />
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/editTextZahl"
+        app:layout_constraintTop_toBottomOf="@+id/editTextZahl" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="52dp"
         android:text="Addition zweier Vektoren"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textView19"
         app:layout_constraintTop_toBottomOf="@+id/editTextErgebnisVektor" />
 
     <TextView
         android:id="@+id/textView21"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="56dp"
+        android:layout_marginTop="24dp"
         android:text="Multi. einer Zahl"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/editTextErgebnis2Vektor" />
 
     <Button
         android:id="@+id/buttonErgebnis"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_rectangle_shape"
         android:onClick="setButtonErgebnis"
         android:text="Ergebnis:"
-        app:layout_constraintEnd_toEndOf="@+id/buttonLoeschen"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonLoeschen"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLoeschen" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonLoeschen"
+        app:layout_constraintTop_toTopOf="@+id/buttonLoeschen" />
 
     <EditText
         android:id="@+id/editTextVektor"
@@ -167,7 +192,7 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/edit_text_rectangle_with_border_shape"
         android:ems="10"
-        android:hint="werte A"
+        android:hint="Vektor_A"
         android:inputType="numberSigned|numberDecimal"
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="@+id/buttonBestaetigen"
@@ -181,7 +206,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_rectangle_with_border_shape"
         android:ems="10"
-        android:hint="werte B"
+        android:hint="Vektor_B"
         android:inputType="numberSigned|numberDecimal"
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="@+id/editTextVektor"
@@ -192,12 +217,12 @@
         android:id="@+id/editTextErgebnisZahl"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_rectangle_with_border_shape"
+        android:ems="2"
         android:inputType="numberDecimal"
         android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextErgebnis2Vektor"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -205,26 +230,62 @@
         android:id="@+id/editTextErgebnis2Vektor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_rectangle_with_border_shape"
+        android:ems="2"
         android:inputType="numberDecimal"
         android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextErgebnisVektor"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <EditText
         android:id="@+id/editTextErgebnisVektor"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_rectangle_with_border_shape"
+        android:ems="2"
         android:inputType="numberDecimal"
         android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextZahl"
+        app:layout_constraintStart_toStartOf="@+id/textView19"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextArray2" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextVektor2" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextZahl" />
 
 </android.support.constraint.ConstraintLayout>
