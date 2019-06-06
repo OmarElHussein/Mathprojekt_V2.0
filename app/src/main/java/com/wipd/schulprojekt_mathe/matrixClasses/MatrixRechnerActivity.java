@@ -47,15 +47,15 @@ public class MatrixRechnerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_matrix_rechner);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_matrix_rechner);
 
         {//Title
             title = MatrixPageActivity.matrixTitle;
 
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
             Objects.requireNonNull(getSupportActionBar()).setTitle(title);
         }
@@ -95,6 +95,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
 
                 editText_matrix_werte.requestFocus();
                 hilfeZeigen(0, matrixEins);
+                matrixSecondConstraint.setVisibility(View.VISIBLE);
 
             } else if (title.equals("Multiplikation Matrizen")) {
 
@@ -147,6 +148,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
                 editText_matrix_spalte.clearFocus();
 
                 editText_matrix_werte.requestFocus();
+                matrixSecondConstraint.setVisibility(View.VISIBLE);
             }
 
         } else {
@@ -425,6 +427,7 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         editText_matrix_spalte.setText("");
         editText_eineZahlMatrix.setText("");
         editText_matrix_werte.setText("");
+        countMatrix = 0;
     }
 
     @Override
