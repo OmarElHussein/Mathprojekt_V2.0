@@ -389,7 +389,7 @@ public class ProzesseRechnerActivity extends AppCompatActivity {
         if(pageTitle.equalsIgnoreCase(getString(R.string.btn_expo_growth))){
             infoExonentiellesWachstum();
         }else if (pageTitle.equalsIgnoreCase(getString(R.string.btn_expo_decay))) {
-
+            
 
         }
 
