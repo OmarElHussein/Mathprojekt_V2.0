@@ -63,11 +63,12 @@ public class VektorrechnungClasses extends AppCompatActivity {
          */
         try {
 
-
             groesse = Integer.parseInt(editTextArray2.getText().toString());
             System.out.println("Die Array Größe ist: " + groesse);
             vektorA = new double[groesse];
             vektorB = new double[groesse];
+
+            editTextVektor.requestFocus();
 
         } catch (NumberFormatException e1) {
             Toast.makeText(this, "sicher?", Toast.LENGTH_SHORT).show();
