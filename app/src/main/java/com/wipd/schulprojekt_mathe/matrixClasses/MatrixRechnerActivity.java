@@ -303,14 +303,6 @@ public class MatrixRechnerActivity extends AppCompatActivity {
         }
     }
 
-    /*public void multiplizierteZahlSpeichern(View view) {
-        if (editText_eineZahlMatrix.length() > 0) {
-            eineZahlMatrix = Double.parseDouble(editText_eineZahlMatrix.getText().toString());
-        } else {
-            Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
-        }
-    }*/
-
     private void berechneMultiplikationMitEinerZahl() {
         for (int k = 0; k < matrixEins.length; k++) {
             for (int l = 0; l < matrixEins[k].length; l++) {

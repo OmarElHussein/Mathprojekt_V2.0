@@ -41,7 +41,7 @@
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_without_corners_middle"
+        android:background="@drawable/button_right_left_corner_round"
         android:onClick="openProzessRechnerPage_expoWachstum"
         android:text="@string/btn_expo_growth"
         android:textColor="@color/colorBlue"
@@ -49,15 +49,4 @@
         app:layout_constraintStart_toStartOf="@+id/btnZerfallsprozess"
         app:layout_constraintTop_toBottomOf="@+id/btnZerfallsprozess" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_right_left_corner_round"
-        android:onClick="openProzessRechnerPage_expoZerfall"
-        android:text="@string/btn_expo_decay"
-        android:textColor="@color/colorBlue"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
 </android.support.constraint.ConstraintLayout>
