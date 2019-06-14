@@ -59,7 +59,6 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         table_komponente_Initialisieren();
 
         setSpinner_layout_Values();
-
     }
 
     private void table_komponente_Initialisieren() {
@@ -107,6 +106,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(StatistikPageActivity.extra_statistik_dateien);
     }
 
+
     /**
      * Diese Methode überprüft wie groß die eingegebene Zahl ist und speichert dies
      * unter eine Array, danach werden andere Felder Sichtbar gemacht
@@ -126,7 +126,7 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                 editTextInputs.setVisibility(View.VISIBLE);
                 btnCheckInputSize.setVisibility(View.VISIBLE);
 
-                String counterEingabe = getString(R.string.rechner_statistik_counter_eingabe) + " (1/" + arraySize + ")";
+                String counterEingabe = getString(R.string.rechner_statistik_counter_eingabe) + " (0/" + arraySize + ")";
                 textViewInfoCounter.setText(counterEingabe);
 
                 editTextInputs.requestFocus();
@@ -156,18 +156,18 @@ public class StatistikRechnerActivity extends AppCompatActivity {
                 String infoCounter = ausgabe + "(" + i + "/" + arraySize + ")";
                 textViewInfoCounter.setText(infoCounter);
 
-
                 editTextInputs.setText("");
             } catch (NumberFormatException e) {
                 Toast.makeText(this, getString(R.string.fill_fields_message), Toast.LENGTH_SHORT).show();
             }
         }
 
+
+
         if (i == arraySize) {
             buttonSuchen_methodeAusfuehren(spinnerStatistik.getSelectedItem().toString());
             tableStatistik.setVisibility(View.VISIBLE);
             tableStatistikAusgaben.setVisibility(View.VISIBLE);
-
 
             editTextInputs.setEnabled(false);
             btnCheckInputSize.setEnabled(false);
@@ -446,3 +446,4 @@ public class StatistikRechnerActivity extends AppCompatActivity {
         return true;
     }
 }
+

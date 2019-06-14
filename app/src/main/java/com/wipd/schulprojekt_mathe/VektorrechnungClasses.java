@@ -91,10 +91,10 @@ public class VektorrechnungClasses extends AppCompatActivity {
                 j++;
                 editTextVektor2.setText("");
             }
-
         } catch (NumberFormatException e1) {
             Toast.makeText(this, "sicher?", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     public void setButtonNewEingabe(View view) {
@@ -149,7 +149,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
 
             for(int i = 0; i < groesse; i ++){
                 summe1[i] = vektorA[i] * vektorB[i];
-                editTextErgebnis2Vektor.setText("Summe: " + summe1[i] + "\n");
+                editTextErgebnis2Vektor.setText(editTextErgebnis2Vektor.getText() + "Summe: " + summe1[i] + "\n");
             }
 
         } catch (NumberFormatException e1) {
@@ -168,7 +168,7 @@ public class VektorrechnungClasses extends AppCompatActivity {
 
             for (int i = 0; i < groesse; i ++){
                 summe3[i] = vektorA[i] + vektorB[i];
-                editTextErgebnisVektor.setText("Summe: " + summe3[i] + "\n");
+                editTextErgebnisVektor.setText(editTextErgebnisVektor.getText() + "Summe: " + summe3[i] + "\n");
             }
         } catch (NumberFormatException e1) {
             Toast.makeText(this, "Sicher?", Toast.LENGTH_SHORT).show();
